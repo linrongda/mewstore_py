@@ -2,8 +2,7 @@ from sqlalchemy import Column, String, Integer, ForeignKey
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base, relationship
 
-engine = create_engine("mysql+pymysql://root:123456@localhost:3306/mewfish", echo=True)
-# engine = create_engine("mysql+pymysql://mew_store:114514@106.14.35.23:3306/mew_store", echo=True)
+engine = create_engine("mysql+pymysql://root:123456@127.0.0.1:3306/Mewfish", echo=True)
 Base = declarative_base()
 Session = sessionmaker(bind=engine)
 session = Session()
@@ -15,10 +14,13 @@ class User(Base):
     nickname = Column(String(50))
     name = Column(String(50))
     profile_photo = Column(String(50))
-    password = Column(String(255))
+    password = Column(String(50))
     phone_number = Column(String(50))
     money = Column(Integer)
-    status = Column(Integer)  # 0为正常用户，1为黑户，2为被冻结状态，3为管理员
+    status = Column(Integer)    # 0为正常用户，1为黑户，2为被冻结状态，3为管理员
+    good = relationship('Good', backref='user')
+    report = relationship('Report', backref='user')
+    order = relationship('Order', backref='user')
 
     def __repr__(self):
         ID = self.id
@@ -38,13 +40,14 @@ class Good(Base):
     __tablename__ = "good"
     id = Column(Integer, primary_key=True)
     view = Column(Integer)  # 点击量
-    content = Column(String(50))  # 账号简介
-    game = Column(String(50))  # 游戏
+    content = Column(String(50))    # 账号简介
+    game = Column(String(50))   # 游戏
     title = Column(String(50))  # 账号标题
-    account = Column(String(50))  # 账号
-    password = Column(String(50))  # 账号密码
-    status = Column(Integer)  # 商品状态未审核为0，审核通过为1，审核不通过为-1,被下架为2，已售出为3
-    sell_id = Column(Integer)  # 卖家id
+    account = Column(String(50))    # 账号
+    password = Column(String(50))   # 账号密码
+    status = Column(Integer)    # 商品状态未审核为0，审核通过为1，审核不通过为-1,被下架为2，已售出为3
+    sell_id = Column(Integer(), ForeignKey('user.id'))   # 卖家id
+    order = relationship('Order', backref='good')
 
     def __repr__(self):
         ID = self.id
@@ -63,13 +66,14 @@ class Good(Base):
 class Order(Base):
     __tablename__ = "order"
     id = Column(Integer, primary_key=True)
-    status = Column(Integer)  # 订单存在为1，不存在为0，被收藏为2
-    buyer_id = Column(Integer)  # 买方id
-    seller_id = Column(Integer)  # 卖方id
-    good_id = Column(Integer)  # 商品id
+    status = Column(Integer)    # 订单存在为1，不存在为0，被收藏为2
+    buyer_id = Column(Integer(), ForeignKey('user.id'))  # 买方id
+    seller_id = Column(Integer(), ForeignKey('user.id'))     # 卖方id
+    good_id = Column(Integer(), ForeignKey('good.id'))   # 商品id
     buyer_status = Column(Integer)  # 买方付款为1，未付款为0
     seller_status = Column(Integer)  # 卖方确认订单为1，未确认为0,拒绝为-1
-    money = Column(Integer)  # 价格
+    money = Column(Integer)     # 价格
+    report = relationship('Report', backref='order')
 
     def __repr__(self):
         ID = self.id
@@ -87,10 +91,10 @@ class Order(Base):
 class Report(Base):
     __tablename__ = "report"
     id = Column(Integer, primary_key=True)  # 举报信息的id
-    report_id = Column(Integer)  # 被举报者的id
-    report_order = Column(Integer)
-    status = Column(Integer)  # 举报信息的处理情况，-1为未通过，0为未处理，1为通过举报
-    send_id = Column(Integer)  # 举报者的id
+    report_id = Column(Integer(), ForeignKey('user.id'))     # 被举报者的id
+    report_order = Column(Integer(), ForeignKey('order.id'))
+    status = Column(Integer)     # 举报信息的处理情况，-1为未通过，0为未处理，1为通过举报
+    send_id = Column(Integer(), ForeignKey('user.id'))  # 举报者的id
     content = Column(String(50))  # 举报的原因和描述
 
     def __repr__(self):
@@ -103,5 +107,4 @@ class Report(Base):
                f"content:{CONTENT}"
 
 
-# Base.metadata.drop_all(engine)
 Base.metadata.create_all(engine)
