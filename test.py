@@ -19,8 +19,8 @@ import data
 #         print('error')
 #
 #     print(type(jsonify(code=404, message=f'登录失败')))
-# a = data.session.query(data.User).get('1')
-# print(a)
+a = data.session.query(data.User).get('1')
+print(a)
 # class User():
 #     def __init__(self):
 #         self.user = data.session.query(data.User).get(1)
@@ -36,7 +36,7 @@ import data
 #         data.session.commit()
 #         print(self.good)
 # good().get()
-from user import check_password,password_encrypt
-a = password_encrypt('123456')
-print(a)
-print(check_password('pbkdf2:sha256:260000$fHs4YPAT3LyOfZBo$78927d3394798f298e0c8fa5a287499570dfe5388497d17eeb996acbcde662c1', '123456'))
+# from user import check_password,password_encrypt
+# a = password_encrypt('123456789dfsfsdvrgv')
+# print(a)
+# print(check_password('pbkdf2:sha256:260000$fHs4YPAT3LyOfZBo$78927d3394798f298e0c8fa5a287499570dfe5388497d17eeb996acbcde662c1', '123456'))

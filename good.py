@@ -1,120 +1,131 @@
+import jwt
 from flask import request, jsonify, Blueprint, make_response
 from flask_restful import Api, Resource, reqparse
-import data
-from user import jwt_required
+from data import db, Good, app, User
+from user import jwt_required, JWT_SECRET_KEY
 
 # 定义应用和API
 good = Blueprint('good', __name__)
 api = Api(good)
 
 
-class Good(Resource):
-    # 获取商品信息
-    def __int__(self):
-        self.parser = reqparse.RequestParser()
-        self.parser.add_argument('id', type=int)
-        self.parser.add_argument('view', type=int)
-        self.parser.add_argument('content', type=str)
-        self.parser.add_argument('game', type=str)
-        self.parser.add_argument('title', type=str)
-        self.parser.add_argument('account', type=str)
-        self.parser.add_argument('password', type=str)
-        self.parser.add_argument('status', type=int)
-        self.parser.add_argument('sell_id', type=int)
-        self.args = self.parser.parse_args()
-        self.id = self.args.get('id')
-        self.view = self.args.get('view')
-        self.content = self.args.get('content')
-        self.game = self.args.get('game')
-        self.title = self.args.get('title')
-        self.account = self.args.get('account')
-        self.password = self.args.get('password')
-        self.status = self.args.get('status')
-        self.sell_id = self.args.get('sell_id')
+class Goods(Resource):
 
     def get(self):
-        # 查询
-        self.good = data.session.query(data.Good).get(self.id)
-        # 判断是否存在
-        if not self.good:
-            return make_response(jsonify(code=404, message='商品不存在'), 404)
-        # 获取商品信息
-        else:
-            self.good.view += 1
-            data.session.commit()
-            good_info = {'id': self.good.id, 'view': self.good.view, 'content': self.good.content, 'game': self.good.game, 'title': self.good.title,
-                         'status': self.good.status, 'sell_id': self.good.sell_id}
-            # 返回结果
-            return make_response(jsonify(code=200, message='获取商品信息成功', data=good_info), 200)
-
-    @jwt_required(lambda payload: payload['status'] == '0')
-    def post(self):
-        user_id = request.jwt_payload['id']
-        user = data.session.query(data.User).get(user_id)
-        if user:
-            self.user = user
+        parser = reqparse.RequestParser()
+        parser.add_argument('id', type=int)
+        id = parser.parse_args().get('id')
+        with app.app_context():
             # 查询
-            account = data.session.query(data.Good).get(self.account)
+            good = db.session.query(Good).get(id)
             # 判断是否存在
-            if account:
-                return make_response(jsonify(code=404, message='商品已存在'), 404)
+            if not good:
+                return make_response(jsonify(code=404, message='商品不存在'), 404)
+            # 获取商品信息
             else:
-                # 创建商品
-                self.good = data.Good(view=self.view, content=self.content, game=self.game, title=self.title,
-                                 account=self.account, password=self.password, status=self.status, sell_id=self.user.id)
-                # 提交修改
-                data.session.add(self.good)
-                data.session.commit()
+                good.view += 1
+                db.session.commit()
+                good_info = {'id': good.id, 'view': good.view, 'content': good.content, 'game': good.game,
+                             'title': good.title,
+                             'status': good.status, 'sell_id': good.sell_id}
                 # 返回结果
-                return make_response(jsonify(code=200, message='创建商品信息成功'), 200)
-        else:
-            return make_response(jsonify(code=404, message='用户不存在'), 404)
+                return make_response(jsonify(code=200, message='获取商品信息成功', data=good_info), 200)
 
-    @jwt_required(lambda payload: request.jwt_payload['status'] == '0')
+    @jwt_required
+    def post(self):
+        parser = reqparse.RequestParser()
+        parser.add_argument('view', type=int)
+        parser.add_argument('content', type=str)
+        parser.add_argument('game', type=str)
+        parser.add_argument('title', type=str)
+        parser.add_argument('account', type=str)
+        parser.add_argument('password', type=str)
+        parser.add_argument('status', type=int)
+        args = parser.parse_args()
+        token = request.headers.get('Authorization')
+        user_id = jwt.decode(token, JWT_SECRET_KEY, algorithms=['HS256'])['id']
+        with app.app_context():
+            user = db.session.query(User).get(user_id)
+            if user:
+                # 查询
+                account = db.session.query(Good).get(args['account'])
+                # 判断是否存在
+                if account:
+                    return make_response(jsonify(code=404, message='商品已存在'), 404)
+                else:
+                    # 创建商品
+                    good = Good(view=args['view'], content=args['content'], game=args['game'], title=args['title'],
+                                account=args['account'], password=args['password'], status=args['status'],
+                                sell_id=user.id)
+                    # 提交修改
+                    db.session.add(good)
+                    db.session.commit()
+                    # 返回结果
+                    return make_response(jsonify(code=200, message='创建商品信息成功'), 200)
+            else:
+                return make_response(jsonify(code=404, message='用户不存在'), 404)
+
+    @jwt_required
     def put(self):
-        user_id = request.jwt_payload['id']
-        user = data.session.query(data.User).get(user_id)
-        if user:
-            self.user = user
-            # 查询
-            self.good = data.session.query(data.Good).get(self.id)
-            # 判断是否存在
-            if not self.good:
-                return make_response(jsonify(code=404, message='商品不存在'), 404)
-            # 修改商品信息
-            self.good.content = self.content
-            self.good.game = self.game
-            self.good.title = self.title
-            self.good.account = self.account
-            self.good.password = self.password
-            self.good.status = self.status
-            self.good.sell_id = self.sell_id
-            # 提交修改
-            data.session.commit()
-            # 返回结果
-            return make_response(jsonify(code=200, message='修改商品信息成功'), 200)
-        else:
-            return make_response(jsonify(code=404, message='用户不存在'), 404)
+        parser = reqparse.RequestParser()
+        parser.add_argument('id', type=int)
+        parser.add_argument('view', type=int)
+        parser.add_argument('content', type=str)
+        parser.add_argument('game', type=str)
+        parser.add_argument('title', type=str)
+        parser.add_argument('account', type=str)
+        parser.add_argument('password', type=str)
+        parser.add_argument('status', type=int)
+        args = parser.parse_args()
+        token = request.headers.get('Authorization')
+        user_id = jwt.decode(token, JWT_SECRET_KEY, algorithms=['HS256'])['id']
+        with app.app_context():
+            user = db.session.query(User).get(user_id)
+            if user:
+                user = user
+                # 查询
+                good = db.session.query(Good).get(args['id'])
+                # 判断是否存在
+                if not good:
+                    return make_response(jsonify(code=404, message='商品不存在'), 404)
+                # 修改商品信息
+                good.content = args['content']
+                good.game = args['game']
+                good.title = args['title']
+                good.account = args['account']
+                good.password = args['password']
+                good.status = args['status']
+                good.sell_id = user.id
+                # 提交修改
+                db.session.commit()
+                # 返回结果
+                return make_response(jsonify(code=200, message='修改商品信息成功'), 200)
+            else:
+                return make_response(jsonify(code=404, message='用户不存在'), 404)
 
-    @jwt_required(lambda payload: request.jwt_payload['status'] == '0')
+    @jwt_required
     def delete(self):
-        user_id = request.jwt_payload['id']
-        user = data.session.query(data.User).get(user_id)
-        if user:
-            self.user = user
-            # 查询
-            self.good = data.session.query(data.Good).get(self.id)
-            # 判断是否存在
-            if not self.good:
-                return make_response(jsonify(code=404, message='商品不存在'), 404)
-            # 删除商品
-            data.session.delete(good)
-            # 提交修改
-            data.session.commit()
-            # 返回结果
-            return make_response(jsonify(code=200, message='删除商品成功'), 200)
-        else:
-            return make_response(jsonify(code=404, message='用户不存在'), 404)
+        parser = reqparse.RequestParser()
+        parser.add_argument('id', type=int)
+        id = parser.parse_args().get('id')
+        token = request.headers.get('Authorization')
+        user_id = jwt.decode(token, JWT_SECRET_KEY, algorithms=['HS256'])['id']
+        with app.app_context():
+            user = db.session.query(User).get(user_id)
+            if user:
+                # 查询
+                good = db.session.query(Good).get(id)
+                # 判断是否存在
+                if not good:
+                    return make_response(jsonify(code=404, message='商品不存在'), 404)
+                # 删除商品
+                db.session.delete(good)
+                # 提交修改
+                db.session.commit()
+                # 返回结果
+                return make_response(jsonify(code=200, message='删除商品成功'), 200)
+            else:
+                return make_response(jsonify(code=404, message='用户不存在'), 404)
 
 
-api.add_resource(Good, '/good')
+api.add_resource(Goods, '/good')
