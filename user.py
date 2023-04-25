@@ -1,10 +1,11 @@
-from werkzeug.security import generate_password_hash, check_password_hash
-
-from data import User, db, app
 import datetime
+
 import jwt
 from flask import request, jsonify, Blueprint, make_response
 from flask_restful import Api, Resource, reqparse
+from werkzeug.security import generate_password_hash, check_password_hash
+
+from data import User, db, app
 
 # 定义应用和API
 user = Blueprint('user', __name__)
@@ -288,15 +289,6 @@ class Frozen_user(Resource):
                          'money': user.money, 'status': user.status}
             return make_response(jsonify(code=200, message='success', user=user_info), 200)
 
-
-# class Admin_user(Resource):
-#     # 使用装饰器进行JWT认证和权限检查
-#     @jwt_required(lambda payload: request.jwt_payload['status'] == '3')
-#     def get(self):
-#         # 获取JWT负载中的用户ID
-#         user_id = request.jwt_payload['id']
-#         user = data.session.query(data.User).get(user_id)
-#         return jsonify(code=200, message='success', user=user.to_json()), 200
 
 # 添加API接口路由
 api.add_resource(Register, '/register')

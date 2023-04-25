@@ -2,7 +2,8 @@ from flask import jsonify, Flask
 from werkzeug.security import check_password_hash, generate_password_hash
 
 app = Flask(__name__)
-import data
+from data import db, app, User
+
 # user = data.User(nickname=11, password=22)
 # data.session.add(user)
 # data.session.commit()
@@ -19,8 +20,9 @@ import data
 #         print('error')
 #
 #     print(type(jsonify(code=404, message=f'登录失败')))
-a = data.session.query(data.User).get('1')
-print(a)
+with app.app_context():
+    a = db.session.query(User).get(1)
+    print(a)
 # class User():
 #     def __init__(self):
 #         self.user = data.session.query(data.User).get(1)

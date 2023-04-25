@@ -110,10 +110,12 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:123456@localhost:3306/mewfish'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:123456@localhost:3306/mewfish'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://mew_store:114514@106.14.35.23:3306/test'
 # app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # 跟踪修改，暂不需要
 # app.config['SECRECT_KEY'] = 'dfhvgehi'  # 设置密钥，随便打，目前不设置没报错
 db = SQLAlchemy(app)
+
 
 class User(db.Model):
     __tablename__ = "user"
@@ -160,6 +162,7 @@ class Report(db.Model):
     status = db.Column(db.Integer)  # 举报信息的处理情况，-1为未通过，0为未处理，1为通过举报
     send_id = db.Column(db.Integer)  # 举报者的id
     content = db.Column(db.String(50))  # 举报的原因和描述
+
 
 with app.app_context():  # 注意：新版flask操作数据库必须带这个,否则必报错,网上找半天才知道........#
     # db.drop_all()  # 初始化表格，需要时再用
