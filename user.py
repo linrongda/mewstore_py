@@ -4,7 +4,7 @@ import jwt
 from flask import request, jsonify, Blueprint, make_response
 from flask_restful import Api, Resource, reqparse
 from werkzeug.security import generate_password_hash, check_password_hash
-
+from snowflake import Snowflake
 from data import User, db, app
 
 # 定义应用和API
@@ -14,6 +14,9 @@ api = Api(user)
 # 定义JWT密钥和过期时间
 JWT_SECRET_KEY = 'mewstore'
 JWT_EXPIRATION_DELTA = datetime.timedelta(days=1)
+
+# 定义雪花算法实例
+worker = Snowflake(1, 1)
 
 
 # 定义装饰器进行JWT认证和权限检查
@@ -82,7 +85,8 @@ class Register(Resource):
                 # 手机号验证(待添加)
                 #
                 try:
-                    user = User(nickname=args['nickname'], password=password_encrypt(args['password']),
+                    user = User(id=worker.generate(1, 1), nickname=args['nickname'],
+                                password=password_encrypt(args['password']),
                                 phone_number=args['phone_number'],
                                 status=args['status'])
                     db.session.add(user)

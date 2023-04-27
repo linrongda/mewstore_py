@@ -1,44 +1,68 @@
-from flask import jsonify, Flask
-from werkzeug.security import check_password_hash, generate_password_hash
+import qiniu
 
-app = Flask(__name__)
-from data import db, app, User
+accessKey = "FU5sKsfrD422VmfLSxCm6AxnjNHxUA_VYf1xdT1b"
+secretKey = "UfRIgz3x0Vt7reIdbZxe_HAX-pwjbg2sqkPHoUq9"
 
-# user = data.User(nickname=11, password=22)
-# data.session.add(user)
-# data.session.commit()
-# good = data.Good(view=1, content=2, game=3, title=4, account=5, password=6, status=7, sell_id=8)
-# data.session.add(good)
-# data.session.commit()
-# def test():
-#     return jsonify(code=404, message=f'登录失败'), 200
-# with app.app_context():
-#     try:
-#         if test().index(200):
-#             print('success')
-#     except Exception as e:
-#         print('error')
+
+# # 解析结果
+# def parseRet(retData, respInfo):
+#     if retData != None:
+#         print("Upload file success!")
+#         print("Hash: " + retData["hash"])
+#         print("Key: " + retData["key"])
 #
-#     print(type(jsonify(code=404, message=f'登录失败')))
-with app.app_context():
-    a = db.session.query(User).get(1)
-    print(a)
-# class User():
-#     def __init__(self):
-#         self.user = data.session.query(data.User).get(1)
-#     def get(self):
-#         print(self.user)
+#         # 检查扩展参数
+#         for k, v in retData.items():
+#             if k[:2] == "x:":
+#                 print(k + ":" + v)
 #
-# User().get()
-# class good():
-#     def __init__(self):
-#         self.good = data.session.query(data.Good).get(1)
-#     def get(self):
-#         self.good.view += 1
-#         data.session.commit()
-#         print(self.good)
-# good().get()
-# from user import check_password,password_encrypt
-# a = password_encrypt('123456789dfsfsdvrgv')
-# print(a)
-# print(check_password('pbkdf2:sha256:260000$fHs4YPAT3LyOfZBo$78927d3394798f298e0c8fa5a287499570dfe5388497d17eeb996acbcde662c1', '123456'))
+#         # 检查其他参数
+#         for k, v in retData.items():
+#             if k[:2] == "x:" or k == "hash" or k == "key":
+#                 continue
+#             else:
+#                 print(k + ":" + str(v))
+#     else:
+#         print("Upload file failed!")
+#         print("Error: " + respInfo.text_body)
+#
+#
+# # 无key上传，http请求中不指定key参数
+# def upload_without_key(bucket, filePath):
+#     # 生成上传凭证
+#     auth = qiniu.Auth(accessKey, secretKey)
+#     upToken = auth.upload_token(bucket, key=None)
+#
+#     # 上传文件
+#     retData, respInfo = qiniu.put_file(upToken, None, filePath)
+#
+#     # 解析结果
+#     parseRet(retData, respInfo)
+#
+#
+# def main():
+#     bucket = "mewstore"
+#     filePath = "/Users/Administrator/PycharmProjects/pythonProject/4/music/晴天-周杰伦.mp3"
+#     upload_without_key(bucket, filePath)
+#
+#
+# if __name__ == "__main__":
+#     main()
+def upload(bucket, path, filename, key):
+    token = key.upload_token(bucket, filename, 3600)
+    print('正在上传..')
+    reform, inform = qiniu.put_file(token, filename, path)
+    if reform != None:
+        print('已经成功地将{}->>{}'.format(filename, bucket))
+    else:
+        print('这里出现了一个小错误.')
+
+
+def main():
+    bucket = "mewstore"
+    Path = "/Users/Administrator/PycharmProjects/pythonProject/1.py"
+    upload(bucket, Path, 'profile_photo/1.py', qiniu.Auth(accessKey, secretKey))
+
+
+if __name__ == "__main__":
+    main()

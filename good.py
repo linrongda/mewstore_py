@@ -4,11 +4,15 @@ from flask_restful import Api, Resource, reqparse
 
 from data import db, Good, app, User
 from user import jwt_required, JWT_SECRET_KEY
+from snowflake import Snowflake
 
 # 定义应用和API
 good = Blueprint('good', __name__)
 api = Api(good)
 
+# 定义雪花算法实例
+worker = Snowflake(1, 1)
+# 设置AES加密
 from Crypto.Cipher import AES
 import base64
 
@@ -72,6 +76,7 @@ class Goods(Resource):
         parser.add_argument('account', type=str)
         parser.add_argument('password', type=str)
         parser.add_argument('status', type=int)
+        parser.add_argument('picture', type=str, location='files')
         args = parser.parse_args()
         token = request.headers.get('Authorization')
         user_id = jwt.decode(token, JWT_SECRET_KEY, algorithms=['HS256'])['id']
@@ -87,7 +92,8 @@ class Goods(Resource):
                     # 使用 CBC 模式对密码进行加密
                     encrypted_password = encrypt_aes_cbc(args['password'])
                     # 创建商品
-                    good = Good(view=args['view'], content=args['content'], game=args['game'], title=args['title'],
+                    good = Good(id=worker.generate(1, 1), view=args['view'], content=args['content'], game=args['game'],
+                                title=args['title'],
                                 account=args['account'], password=encrypted_password, status=args['status'],
                                 sell_id=user.id)
                     # 提交修改

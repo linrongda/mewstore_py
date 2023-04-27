@@ -123,7 +123,7 @@ class User(db.Model):
     nickname = db.Column(db.String(50))
     name = db.Column(db.String(50))
     profile_photo = db.Column(db.String(50))
-    password = db.Column(db.String(255))
+    password = db.Column(db.String(102))
     phone_number = db.Column(db.String(50))
     money = db.Column(db.Integer)
     status = db.Column(db.Integer)  # 0为正常用户，1为黑户，2为被冻结状态，3为管理员
@@ -136,6 +136,7 @@ class Good(db.Model):
     content = db.Column(db.String(50))  # 账号简介
     game = db.Column(db.String(50))  # 游戏
     title = db.Column(db.String(50))  # 账号标题
+    picture = db.Column(db.String(100))  # 商品图片
     account = db.Column(db.String(50))  # 账号
     password = db.Column(db.String(50))  # 账号密码
     status = db.Column(db.Integer)  # 商品状态未审核为0，审核通过为1，审核不通过为-1,被下架为2，已售出为3

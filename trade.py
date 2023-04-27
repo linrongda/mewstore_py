@@ -20,12 +20,12 @@ class Buyer(Resource):
             if user and user.status == 0:
                 # 查询
                 orders = db.session.query(Order).filter(Order.buyer_id == user.id).all()
-                order_dict = []
+                order_list = []
                 for order in orders:
                     order_dict = {"id": order.id, "good_id": order.good_id, "buyer_id": order.buyer_id,
                                   "seller_id": order.seller_id, "status": order.status, "money": order.money,
                                   "buyer_status": order.buyer_status, "seller_status": order.seller_status}
-                    order_dict.append(order_dict)
+                    order_list.append(order_dict)
                 # 返回结果
                 return make_response(jsonify(code=200, message='获取订单成功', data=order_dict), 200)
 
