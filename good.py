@@ -3,8 +3,9 @@ from flask import request, jsonify, Blueprint, make_response
 from flask_restful import Api, Resource, reqparse
 
 from data import db, Good, app, User
-from user import jwt_required, JWT_SECRET_KEY
+from user import jwt_required, JWT_SECRET_KEY, upload_photo
 from snowflake import id_generate
+from werkzeug.datastructures import FileStorage
 
 # 定义应用和API
 good = Blueprint('good', __name__)
@@ -45,8 +46,7 @@ def decrypt_aes_cbc(encrypted_data):
     return decrypted_data[:-decrypted_data[-1]].decode('utf-8')
 
 
-class Goods(Resource):
-
+class Good_get(Resource):
     def get(self, id):
         with app.app_context():
             # 查询
@@ -58,23 +58,29 @@ class Goods(Resource):
             else:
                 good.view += 1
                 db.session.commit()
-                good_info = {'id': good.id, 'view': good.view, 'content': good.content, 'game': good.game,
-                             'title': good.title,
-                             'status': good.status, 'sell_id': good.sell_id}
+                picture_urls = good.picture.split(',')
+                picture_url = []
+                for picture in picture_urls:
+                    picture = 'http://rtqcx0dtq.bkt.clouddn.com/' + picture
+                    picture_url.append(picture)
+                good_info = {'id': good.id, 'view': good.view, 'game': good.game,
+                             'title': good.title, 'content': good.content, 'picture_url': picture_url,
+                             'status': good.status, 'seller_id': good.seller_id, 'price': good.price}
                 # 返回结果
                 return make_response(jsonify(code=200, message='获取商品信息成功', data=good_info), 200)
 
+
+class Good_add(Resource):
     @jwt_required
     def post(self):
         parser = reqparse.RequestParser()
-        parser.add_argument('view', type=int)
-        parser.add_argument('content', type=str)
-        parser.add_argument('game', type=str)
-        parser.add_argument('title', type=str)
-        parser.add_argument('account', type=str)
-        parser.add_argument('password', type=str)
-        parser.add_argument('status', type=int)
-        parser.add_argument('picture', type=str, location='files')
+        parser.add_argument('game', type=str, required=True, location=['form'])
+        parser.add_argument('title', type=str, required=True, location=['form'])
+        parser.add_argument('content', type=str, required=True, location=['form'])
+        parser.add_argument('picture', type=FileStorage, location=['files'], action=['append'])
+        parser.add_argument('account', type=str, required=True, location=['form'])
+        parser.add_argument('password', type=str, required=True, location=['form'])
+        parser.add_argument('price', type=float, required=True, location=['form'])
         args = parser.parse_args()
         token = request.headers.get('Authorization')
         user_id = jwt.decode(token, JWT_SECRET_KEY, algorithms=['HS256'])['id']
@@ -90,10 +96,19 @@ class Goods(Resource):
                     # 使用 CBC 模式对密码进行加密
                     encrypted_password = encrypt_aes_cbc(args['password'])
                     # 创建商品
-                    good = Good(id=id_generate(1, 2), view=args['view'], content=args['content'], game=args['game'],
-                                title=args['title'],
-                                account=args['account'], password=encrypted_password, status=args['status'],
-                                sell_id=user.id)
+                    if isinstance(args['picture'], list):
+                        picture_list = []
+                        for picture in args['picture']:
+                            picture = upload_photo(picture)
+                            picture_list.append(picture)
+                        pictures = ','.join(picture_list)
+                    else:
+                        picture = upload_photo(args['picture'])
+                        pictures = picture
+                    good = Good(id=id_generate(1, 2), view=0, game=args['game'],
+                                title=args['title'], content=args['content'], picture=pictures,
+                                account=args['account'], password=encrypted_password, status=0,
+                                seller_id=user.id, price=args['price'])
                     # 提交修改
                     db.session.add(good)
                     db.session.commit()
@@ -104,15 +119,20 @@ class Goods(Resource):
             else:
                 return make_response(jsonify(code=404, message='用户不存在'), 404)
 
+
+class Good_update(Resource):
     @jwt_required
     def put(self):
         parser = reqparse.RequestParser()
-        parser.add_argument('id', type=int)
-        parser.add_argument('content', type=str)
-        parser.add_argument('title', type=str)
-        parser.add_argument('account', type=str)
-        parser.add_argument('password', type=str)
-        parser.add_argument('status', type=int)
+        parser.add_argument('id', type=int, required=True, location=['form'])
+        parser.add_argument('game', type=str, location=['form'])
+        parser.add_argument('title', type=str, location=['form'])
+        parser.add_argument('content', type=str, location=['form'])
+        parser.add_argument('picture', type=FileStorage, action=['append'], location=['files'])
+        parser.add_argument('account', type=str, location=['form'])
+        parser.add_argument('password', type=str, location=['form'])
+        parser.add_argument('status', type=int, location=['form'])
+        parser.add_argument('price', type=float, location=['form'])
         args = parser.parse_args()
         token = request.headers.get('Authorization')
         user_id = jwt.decode(token, JWT_SECRET_KEY, algorithms=['HS256'])['id']
@@ -122,19 +142,34 @@ class Goods(Resource):
                 # 查询
                 good = db.session.query(Good).get(args['id'])
                 # 判断是否存在
-                if not good or good.sell_id != user.id:
+                if not good or good.seller_id != user.id:
                     return make_response(jsonify(code=404, message='商品不存在'), 404)
                 # 修改商品信息
+                if args['game']:
+                    good.game = args['game']
                 if args['content']:
                     good.content = args['content']
                 if args['title']:
                     good.title = args['title']
+                if args['picture']:  # 此处不能删除照片，防止有人的头像是某人的商品图（有可能），从而把头像删了
+                    if isinstance(args['picture'], list):
+                        picture_list = []
+                        for picture in args['picture']:
+                            picture = upload_photo(picture)
+                            picture_list.append(picture)
+                        pictures = ','.join(picture_list)
+                        good.picture = pictures
+                    else:
+                        picture = upload_photo(args['picture'])
+                        good.picture = picture
                 if args['account']:
                     good.account = args['account']
                 if args['password']:
                     good.password = encrypt_aes_cbc(args['password'])
                 if args['status']:
                     good.status = args['status']
+                if args['price']:
+                    good.price = args['price']
                 # 提交修改
                 db.session.commit()
                 # 返回结果
@@ -142,6 +177,8 @@ class Goods(Resource):
             else:
                 return make_response(jsonify(code=404, message='用户不存在'), 404)
 
+
+class Good_delete(Resource):
     @jwt_required
     def delete(self):
         parser = reqparse.RequestParser()
@@ -155,7 +192,7 @@ class Goods(Resource):
                 # 查询
                 good = db.session.query(Good).get(id)
                 # 判断是否存在
-                if not good or good.sell_id != user.id:
+                if not good or good.seller_id != user.id:
                     return make_response(jsonify(code=404, message='商品不存在'), 404)
                 # 删除商品
                 db.session.delete(good)
@@ -167,4 +204,7 @@ class Goods(Resource):
                 return make_response(jsonify(code=404, message='用户不存在'), 404)
 
 
-api.add_resource(Goods, '/good', '/good/<int:id>')
+api.add_resource(Good_get, '/good/<int:id>')
+api.add_resource(Good_add, '/good/add')
+api.add_resource(Good_update, '/good/update')
+api.add_resource(Good_delete, '/good/delete')
