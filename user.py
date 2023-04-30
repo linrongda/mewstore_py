@@ -1,10 +1,12 @@
 import datetime
+import logging
 
 import jwt
 from flask import request, jsonify, Blueprint, make_response
 from flask_restful import Api, Resource, reqparse
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.datastructures import FileStorage
+
 from data import User, db, app
 from snowflake import id_generate
 import qiniu
@@ -12,6 +14,8 @@ import qiniu
 # 定义应用和API
 user = Blueprint('user', __name__)
 api = Api(user)
+
+logger = logging.getLogger(__name__)
 
 # 定义JWT密钥和过期时间
 JWT_SECRET_KEY = 'mewstore'
@@ -28,14 +32,15 @@ def jwt_required(func):
                 # 使用JWT密钥验证JWT令牌
                 payload = jwt.decode(token, JWT_SECRET_KEY, algorithms=['HS256'])
                 # # 在请求的上下文中保存JWT负载
+                logger.debug('解析token成功')
                 request.jwt_payload = payload
                 return func(*args, **kwargs)
             except jwt.ExpiredSignatureError:
-                return make_response(jsonify(code=401, message='Token has expired'), 401)
+                return make_response(jsonify(code=401, message='登录信息过期'), 401)
             except jwt.InvalidTokenError:
-                return make_response(jsonify(code=401, message='Invalid token'), 401)
+                return make_response(jsonify(code=401, message='非法登录'), 401)
         else:
-            return make_response(jsonify(code=401, message='Token is missing'), 401)
+            return make_response(jsonify(code=401, message='找不到登录信息'), 401)
 
     return wrapper
 
@@ -56,11 +61,11 @@ class Sms(Resource):
     def get(self, phone_number):
         with app.app_context():
             if db.session.query(User).filter_by(phone_number=phone_number).first():
-                return make_response(jsonify(code=400, message='phone_number already exists'), 400)
+                return make_response(jsonify(code=400, message='该手机号已存在'), 400)
             else:
                 # 手机号验证(待添加)
-
-                return make_response(jsonify(code=200, message='phone_number not exists'), 200)
+                logger.debug('发送验证码成功')
+                return make_response(jsonify(code=200, message='该手机号可用'), 200)
 
 
 class Register(Resource):
@@ -74,13 +79,13 @@ class Register(Resource):
         args = parser.parse_args()
         with app.app_context():
             if args['password'] != args['check_password']:
-                return make_response(jsonify(code=400, message='password not equal'), 400)
+                return make_response(jsonify(code=400, message='两次输入的密码不一致'), 400)
             if db.session.query(User).filter_by(username=args['username']).first():
-                return make_response(jsonify(code=400, message='username already exists'), 400)
+                return make_response(jsonify(code=400, message='用户名已存在'), 400)
             if len(args['phone_number']) != 11:
-                return make_response(jsonify(code=400, message='phone_number error'), 400)
+                return make_response(jsonify(code=400, message='请输入11位有效的手机号'), 400)
             if db.session.query(User).filter_by(phone_number=args['phone_number']).first():
-                return make_response(jsonify(code=400, message='phone_number already exists'), 400)
+                return make_response(jsonify(code=400, message='手机号已存在'), 400)
             else:
                 # 手机号验证(待添加)
                 #
@@ -91,9 +96,10 @@ class Register(Resource):
                                 status=args['status'])
                     db.session.add(user)
                     db.session.commit()
-                    return make_response(jsonify(code=200, message='success'), 200)
-                except:
-                    return make_response(jsonify(code=400, message='error'), 400)
+                    logger.debug('注册成功')
+                    return make_response(jsonify(code=201, message='注册成功'), 201)
+                except Exception as e:
+                    return make_response(jsonify(code=400, message=f'发生未知错误：{e}'), 400)
 
 
 def after_get_info(args, type=None):
@@ -107,7 +113,9 @@ def after_get_info(args, type=None):
                            'id': user.id, 'status': user.status}
                 # 生成JWT令牌
                 token = jwt.encode(payload, JWT_SECRET_KEY, algorithm='HS256')
-                return make_response(jsonify(code=200, message='success', token=token, status=user.status), 200)
+                logger.debug('登录成功')
+                return make_response(jsonify(code=200, message='登录成功', token=token, status=user.status), 200)
+            return make_response(jsonify(code=401, message='用户名或密码错误'), 401)
         if type == 'phone':
             if user := db.session.query(User).filter_by(phone_number=args['phone_number']).first():
                 # 构建JWT负载
@@ -115,8 +123,11 @@ def after_get_info(args, type=None):
                            'id': user.id, 'status': user.status}
                 # 生成JWT令牌
                 token = jwt.encode(payload, JWT_SECRET_KEY, algorithm='HS256')
-                return make_response(jsonify(code=200, message='success', token=token, status=user.status), 200)
-        return make_response(jsonify(code=401, message='Invalid username or password'), 401)
+                logger.debug('登录成功')
+                return make_response(jsonify(code=200, message='登录成功', token=token, status=user.status), 200)
+            return make_response(jsonify(code=401, message='用户不存在'), 401)
+        else:
+            return make_response(jsonify(code=400, message='请求参数错误'), 400)
 
 
 # 定义用户登录接口
@@ -150,14 +161,14 @@ def upload_photo(photo):
     return ret['key']
 
 
-def delete_photo(photo):
-    access_key = 'FU5sKsfrD422VmfLSxCm6AxnjNHxUA_VYf1xdT1b'
-    secret_key = 'UfRIgz3x0Vt7reIdbZxe_HAX-pwjbg2sqkPHoUq9'
-    bucket_name = 'mewstore'
-    auth = qiniu.Auth(access_key, secret_key)
-    bucket = qiniu.BucketManager(auth)
-    bucket.delete(bucket_name, photo)
-    return True
+# def delete_photo(photo):
+#     access_key = 'FU5sKsfrD422VmfLSxCm6AxnjNHxUA_VYf1xdT1b'
+#     secret_key = 'UfRIgz3x0Vt7reIdbZxe_HAX-pwjbg2sqkPHoUq9'
+#     bucket_name = 'mewstore'
+#     auth = qiniu.Auth(access_key, secret_key)
+#     bucket = qiniu.BucketManager(auth)
+#     bucket.delete(bucket_name, photo)
+#     return True
 
 
 # # 定义需要JWT认证的API接口
@@ -193,9 +204,10 @@ class User_get(Resource):
                 user_info = {'id': user.id, 'nickname': user.nickname, 'username': user.username,
                              'profile_photo': profile_photo_url, 'phone_number': user.phone_number,
                              'money': user.money, 'status': user.status, 'name': user.name, 'id_card': user.id_card}
-                return make_response(jsonify(code=200, message='success', user=user_info), 200)
+                logger.debug('获取用户信息成功')
+                return make_response(jsonify(code=200, message='获取用户信息成功', user=user_info), 200)
             else:
-                return make_response(jsonify(code=400, message='error'), 400)
+                return make_response(jsonify(code=403, message='你没有权限'), 403)
 
 
 class User_nickname(Resource):
@@ -211,9 +223,10 @@ class User_nickname(Resource):
             if user and user.status == 0:
                 user.nickname = args['nickname']
                 db.session.commit()
-                return make_response(jsonify(code=200, message='success'), 200)
+                logger.debug('修改昵称成功')
+                return make_response(jsonify(code=201, message='修改昵称成功'), 201)
             else:
-                return make_response(jsonify(code=400, message='error'), 400)
+                return make_response(jsonify(code=403, message='error'), 403)
 
 
 class User_username(Resource):
@@ -228,12 +241,13 @@ class User_username(Resource):
             user = db.session.query(User).get(user_id)
             if user and user.status == 0:
                 if db.session.query(User).filter(User.username == args['username']).first():
-                    return make_response(jsonify(code=400, message='The username has already been used'), 400)
+                    return make_response(jsonify(code=400, message='该用户名已存在'), 400)
                 user.username = args['username']
                 db.session.commit()
-                return make_response(jsonify(code=200, message='success'), 200)
+                logger.debug('修改用户名成功')
+                return make_response(jsonify(code=201, message='修改用户名成功'), 201)
             else:
-                return make_response(jsonify(code=400, message='error'), 400)
+                return make_response(jsonify(code=403, message='你没有权限'), 403)
 
 
 class User_password(Resource):
@@ -253,13 +267,14 @@ class User_password(Resource):
                     if args['password'] == args['check_password']:
                         user.password = generate_password_hash(args['password'])
                         db.session.commit()
-                        return make_response(jsonify(code=200, message='success'), 200)
+                        logger.debug('修改密码成功')
+                        return make_response(jsonify(code=201, message='修改密码成功'), 201)
                     else:
-                        return make_response(jsonify(code=400, message='error'), 400)
+                        return make_response(jsonify(code=400, message='两次输入的密码不一致'), 400)
                 else:
-                    return make_response(jsonify(code=400, message='error'), 400)
+                    return make_response(jsonify(code=401, message='原密码错误'), 401)
             else:
-                return make_response(jsonify(code=400, message='error'), 400)
+                return make_response(jsonify(code=403, message='你没有权限'), 403)
 
 
 class User_profile_photo(Resource):
@@ -273,13 +288,14 @@ class User_profile_photo(Resource):
         with app.app_context():
             user = db.session.query(User).get(user_id)
             if user and user.status == 0:
-                if user.profile_photo:
-                    delete_photo(user.profile_photo)
+                # if user.profile_photo:
+                #     delete_photo(user.profile_photo)
                 user.profile_photo = upload_photo(args['profile_photo'])
                 db.session.commit()
-                return make_response(jsonify(code=200, message='success'), 200)
+                logger.debug('修改头像成功')
+                return make_response(jsonify(code=201, message='修改头像成功'), 201)
             else:
-                return make_response(jsonify(code=400, message='error'), 400)
+                return make_response(jsonify(code=403, message='你没有权限'), 403)
 
 
 class User_phone_number(Resource):
@@ -294,13 +310,14 @@ class User_phone_number(Resource):
             user = db.session.query(User).get(user_id)
             if user and user.status == 0:
                 if db.session.query(User).filter(User.phone_number == args['phone_number']).first():
-                    return make_response(jsonify(code=400, message='The phone number has already been used'), 400)
+                    return make_response(jsonify(code=400, message='该手机号已存在'), 400)
                 # 手机号验证
                 user.phone_number = args['phone_number']
                 db.session.commit()
-                return make_response(jsonify(code=200, message='success'), 200)
+                logger.debug('修改手机号成功')
+                return make_response(jsonify(code=201, message='修改手机号成功'), 201)
             else:
-                return make_response(jsonify(code=400, message='error'), 400)
+                return make_response(jsonify(code=403, message='你没有权限'), 403)
 
 
 class User_money(Resource):
@@ -316,9 +333,10 @@ class User_money(Resource):
             if user and user.status == 0:
                 user.money = args['money']
                 db.session.commit()
-                return make_response(jsonify(code=200, message='success'), 200)
+                logger.debug('修改余额成功')
+                return make_response(jsonify(code=201, message='修改余额成功'), 201)
             else:
-                return make_response(jsonify(code=400, message='error'), 400)
+                return make_response(jsonify(code=403, message='你没有权限'), 403)
 
 
 class Black_user(Resource):
@@ -332,7 +350,10 @@ class Black_user(Resource):
                 user_info = {'id': user.id, 'nickname': user.nickname, 'username': user.username,
                              'profile_photo': user.profile_photo, 'phone_number': user.phone_number,
                              'money': user.money, 'status': user.status, 'name': user.name, 'id_card': user.id_card}
-                return make_response(jsonify(code=200, message='success', user=user_info), 200)
+                logger.debug('获取用户信息成功')
+                return make_response(jsonify(code=200, message='获取用户信息成功', user=user_info), 200)
+            else:
+                return make_response(jsonify(code=403, message='你没有权限'), 403)
 
 
 class Black_money(Resource):
@@ -346,10 +367,12 @@ class Black_money(Resource):
         with app.app_context():
             user = db.session.query(User).get(user_id)
             if user and user.status == 1:
-                if args['money']:
-                    user.money = args['money']
-                    db.session.commit()
-                    return make_response(jsonify(code=200, message='success'), 200)
+                user.money = args['money']
+                db.session.commit()
+                logger.debug('修改余额成功')
+                return make_response(jsonify(code=201, message='修改余额成功'), 201)
+            else:
+                return make_response(jsonify(code=403, message='你没有权限'), 403)
 
 
 class Frozen_user(Resource):
@@ -363,21 +386,24 @@ class Frozen_user(Resource):
             user_info = {'id': user.id, 'nickname': user.nickname, 'username': user.username,
                          'profile_photo': user.profile_photo, 'phone_number': user.phone_number,
                          'money': user.money, 'status': user.status, 'name': user.name, 'id_card': user.id_card}
-            return make_response(jsonify(code=200, message='success', user=user_info), 200)
+            logger.debug('获取用户信息成功')
+            return make_response(jsonify(code=200, message='获取用户信息成功', user=user_info), 200)
+        else:
+            return make_response(jsonify(code=403, message='你没有权限'), 403)
 
 
 # 添加API接口路由
-api.add_resource(Register, '/register')
-api.add_resource(Login_Username, '/login/name')
+api.add_resource(Register, '/users')
+api.add_resource(Login_Username, '/login/username')
 api.add_resource(Login_Phone, '/login/phone')
-api.add_resource(User_get, '/user')
-api.add_resource(User_nickname, '/user/nickname')
-api.add_resource(User_username, '/user/username')
-api.add_resource(User_password, '/user/password')
-api.add_resource(User_profile_photo, '/user/profile_photo')
-api.add_resource(User_phone_number, '/user/phone_number')
-api.add_resource(User_money, '/user/money')
-api.add_resource(Black_user, '/user/black')
-api.add_resource(Black_money, '/user/black/money')
-api.add_resource(Frozen_user, '/user/frozen')
+api.add_resource(User_get, '/users')
+api.add_resource(User_nickname, '/users/nickname')
+api.add_resource(User_username, '/users/username')
+api.add_resource(User_password, '/users/password')
+api.add_resource(User_profile_photo, '/users/profile-photo')
+api.add_resource(User_phone_number, '/users/phone-number')
+api.add_resource(User_money, '/users/money')
+api.add_resource(Black_user, '/blacks')
+api.add_resource(Black_money, '/blacks/money')
+api.add_resource(Frozen_user, '/frozen')
 api.add_resource(Sms, '/sms')

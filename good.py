@@ -1,3 +1,5 @@
+import logging
+
 import jwt
 from flask import request, jsonify, Blueprint, make_response
 from flask_restful import Api, Resource, reqparse
@@ -10,6 +12,8 @@ from werkzeug.datastructures import FileStorage
 # 定义应用和API
 good = Blueprint('good', __name__)
 api = Api(good)
+
+logger = logging.getLogger(__name__)
 
 # 设置AES加密
 from Crypto.Cipher import AES
@@ -66,6 +70,7 @@ class Good_get(Resource):
                 good_info = {'id': good.id, 'view': good.view, 'game': good.game,
                              'title': good.title, 'content': good.content, 'picture_url': picture_url,
                              'status': good.status, 'seller_id': good.seller_id, 'price': good.price}
+                logger.debug('获取商品信息成功')
                 # 返回结果
                 return make_response(jsonify(code=200, message='获取商品信息成功', data=good_info), 200)
 
@@ -91,7 +96,7 @@ class Good_add(Resource):
                 is_good = db.session.query(Good).filter_by(account=args['account'], game=args['game']).first()
                 # 判断是否存在
                 if is_good:
-                    return make_response(jsonify(code=404, message='商品已存在'), 404)
+                    return make_response(jsonify(code=400, message='商品已存在'), 400)
                 else:
                     # 使用 CBC 模式对密码进行加密
                     encrypted_password = encrypt_aes_cbc(args['password'])
@@ -112,17 +117,18 @@ class Good_add(Resource):
                     # 提交修改
                     db.session.add(good)
                     db.session.commit()
+                    logger.debug('创建商品信息成功')
                     # 返回结果
                     # # 使用 CBC 模式对密码进行解密
                     # decrypted_password = decrypt_aes_cbc(encrypted_password)
-                    return make_response(jsonify(code=200, message='创建商品信息成功'), 200)
+                    return make_response(jsonify(code=201, message='创建商品信息成功'), 201)
             else:
-                return make_response(jsonify(code=404, message='用户不存在'), 404)
+                return make_response(jsonify(code=403, message='你没有权限'), 403)
 
 
 class Good_update(Resource):
     @jwt_required
-    def put(self):
+    def patch(self):
         parser = reqparse.RequestParser()
         parser.add_argument('id', type=int, required=True, location=['form'])
         parser.add_argument('game', type=str, location=['form'])
@@ -172,10 +178,11 @@ class Good_update(Resource):
                     good.price = args['price']
                 # 提交修改
                 db.session.commit()
+                logger.debug('修改商品信息成功')
                 # 返回结果
-                return make_response(jsonify(code=200, message='修改商品信息成功'), 200)
+                return make_response(jsonify(code=201, message='修改商品信息成功'), 201)
             else:
-                return make_response(jsonify(code=404, message='用户不存在'), 404)
+                return make_response(jsonify(code=403, message='用户不存在'), 403)
 
 
 class Good_delete(Resource):
@@ -198,13 +205,14 @@ class Good_delete(Resource):
                 db.session.delete(good)
                 # 提交修改
                 db.session.commit()
+                logger.debug('删除商品成功')
                 # 返回结果
-                return make_response(jsonify(code=200, message='删除商品成功'), 200)
+                return make_response(jsonify(code=204, message='删除商品成功'), 204)
             else:
-                return make_response(jsonify(code=404, message='用户不存在'), 404)
+                return make_response(jsonify(code=403, message='你没有权限'), 403)
 
 
-api.add_resource(Good_get, '/good/<int:id>')
-api.add_resource(Good_add, '/good/add')
-api.add_resource(Good_update, '/good/update')
-api.add_resource(Good_delete, '/good/delete')
+api.add_resource(Good_get, '/goods/<int:id>')
+api.add_resource(Good_add, '/goods')
+api.add_resource(Good_update, '/goods')
+api.add_resource(Good_delete, '/goods')

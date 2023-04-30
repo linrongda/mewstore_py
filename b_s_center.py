@@ -1,3 +1,5 @@
+import logging
+
 import jwt
 from flask import request, jsonify, Blueprint, make_response
 from flask_restful import Api, Resource, reqparse
@@ -8,6 +10,8 @@ from user import jwt_required, JWT_SECRET_KEY
 # 定义应用和API
 b_s_center = Blueprint('b_s_center', __name__)
 api = Api(b_s_center)
+
+logger = logging.getLogger(__name__)
 
 
 class Favorite_add(Resource):
@@ -24,16 +28,17 @@ class Favorite_add(Resource):
                 # 查询
                 favorite = db.session.query(Favorite).filter_by(user_id=user.id, good_id=args['good_id']).first()
                 if favorite:
-                    return make_response(jsonify(code=200, message='已收藏'), 200)
+                    return make_response(jsonify(code=400, message='已收藏'), 400)
                 else:
                     # 添加
                     favorite = Favorite(user_id=user.id, good_id=args['good_id'])
                     db.session.add(favorite)
                     db.session.commit()
+                    logger.debug('收藏成功')
                     # 返回结果
-                    return make_response(jsonify(code=200, message='收藏成功'), 200)
+                    return make_response(jsonify(code=201, message='收藏成功'), 201)
             else:
-                return make_response(jsonify(code=404, message='用户不存在'), 404)
+                return make_response(jsonify(code=403, message='你没有权限'), 403)
 
 
 class Favorite_get(Resource):
@@ -53,13 +58,14 @@ class Favorite_get(Resource):
                 for favorite in favorites:
                     favorite_dict = {"good_id": favorite.good_id, "user_id": favorite.user_id}
                     favorite_list.append(favorite_dict)
+                logger.debug('查询收藏的商品成功')
                 # 返回结果
-                return make_response(jsonify(code=200, message='查询成功', data=favorite_list), 200)
+                return make_response(jsonify(code=200, message='查询收藏的商品成功', data=favorite_list), 200)
             else:
-                return make_response(jsonify(code=404, message='用户不存在'), 404)
+                return make_response(jsonify(code=403, message='你没有权限'), 403)
 
 
-class Bought(Resource):
+class Purchased(Resource):
     @jwt_required
     def get(self):
         page = request.args.get('page', type=int, default=1)
@@ -78,10 +84,11 @@ class Bought(Resource):
                                   "seller_id": order.seller_id, "status": order.status, "price": order.price,
                                   "buyer_status": order.buyer_status, "seller_status": order.seller_status}
                     order_list.append(order_dict)
+                logger.debug('获取已购买订单成功')
                 # 返回结果
-                return make_response(jsonify(code=200, message='获取订单成功', data=order_list), 200)
+                return make_response(jsonify(code=200, message='获取已购买订单成功', data=order_list), 200)
             else:
-                return make_response(jsonify(code=404, message='用户不存在'), 404)
+                return make_response(jsonify(code=403, message='你没有权限'), 403)
 
 
 class Offered(Resource):
@@ -103,10 +110,11 @@ class Offered(Resource):
                                   "seller_id": order.seller_id, "status": order.status, "price": order.price,
                                   "buyer_status": order.buyer_status, "seller_status": order.seller_status}
                     order_list.append(order_dict)
+                logger.debug('获取出价订单成功')
                 # 返回结果
-                return make_response(jsonify(code=200, message='获取订单成功', data=order_list), 200)
+                return make_response(jsonify(code=200, message='获取出价订单成功', data=order_list), 200)
             else:
-                return make_response(jsonify(code=404, message='用户不存在'), 404)
+                return make_response(jsonify(code=403, message='你没有权限'), 403)
 
 
 class Sell(Resource):
@@ -121,7 +129,7 @@ class Sell(Resource):
             if user and user.status == 0:
                 # 查询
                 sql_goods = db.session.query(Good).filter_by(seller_id=user.id)
-                goods = sql_goods.paginate().items
+                goods = sql_goods.paginate(page=page, per_page=size).items
                 good_list = []
                 for good in goods:
                     picture_urls = good.picture.split(',')
@@ -133,10 +141,11 @@ class Sell(Resource):
                                  'title': good.title, 'content': good.content, 'picture_url': picture_url,
                                  'status': good.status, 'seller_id': good.seller_id, 'price': good.price}
                     good_list.append(good_dict)
+                logger.debug('获取出售商品成功')
                 # 返回结果
-                return make_response(jsonify(code=200, message='获取商品成功', data=good_list), 200)
+                return make_response(jsonify(code=200, message='获取出售商品成功', data=good_list), 200)
             else:
-                return make_response(jsonify(code=404, message='用户不存在'), 404)
+                return make_response(jsonify(code=403, message='你没有权限'), 403)
 
 
 class Sold(Resource):
@@ -158,10 +167,11 @@ class Sold(Resource):
                                   "seller_id": order.seller_id, "status": order.status, "price": order.price,
                                   "buyer_status": order.buyer_status, "seller_status": order.seller_status}
                     order_list.append(order_dict)
+                logger.debug('获取已完成订单成功')
                 # 返回结果
-                return make_response(jsonify(code=200, message='获取订单成功', data=order_list), 200)
+                return make_response(jsonify(code=200, message='获取已完成订单成功', data=order_list), 200)
             else:
-                return make_response(jsonify(code=404, message='用户不存在'), 404)
+                return make_response(jsonify(code=403, message='你没有权限'), 403)
 
 
 class Selling(Resource):
@@ -183,16 +193,17 @@ class Selling(Resource):
                                   "seller_id": order.seller_id, "status": order.status, "price": order.price,
                                   "buyer_status": order.buyer_status, "seller_status": order.seller_status}
                     order_list.append(order_dict)
+                logger.debug('获取正在交易订单成功')
                 # 返回结果
-                return make_response(jsonify(code=200, message='获取订单成功', data=order_list), 200)
+                return make_response(jsonify(code=200, message='获取正在交易订单成功', data=order_list), 200)
             else:
-                return make_response(jsonify(code=404, message='用户不存在'), 404)
+                return make_response(jsonify(code=403, message='你没有权限'), 403)
 
 
-api.add_resource(Bought, '/bought')
-api.add_resource(Sell, '/sell')
-api.add_resource(Favorite_add, '/user/favorite/add')
-api.add_resource(Favorite_get, '/user/favorite')
-api.add_resource(Offered, '/offered')
-api.add_resource(Sold, '/sold')
-api.add_resource(Selling, '/selling')
+api.add_resource(Purchased, '/users/purchased')
+api.add_resource(Sell, '/users/goods')
+api.add_resource(Favorite_add, '/users/favorites')
+api.add_resource(Favorite_get, '/users/favorites')
+api.add_resource(Offered, '/users/offered')
+api.add_resource(Sold, '/users/sold')
+api.add_resource(Selling, '/users/selling')
