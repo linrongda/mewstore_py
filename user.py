@@ -1,15 +1,19 @@
 import datetime
 import logging
+import random
 
 import jwt
-from flask import request, jsonify, Blueprint, make_response
-from flask_restful import Api, Resource, reqparse
-from werkzeug.security import generate_password_hash, check_password_hash
-from werkzeug.datastructures import FileStorage
-
-from data import User, db, app
-from snowflake import id_generate
 import qiniu
+from alibabacloud_dysmsapi20170525 import models as dysmsapi_20170525_models
+from alibabacloud_tea_util import models as util_models
+from flask import request, jsonify, Blueprint, make_response, session
+from flask_restful import Api, Resource, reqparse
+from werkzeug.datastructures import FileStorage
+from werkzeug.security import generate_password_hash, check_password_hash
+
+from api.data import User, db, app
+from api.sendsms import Sample
+from api.snowflake import id_generate
 
 # 定义应用和API
 user = Blueprint('user', __name__)
@@ -62,10 +66,34 @@ class Sms(Resource):
         with app.app_context():
             if db.session.query(User).filter_by(phone_number=phone_number).first():
                 return make_response(jsonify(code=400, message='该手机号已存在'), 400)
+            if session[f'{phone_number}'] and session[f'{phone_number}_time'] > datetime.datetime.now():
+                return make_response(jsonify(code=400, message='请勿重复发送验证码'), 400)
             else:
-                # 手机号验证(待添加)
-                logger.debug('发送验证码成功')
-                return make_response(jsonify(code=200, message='该手机号可用'), 200)
+                code = ''.join(random.choices('0123456789', k=6))
+                client = Sample.create_client(access_key_id='LTAI5tNVqQ16EgH2Xn6fxar1',
+                                              access_key_secret='eIm61r1Uy8e5IDjDepBN3JKiqXmLeO')
+                send_sms_request = dysmsapi_20170525_models.SendSmsRequest(
+                    sign_name='闲猫MewStore',
+                    template_code='SMS_460685295',
+                    phone_numbers=phone_number,
+                    template_param='{"code":"%s"}' % code
+                )
+                runtime = util_models.RuntimeOptions()
+                try:
+                    # 复制代码运行请自行打印 API 的返回值
+                    response = client.send_sms_with_options(send_sms_request, runtime)
+                    print(response)
+                    if response.body.code == 'OK':
+                        session[f'{phone_number}'] = code
+                        session[f'{phone_number}_time'] = datetime.datetime.now()+datetime.timedelta(minutes=1)
+                        logger.debug('发送验证码成功')
+                        return make_response(jsonify(code=200, message='发送成功'), 200)
+                    else:
+                        return make_response(jsonify(code=200, message='发送失败'), 200)
+                except Exception as error:
+                    # 如有需要，请打印 error
+                    # UtilClient.assert_as_string(error.message)
+                    return make_response(jsonify(code=400, message=f'发生未知错误：{error}'), 400)
 
 
 class Register(Resource):
@@ -76,6 +104,7 @@ class Register(Resource):
         parser.add_argument('check_password', type=str, required=True)
         parser.add_argument('phone_number', type=str, required=True)
         parser.add_argument('status', type=int, required=True)
+        parser.add_argument('code', type=str, required=True)
         args = parser.parse_args()
         with app.app_context():
             if args['password'] != args['check_password']:
@@ -86,9 +115,9 @@ class Register(Resource):
                 return make_response(jsonify(code=400, message='请输入11位有效的手机号'), 400)
             if db.session.query(User).filter_by(phone_number=args['phone_number']).first():
                 return make_response(jsonify(code=400, message='手机号已存在'), 400)
+            if args['code'] != session[f'{args["phone_number"]}']:
+                return make_response(jsonify(code=400, message='验证码错误'), 400)
             else:
-                # 手机号验证(待添加)
-                #
                 try:
                     user = User(id=id_generate(1, 1), username=args['username'],
                                 password=generate_password_hash(args['password']),
@@ -146,9 +175,12 @@ class Login_Phone(Resource):
         # 获取POST请求参数
         parser = reqparse.RequestParser()
         parser.add_argument('phone_number', type=str, required=True)
+        parser.add_argument('code', type=str, required=True)
         args = parser.parse_args()
-        # 手机号验证(待添加)
-        return after_get_info(args, type='phone')
+        if args['code'] != session[f'{args["phone_number"]}']:
+            return make_response(jsonify(code=400, message='验证码错误'), 400)
+        else:
+            return after_get_info(args, type='phone')
 
 
 def upload_photo(photo):
@@ -303,6 +335,7 @@ class User_phone_number(Resource):
     def put(self):
         parser = reqparse.RequestParser()
         parser.add_argument('phone_number', type=str, required=True)
+        parser.add_argument('code', type=str, required=True)
         args = parser.parse_args()
         token = request.headers.get('Authorization')
         user_id = jwt.decode(token, JWT_SECRET_KEY, algorithms=['HS256'])['id']
@@ -311,7 +344,8 @@ class User_phone_number(Resource):
             if user and user.status == 0:
                 if db.session.query(User).filter(User.phone_number == args['phone_number']).first():
                     return make_response(jsonify(code=400, message='该手机号已存在'), 400)
-                # 手机号验证
+                if args['code'] != session[f'{args["phone_number"]}']:
+                    return make_response(jsonify(code=400, message='验证码错误'), 400)
                 user.phone_number = args['phone_number']
                 db.session.commit()
                 logger.debug('修改手机号成功')
@@ -406,4 +440,4 @@ api.add_resource(User_money, '/users/money')
 api.add_resource(Black_user, '/blacks')
 api.add_resource(Black_money, '/blacks/money')
 api.add_resource(Frozen_user, '/frozen')
-api.add_resource(Sms, '/sms')
+api.add_resource(Sms, '/sms/<int:phone_number>')

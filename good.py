@@ -3,11 +3,11 @@ import logging
 import jwt
 from flask import request, jsonify, Blueprint, make_response
 from flask_restful import Api, Resource, reqparse
-
-from data import db, Good, app, User
-from user import jwt_required, JWT_SECRET_KEY, upload_photo
-from snowflake import id_generate
 from werkzeug.datastructures import FileStorage
+
+from api.data import db, Good, app, User
+from api.snowflake import id_generate
+from api.user import jwt_required, JWT_SECRET_KEY, upload_photo
 
 # 定义应用和API
 good = Blueprint('good', __name__)

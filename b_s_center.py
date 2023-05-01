@@ -4,8 +4,8 @@ import jwt
 from flask import request, jsonify, Blueprint, make_response
 from flask_restful import Api, Resource, reqparse
 
-from data import db, Order, app, User, Favorite, Good
-from user import jwt_required, JWT_SECRET_KEY
+from api.data import db, Order, app, User, Favorite, Good
+from api.user import jwt_required, JWT_SECRET_KEY
 
 # 定义应用和API
 b_s_center = Blueprint('b_s_center', __name__)

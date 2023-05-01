@@ -1,11 +1,12 @@
 from flask import Flask
 from flask_cors import CORS
-from user import user
-from good import good
-from b_s_center import b_s_center
-from home_page import home_page
+from api.user import user
+from api.good import good
+from api.b_s_center import b_s_center
+from api.home_page import home_page
 
 app = Flask(__name__)
+app.secret_key = 'mewstore'
 CORS(app)  # 实现跨域
 app.register_blueprint(user)  # 注册蓝图
 app.register_blueprint(good)  # 注册蓝图

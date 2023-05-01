@@ -1,17 +1,19 @@
 import logging
 
-import jwt
 from flask import request, jsonify, Blueprint, make_response
-from flask_restful import Api, Resource, reqparse
+from flask_restful import Api, Resource
 from sqlalchemy import or_
-from data import db, Order, app, User, Good
-from user import jwt_required, JWT_SECRET_KEY
+
+from api.data import db, app, Good
+
+# from user import jwt_required, JWT_SECRET_KEY
 
 # 定义应用和API
 home_page = Blueprint('home_page', __name__)
 api = Api(home_page)
 
 logger = logging.getLogger(__name__)
+
 
 class HomePage(Resource):
     def get(self):
