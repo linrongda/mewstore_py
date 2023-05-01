@@ -1,9 +1,11 @@
 import datetime
+import json
 import logging
 import random
 
 import jwt
 import qiniu
+import requests
 from alibabacloud_dysmsapi20170525 import models as dysmsapi_20170525_models
 from alibabacloud_tea_util import models as util_models
 from flask import request, jsonify, Blueprint, make_response, session
@@ -49,18 +51,6 @@ def jwt_required(func):
     return wrapper
 
 
-# def check_status(status):
-#     def decorator(func):
-#         def wrapper(*args, **kwargs):
-#             # 检查JWT负载中是否包含指定权限
-#             if 'status' in request.jwt_payload and status in request.jwt_payload['status']:
-#                 return func(*args, **kwargs)
-#             else:
-#                 return jsonify(code=403, message='Insufficient permissions'), 403
-#
-#         return wrapper
-#
-#     return decorator
 class Sms(Resource):
     def get(self, phone_number):
         with app.app_context():
@@ -85,7 +75,7 @@ class Sms(Resource):
                     print(response)
                     if response.body.code == 'OK':
                         session[f'{phone_number}'] = code
-                        session[f'{phone_number}_time'] = datetime.datetime.now()+datetime.timedelta(minutes=1)
+                        session[f'{phone_number}_time'] = datetime.datetime.now() + datetime.timedelta(minutes=1)
                         logger.debug('发送验证码成功')
                         return make_response(jsonify(code=200, message='发送成功'), 200)
                     else:
@@ -202,23 +192,23 @@ def upload_photo(photo):
 #     bucket.delete(bucket_name, photo)
 #     return True
 
-
-# # 定义需要JWT认证的API接口
-# class User(Resource):
-#     # 使用装饰器进行JWT认证和权限检查
-#     @jwt_required
-#     @check_status('0')
-#     def get(self):
-#         return
-# class Black_user(Resource):
-#     # 使用装饰器进行JWT认证和权限检查
-#     @jwt_required
-#     @check_status('1')
-#     def get(self, user_id):
-#         for user in users:
-#             if user['id'] == user_id:
-#                 return {'user': user}
-#         return jsonify(code=404, message='User not found'), 404
+def r_n_a(name, id_card):
+    url = 'http://eid.shumaidata.com/eid/check'
+    params = {
+        'idcard': id_card,
+        'name': name
+    }
+    headers = {
+        'Authorization': 'APPCODE 7740e015b9c1430b9c74d592f1153bdb'
+    }
+    # 发送请求并获取响应
+    response = requests.post(url, params=params, headers=headers)
+    # 解析响应并返回结果
+    result = json.loads(response.text)
+    if result['result']['res'] == '1':
+        return True
+    else:
+        return False
 
 
 class User_get(Resource):
@@ -228,7 +218,7 @@ class User_get(Resource):
         user_id = jwt.decode(token, JWT_SECRET_KEY, algorithms=['HS256'])['id']
         with app.app_context():
             user = db.session.query(User).get(user_id)
-            if user and user.status == 0:
+            if user and user.status in (0, 3):
                 if user.profile_photo:
                     profile_photo_url = 'http://rtqcx0dtq.bkt.clouddn.com/' + user.profile_photo
                 else:
@@ -252,7 +242,7 @@ class User_nickname(Resource):
         user_id = jwt.decode(token, JWT_SECRET_KEY, algorithms=['HS256'])['id']
         with app.app_context():
             user = db.session.query(User).get(user_id)
-            if user and user.status == 0:
+            if user and user.status in (0, 3):
                 user.nickname = args['nickname']
                 db.session.commit()
                 logger.debug('修改昵称成功')
@@ -271,7 +261,7 @@ class User_username(Resource):
         user_id = jwt.decode(token, JWT_SECRET_KEY, algorithms=['HS256'])['id']
         with app.app_context():
             user = db.session.query(User).get(user_id)
-            if user and user.status == 0:
+            if user and user.status in (0, 3):
                 if db.session.query(User).filter(User.username == args['username']).first():
                     return make_response(jsonify(code=400, message='该用户名已存在'), 400)
                 user.username = args['username']
@@ -294,7 +284,7 @@ class User_password(Resource):
         user_id = jwt.decode(token, JWT_SECRET_KEY, algorithms=['HS256'])['id']
         with app.app_context():
             user = db.session.query(User).get(user_id)
-            if user and user.status == 0:
+            if user and user.status in (0, 3):
                 if check_password_hash(user.password, args['old_password']):
                     if args['password'] == args['check_password']:
                         user.password = generate_password_hash(args['password'])
@@ -319,7 +309,7 @@ class User_profile_photo(Resource):
         user_id = jwt.decode(token, JWT_SECRET_KEY, algorithms=['HS256'])['id']
         with app.app_context():
             user = db.session.query(User).get(user_id)
-            if user and user.status == 0:
+            if user and user.status in (0, 3):
                 # if user.profile_photo:
                 #     delete_photo(user.profile_photo)
                 user.profile_photo = upload_photo(args['profile_photo'])
@@ -341,7 +331,7 @@ class User_phone_number(Resource):
         user_id = jwt.decode(token, JWT_SECRET_KEY, algorithms=['HS256'])['id']
         with app.app_context():
             user = db.session.query(User).get(user_id)
-            if user and user.status == 0:
+            if user and user.status in (0, 3):
                 if db.session.query(User).filter(User.phone_number == args['phone_number']).first():
                     return make_response(jsonify(code=400, message='该手机号已存在'), 400)
                 if args['code'] != session[f'{args["phone_number"]}']:
@@ -364,11 +354,38 @@ class User_money(Resource):
         user_id = jwt.decode(token, JWT_SECRET_KEY, algorithms=['HS256'])['id']
         with app.app_context():
             user = db.session.query(User).get(user_id)
-            if user and user.status == 0:
+            if user and user.status in (0, 3):
                 user.money = args['money']
                 db.session.commit()
                 logger.debug('修改余额成功')
                 return make_response(jsonify(code=201, message='修改余额成功'), 201)
+            else:
+                return make_response(jsonify(code=403, message='你没有权限'), 403)
+
+
+class Real_name_authentication(Resource):
+    @jwt_required
+    def put(self):
+        parser = reqparse.RequestParser()
+        parser.add_argument('name', type=str, required=True)
+        parser.add_argument('id_card', type=str, required=True)
+        args = parser.parse_args()
+        token = request.headers.get('Authorization')
+        user_id = jwt.decode(token, JWT_SECRET_KEY, algorithms=['HS256'])['id']
+        with app.app_context():
+            user = db.session.query(User).get(user_id)
+            if user and user.status in (0, 3):
+                if session[f'{user_id}_time'] > datetime.datetime.now():
+                    return make_response(jsonify(code=400, message='请勿重复提交'), 400)
+                session[f'{user_id}_time'] = datetime.datetime.now() + datetime.timedelta(days=90)
+                if r_n_a(args['name'], args['id_card']):
+                    user.name = args['name']
+                    user.id_card = args['id_card']
+                    db.session.commit()
+                    logger.debug('实名认证成功')
+                    return make_response(jsonify(code=201, message='实名认证成功'), 201)
+                else:
+                    return make_response(jsonify(code=400, message='实名认证失败'), 400)
             else:
                 return make_response(jsonify(code=403, message='你没有权限'), 403)
 
@@ -437,6 +454,7 @@ api.add_resource(User_password, '/users/password')
 api.add_resource(User_profile_photo, '/users/profile-photo')
 api.add_resource(User_phone_number, '/users/phone-number')
 api.add_resource(User_money, '/users/money')
+api.add_resource(Real_name_authentication, '/users/real-name-authentication')
 api.add_resource(Black_user, '/blacks')
 api.add_resource(Black_money, '/blacks/money')
 api.add_resource(Frozen_user, '/frozen')

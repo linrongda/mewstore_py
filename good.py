@@ -91,7 +91,7 @@ class Good_add(Resource):
         user_id = jwt.decode(token, JWT_SECRET_KEY, algorithms=['HS256'])['id']
         with app.app_context():
             user = db.session.query(User).get(user_id)
-            if user and user.status == 0:
+            if user and user.status in (0, 3):
                 # 查询
                 is_good = db.session.query(Good).filter_by(account=args['account'], game=args['game']).first()
                 # 判断是否存在
@@ -144,7 +144,7 @@ class Good_update(Resource):
         user_id = jwt.decode(token, JWT_SECRET_KEY, algorithms=['HS256'])['id']
         with app.app_context():
             user = db.session.query(User).get(user_id)
-            if user and user.status == 0:
+            if user and user.status in (0, 3):
                 # 查询
                 good = db.session.query(Good).get(args['id'])
                 # 判断是否存在
@@ -195,7 +195,7 @@ class Good_delete(Resource):
         user_id = jwt.decode(token, JWT_SECRET_KEY, algorithms=['HS256'])['id']
         with app.app_context():
             user = db.session.query(User).get(user_id)
-            if user and user.status == 0:
+            if user and user.status in (0, 3):
                 # 查询
                 good = db.session.query(Good).get(id)
                 # 判断是否存在

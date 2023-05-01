@@ -146,7 +146,7 @@ class Good(db.Model):
     price = db.Column(db.Numeric(10, 2))  # 价格
 
 
-class Order(db.Model):
+class Orders(db.Model):
     __tablename__ = "order"
     id = db.Column(db.BigInteger, primary_key=True)
     status = db.Column(db.Integer)  # 订单存在为1，不存在为0
@@ -162,7 +162,7 @@ class Report(db.Model):
     __tablename__ = "report"
     id = db.Column(db.BigInteger, primary_key=True)  # 举报信息的id
     reported_id = db.Column(db.BigInteger)  # 被举报者的id
-    report_order = db.Column(db.Integer)  # 被举报的订单
+    report_order = db.Column(db.BigInteger)  # 被举报的订单
     reporter_id = db.Column(db.BigInteger)  # 举报者的id
     status = db.Column(db.Integer)  # 举报信息的处理情况，-1为未通过，0为未处理，1为通过举报
     content = db.Column(db.Text)  # 举报的原因和描述

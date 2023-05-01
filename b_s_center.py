@@ -4,7 +4,7 @@ import jwt
 from flask import request, jsonify, Blueprint, make_response
 from flask_restful import Api, Resource, reqparse
 
-from api.data import db, Order, app, User, Favorite, Good
+from api.data import db, Orders, app, User, Favorite, Good
 from api.user import jwt_required, JWT_SECRET_KEY
 
 # 定义应用和API
@@ -24,7 +24,7 @@ class Favorite_add(Resource):
         user_id = jwt.decode(token, JWT_SECRET_KEY, algorithms=['HS256'])['id']
         with app.app_context():
             user = db.session.query(User).get(user_id)
-            if user and user.status == 0:
+            if user and user.status in (0, 3):
                 # 查询
                 favorite = db.session.query(Favorite).filter_by(user_id=user.id, good_id=args['good_id']).first()
                 if favorite:
@@ -50,7 +50,7 @@ class Favorite_get(Resource):
         user_id = jwt.decode(token, JWT_SECRET_KEY, algorithms=['HS256'])['id']
         with app.app_context():
             user = db.session.query(User).get(user_id)
-            if user and user.status == 0:
+            if user and user.status in (0, 3):
                 # 查询
                 sql_favorites = db.session.query(Favorite).filter_by(user_id=user.id)
                 favorites = sql_favorites.paginate(page=page, per_page=size).items
@@ -74,9 +74,9 @@ class Purchased(Resource):
         user_id = jwt.decode(token, JWT_SECRET_KEY, algorithms=['HS256'])['id']
         with app.app_context():
             user = db.session.query(User).get(user_id)
-            if user and user.status == 0:
+            if user and user.status in (0, 3):
                 # 查询
-                sql_orders = db.session.query(Order).filter_by(buyer_id=user.id, status=1)
+                sql_orders = db.session.query(Orders).filter_by(buyer_id=user.id, status=1)
                 orders = sql_orders.paginate(page=page, per_page=size).items
                 order_list = []
                 for order in orders:
@@ -91,7 +91,7 @@ class Purchased(Resource):
                 return make_response(jsonify(code=403, message='你没有权限'), 403)
 
 
-class Offered(Resource):
+class Bid(Resource):
     @jwt_required
     def get(self):
         page = request.args.get('page', type=int, default=1)
@@ -100,9 +100,9 @@ class Offered(Resource):
         user_id = jwt.decode(token, JWT_SECRET_KEY, algorithms=['HS256'])['id']
         with app.app_context():
             user = db.session.query(User).get(user_id)
-            if user and user.status == 0:
+            if user and user.status in (0, 3):
                 # 查询
-                sql_orders = db.session.query(Order).filter_by(buyer_id=user.id, status=0)
+                sql_orders = db.session.query(Orders).filter_by(buyer_id=user.id, status=0)
                 orders = sql_orders.paginate(page=page, per_page=size).items
                 order_list = []
                 for order in orders:
@@ -126,7 +126,7 @@ class Sell(Resource):
         user_id = jwt.decode(token, JWT_SECRET_KEY, algorithms=['HS256'])['id']
         with app.app_context():
             user = db.session.query(User).get(user_id)
-            if user and user.status == 0:
+            if user and user.status in (0, 3):
                 # 查询
                 sql_goods = db.session.query(Good).filter_by(seller_id=user.id)
                 goods = sql_goods.paginate(page=page, per_page=size).items
@@ -157,9 +157,9 @@ class Sold(Resource):
         user_id = jwt.decode(token, JWT_SECRET_KEY, algorithms=['HS256'])['id']
         with app.app_context():
             user = db.session.query(User).get(user_id)
-            if user and user.status == 0:
+            if user and user.status in (0, 3):
                 # 查询
-                sql_orders = db.session.query(Order).filter_by(seller_id=user.id, status=1)
+                sql_orders = db.session.query(Orders).filter_by(seller_id=user.id, status=1)
                 orders = sql_orders.paginate(page=page, per_page=size).items
                 order_list = []
                 for order in orders:
@@ -183,9 +183,9 @@ class Selling(Resource):
         user_id = jwt.decode(token, JWT_SECRET_KEY, algorithms=['HS256'])['id']
         with app.app_context():
             user = db.session.query(User).get(user_id)
-            if user and user.status == 0:
+            if user and user.status in (0, 3):
                 # 查询
-                sql_orders = db.session.query(Order).filter_by(buyer_id=user.id, status=0)
+                sql_orders = db.session.query(Orders).filter_by(buyer_id=user.id, status=0)
                 orders = sql_orders.paginate(page=page, per_page=size).items
                 order_list = []
                 for order in orders:
@@ -204,6 +204,6 @@ api.add_resource(Purchased, '/users/purchased')
 api.add_resource(Sell, '/users/goods')
 api.add_resource(Favorite_add, '/users/favorites')
 api.add_resource(Favorite_get, '/users/favorites')
-api.add_resource(Offered, '/users/offered')
+api.add_resource(Bid, '/users/bid')
 api.add_resource(Sold, '/users/sold')
 api.add_resource(Selling, '/users/selling')
