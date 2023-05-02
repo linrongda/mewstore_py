@@ -79,13 +79,13 @@ class Good_add(Resource):
     @jwt_required
     def post(self):
         parser = reqparse.RequestParser()
-        parser.add_argument('game', type=str, required=True, location=['form'])
-        parser.add_argument('title', type=str, required=True, location=['form'])
-        parser.add_argument('content', type=str, required=True, location=['form'])
+        parser.add_argument('game', type=str, required=True, location=['form'], help='游戏名不能为空')
+        parser.add_argument('title', type=str, required=True, location=['form'], help='标题不能为空')
+        parser.add_argument('content', type=str, required=True, location=['form'], help='内容不能为空')
         parser.add_argument('picture', type=FileStorage, location=['files'], action=['append'])
-        parser.add_argument('account', type=str, required=True, location=['form'])
-        parser.add_argument('password', type=str, required=True, location=['form'])
-        parser.add_argument('price', type=float, required=True, location=['form'])
+        parser.add_argument('account', type=str, required=True, location=['form'], help='账号不能为空')
+        parser.add_argument('password', type=str, required=True, location=['form'], help='密码不能为空')
+        parser.add_argument('price', type=float, required=True, location=['form'], help='价格不能为空')
         args = parser.parse_args()
         token = request.headers.get('Authorization')
         user_id = jwt.decode(token, JWT_SECRET_KEY, algorithms=['HS256'])['id']
@@ -130,7 +130,7 @@ class Good_update(Resource):
     @jwt_required
     def patch(self):
         parser = reqparse.RequestParser()
-        parser.add_argument('id', type=int, required=True, location=['form'])
+        parser.add_argument('id', type=int, required=True, location=['form'], help='商品id不能为空')
         parser.add_argument('game', type=str, location=['form'])
         parser.add_argument('title', type=str, location=['form'])
         parser.add_argument('content', type=str, location=['form'])
@@ -189,7 +189,7 @@ class Good_delete(Resource):
     @jwt_required
     def delete(self):
         parser = reqparse.RequestParser()
-        parser.add_argument('id', type=int)
+        parser.add_argument('id', type=int, required=True, help='商品id不能为空')
         id = parser.parse_args().get('id')
         token = request.headers.get('Authorization')
         user_id = jwt.decode(token, JWT_SECRET_KEY, algorithms=['HS256'])['id']
