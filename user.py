@@ -2,6 +2,7 @@ import datetime
 import json
 import logging
 import random
+import re
 
 import jwt
 import qiniu
@@ -52,11 +53,21 @@ def jwt_required(func):
 
 
 class Sms(Resource):
-    def get(self, phone_number):
+    def post(self):
+        parser = reqparse.RequestParser()
+        parser.add_argument('phone_number', type=str, required=True)
+        parser.add_argument('type', type=str, required=True)
+        args = parser.parse_args()
+        if not bool(re.match(r'^1[3-9]\d{9}$', args['phone_number'])):
+            return make_response(jsonify(code=400, message='请输入11位有效的手机号'), 400)
         with app.app_context():
-            if db.session.query(User).filter_by(phone_number=phone_number).first():
-                return make_response(jsonify(code=400, message='该手机号已存在'), 400)
-            if session[f'{phone_number}'] and session[f'{phone_number}_time'] > datetime.datetime.now():
+            if args['type'] == 'register':
+                if User.query.filter_by(phone_number=args['phone_number']).first():
+                    return make_response(jsonify(code=400, message='该手机号已被注册'), 400)
+            if args['type'] == 'login':
+                if not db.session.query(User).filter_by(phone_number=args['phone_number']).first():
+                    return make_response(jsonify(code=404, message='用户不存在'), 404)
+            if session.get(f'{args["phone_number"]}') and session[f'{args["phone_number"]}_time'] > datetime.datetime.now():
                 return make_response(jsonify(code=400, message='请勿重复发送验证码'), 400)
             else:
                 code = ''.join(random.choices('0123456789', k=6))
@@ -65,7 +76,7 @@ class Sms(Resource):
                 send_sms_request = dysmsapi_20170525_models.SendSmsRequest(
                     sign_name='闲猫MewStore',
                     template_code='SMS_460685295',
-                    phone_numbers=phone_number,
+                    phone_numbers=args["phone_number"],
                     template_param='{"code":"%s"}' % code
                 )
                 runtime = util_models.RuntimeOptions()
@@ -74,12 +85,13 @@ class Sms(Resource):
                     response = client.send_sms_with_options(send_sms_request, runtime)
                     print(response)
                     if response.body.code == 'OK':
-                        session[f'{phone_number}'] = code
-                        session[f'{phone_number}_time'] = datetime.datetime.now() + datetime.timedelta(minutes=1)
+                        session[f'{args["phone_number"]}'] = code
+                        session[f'{args["phone_number"]}_time'] = datetime.datetime.now() + datetime.timedelta(
+                            minutes=1)
                         logger.debug('发送验证码成功')
                         return make_response(jsonify(code=200, message='发送成功'), 200)
                     else:
-                        return make_response(jsonify(code=200, message='发送失败'), 200)
+                        return make_response(jsonify(code=400, message='发送失败'), 400)
                 except Exception as error:
                     # 如有需要，请打印 error
                     # UtilClient.assert_as_string(error.message)
@@ -101,12 +113,16 @@ class Register(Resource):
                 return make_response(jsonify(code=400, message='两次输入的密码不一致'), 400)
             if db.session.query(User).filter_by(username=args['username']).first():
                 return make_response(jsonify(code=400, message='用户名已存在'), 400)
-            if len(args['phone_number']) != 11:
+            if not bool(re.match(r'^1[3-9]\d{9}$', args['phone_number'])):
                 return make_response(jsonify(code=400, message='请输入11位有效的手机号'), 400)
             if db.session.query(User).filter_by(phone_number=args['phone_number']).first():
                 return make_response(jsonify(code=400, message='手机号已存在'), 400)
+            if not session.get(f'{args["phone_number"]}_time') or not session.get(f'{args["phone_number"]}'):
+                return make_response(jsonify(code=400, message='请先获取验证码'), 400)
             if args['code'] != session[f'{args["phone_number"]}']:
                 return make_response(jsonify(code=400, message='验证码错误'), 400)
+            if session[f'{args["phone_number"]}_time'] + datetime.timedelta(minutes=4) < datetime.datetime.now():
+                return make_response(jsonify(code=400, message='验证码已过期'), 400)
             else:
                 try:
                     user = User(id=id_generate(1, 1), username=args['username'],
@@ -165,10 +181,20 @@ class Login_Phone(Resource):
         # 获取POST请求参数
         parser = reqparse.RequestParser()
         parser.add_argument('phone_number', type=str, required=True)
+        args = parser.parse_args()
+        if not bool(re.match(r'^1[3-9]\d{9}$', args['phone_number'])):
+            return make_response(jsonify(code=400, message='请输入11位有效的手机号'), 400)
+        with app.app_context():
+            if not db.session.query(User).filter_by(phone_number=args['phone_number']).first():
+                return make_response(jsonify(code=404, message='用户不存在'), 404)
         parser.add_argument('code', type=str, required=True)
         args = parser.parse_args()
+        if not session.get(f'{args["phone_number"]}_time') or not session.get(f'{args["phone_number"]}'):
+            return make_response(jsonify(code=400, message='请先获取验证码'), 400)
         if args['code'] != session[f'{args["phone_number"]}']:
             return make_response(jsonify(code=400, message='验证码错误'), 400)
+        if session[f'{args["phone_number"]}_time'] + datetime.timedelta(minutes=4) < datetime.datetime.now():
+            return make_response(jsonify(code=400, message='验证码已过期'), 400)
         else:
             return after_get_info(args, type='phone')
 
@@ -334,8 +360,12 @@ class User_phone_number(Resource):
             if user and user.status in (0, 3):
                 if db.session.query(User).filter(User.phone_number == args['phone_number']).first():
                     return make_response(jsonify(code=400, message='该手机号已存在'), 400)
+                if not session.get(f'{args["phone_number"]}_time') or not session.get(f'{args["phone_number"]}'):
+                    return make_response(jsonify(code=400, message='请先获取验证码'), 400)
                 if args['code'] != session[f'{args["phone_number"]}']:
                     return make_response(jsonify(code=400, message='验证码错误'), 400)
+                if session[f'{args["phone_number"]}_time'] + datetime.timedelta(minutes=4) < datetime.datetime.now():
+                    return make_response(jsonify(code=400, message='验证码已过期'), 400)
                 user.phone_number = args['phone_number']
                 db.session.commit()
                 logger.debug('修改手机号成功')
@@ -458,4 +488,4 @@ api.add_resource(Real_name_authentication, '/users/real-name-authentication')
 api.add_resource(Black_user, '/blacks')
 api.add_resource(Black_money, '/blacks/money')
 api.add_resource(Frozen_user, '/frozen')
-api.add_resource(Sms, '/sms/<int:phone_number>')
+api.add_resource(Sms, '/sms')

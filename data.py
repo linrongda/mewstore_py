@@ -174,6 +174,14 @@ class Favorite(db.Model):
     good_id = db.Column(db.BigInteger, primary_key=True)
 
 
+# class Freeze(db.Model):
+#     __tablename__ = "freeze"
+#     user_id = db.Column(db.BigInteger)
+#     order_id = db.Column(db.BigInteger)
+#     reason = db.Column(db.Text)
+#     status = db.Column(db.Integer)  # 0为未处理，1为已处理
+
+
 with app.app_context():  # 注意：新版flask操作数据库必须带这个,否则必报错,网上找半天才知道........#
     # db.drop_all()  # 初始化表格，需要时再用
     db.create_all()
