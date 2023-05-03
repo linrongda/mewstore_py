@@ -27,28 +27,30 @@ class User(db.Model):
 class Good(db.Model):
     __tablename__ = "good"
     id = db.Column(db.BigInteger, primary_key=True)
-    view = db.Column(db.Integer)  # 点击量
+    view = db.Column(db.Integer)  # 收藏量
     game = db.Column(db.String(50))  # 游戏
     title = db.Column(db.String(50))  # 账号标题
     content = db.Column(db.Text)  # 账号简介
     picture = db.Column(db.Text)  # 商品图片
     account = db.Column(db.String(50))  # 账号
     password = db.Column(db.String(50))  # 账号密码
-    status = db.Column(db.Integer)  # 商品状态未审核为0，审核通过为1，审核不通过为-1,被下架为2，已售出为3
+    add_time = db.Column(db.TIMESTAMP)  # 添加时间
+    status = db.Column(db.Integer)  # 商品状态未审核为0，审核通过为1，审核不通过为-1,被下架为2，已售出或已出价为3
     seller_id = db.Column(db.BigInteger)  # 卖家id
     price = db.Column(db.Numeric(10, 2))  # 价格
 
 
-class Orders(db.Model):
-    __tablename__ = "orders"
-    id = db.Column(db.BigInteger, primary_key=True)
-    status = db.Column(db.Integer)  # 订单存在为1，不存在为0
-    buyer_id = db.Column(db.BigInteger)  # 买方id
-    seller_id = db.Column(db.BigInteger)  # 卖方id
-    good_id = db.Column(db.BigInteger)  # 商品id
-    buyer_status = db.Column(db.Integer)  # 买方付款为1，未付款为0
-    seller_status = db.Column(db.Integer)  # 卖方确认订单为1，未确认为0,拒绝为-1
-    price = db.Column(db.Numeric(10, 2))  # 价格
+# class Orders(db.Model):
+#     __tablename__ = "orders"
+#     id = db.Column(db.BigInteger, primary_key=True)
+#     status = db.Column(db.Integer)  # 订单存在为1，不存在为0
+#     buyer_id = db.Column(db.BigInteger)  # 买方id
+#     seller_id = db.Column(db.BigInteger)  # 卖方id
+#     good_id = db.Column(db.BigInteger)  # 商品id
+#     generate_time = db.Column(db.TIMESTAMP)  # 生成订单的时间
+#     buyer_status = db.Column(db.Integer)  # 买方付款为1，未付款为0
+#     seller_status = db.Column(db.Integer)  # 卖方确认订单为1，未确认为0,拒绝为-1
+#     price = db.Column(db.Numeric(10, 2))  # 价格
 
 
 class Report(db.Model):
@@ -69,12 +71,12 @@ class Favorite(db.Model):
 
 # class Freeze(db.Model):
 #     __tablename__ = "freeze"
-#     user_id = db.Column(db.BigInteger)
-#     order_id = db.Column(db.BigInteger)
+#     user_id = db.Column(db.BigInteger, primary_key=True)
+#     order_id = db.Column(db.BigInteger, primary_key=True)
 #     reason = db.Column(db.Text)
 #     status = db.Column(db.Integer)  # 0为未处理，1为已处理
 
 
-with app.app_context():  # 注意：新版flask操作数据库必须带这个,否则必报错,网上找半天才知道........#
-    # db.drop_all()  # 初始化表格，需要时再用
-    db.create_all()
+# with app.app_context():  # 注意：新版flask操作数据库必须带这个,否则必报错,网上找半天才知道........#
+#     # db.drop_all()  # 初始化表格，需要时再用
+#     db.create_all()

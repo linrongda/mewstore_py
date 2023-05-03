@@ -73,7 +73,7 @@ class Sms(Resource):
                 if User.query.filter_by(phone_number=args['phone_number']).first():
                     return make_response(jsonify(code=400, message='该手机号已被使用'), 400)
             if session.get(f'{args["phone_number"]}') and session[
-                f'{args["phone_number"]}_time'] > datetime.datetime.now():
+                f'{args["phone_number"]}_time'] > datetime.datetime.utcnow():
                 return make_response(jsonify(code=400, message='请勿重复发送验证码'), 400)
             else:
                 code = ''.join(random.choices('0123456789', k=6))
@@ -92,7 +92,7 @@ class Sms(Resource):
                     print(response)
                     if response.body.code == 'OK':
                         session[f'{args["phone_number"]}'] = code
-                        session[f'{args["phone_number"]}_time'] = datetime.datetime.now() + datetime.timedelta(
+                        session[f'{args["phone_number"]}_time'] = datetime.datetime.utcnow() + datetime.timedelta(
                             minutes=1)
                         logger.debug('发送验证码成功')
                         return make_response(jsonify(code=200, message='发送成功'), 200)
@@ -111,7 +111,7 @@ class Register(Resource):
         parser.add_argument('password', type=str, required=True, help='请输入密码')
         parser.add_argument('check_password', type=str, required=True, help='请输入确认密码')
         parser.add_argument('phone_number', type=str, required=True, help='请输入手机号')
-        parser.add_argument('status', type=int, required=True, help='请输入用户状态')
+        # parser.add_argument('status', type=int, required=True, help='请输入用户状态')
         parser.add_argument('code', type=str, required=True, help='请输入验证码')
         args = parser.parse_args()
         with app.app_context():
@@ -127,14 +127,14 @@ class Register(Resource):
                 return make_response(jsonify(code=400, message='请先获取验证码'), 400)
             if args['code'] != session[f'{args["phone_number"]}']:
                 return make_response(jsonify(code=400, message='验证码错误'), 400)
-            if session[f'{args["phone_number"]}_time'] + datetime.timedelta(minutes=4) < datetime.datetime.now():
+            if session[f'{args["phone_number"]}_time'] + datetime.timedelta(minutes=4) < datetime.datetime.utcnow():
                 return make_response(jsonify(code=400, message='验证码已过期'), 400)
             else:
                 try:
                     user = User(id=id_generate(1, 1), username=args['username'],
                                 password=generate_password_hash(args['password']),
                                 phone_number=args['phone_number'],
-                                status=args['status'])
+                                status=0)
                     db.session.add(user)
                     db.session.commit()
                     logger.debug('注册成功')
@@ -195,7 +195,7 @@ class Login_Phone(Resource):
             return make_response(jsonify(code=400, message='请先获取验证码'), 400)
         if args['code'] != session[f'{args["phone_number"]}']:
             return make_response(jsonify(code=400, message='验证码错误'), 400)
-        if session[f'{args["phone_number"]}_time'] + datetime.timedelta(minutes=4) < datetime.datetime.now():
+        if session[f'{args["phone_number"]}_time'] + datetime.timedelta(minutes=4) < datetime.datetime.utcnow():
             return make_response(jsonify(code=400, message='验证码已过期'), 400)
         else:
             return after_get_info(args, type='phone')
@@ -251,7 +251,7 @@ class User_get(Resource):
                     profile_photo_url = 'http://rtqcx0dtq.bkt.clouddn.com/' + user.profile_photo
                 else:
                     profile_photo_url = None
-                    name = user.name[0] + '*' * (len(user.name) - 1) if user.name else None
+                    name = '*' * (len(user.name) - 1) + user.name[-1] if user.name else None
                     id_card = user.id_card[0] + '*' * (len(user.id_card) - 2) + user.id_card[
                         -1] if user.id_card else None
                 user_info = {'id': user.id, 'nickname': user.nickname, 'username': user.username,
@@ -369,7 +369,7 @@ class User_phone_number(Resource):
                     return make_response(jsonify(code=400, message='请先获取验证码'), 400)
                 if args['code'] != session[f'{args["phone_number"]}']:
                     return make_response(jsonify(code=400, message='验证码错误'), 400)
-                if session[f'{args["phone_number"]}_time'] + datetime.timedelta(minutes=4) < datetime.datetime.now():
+                if session[f'{args["phone_number"]}_time'] + datetime.timedelta(minutes=4) < datetime.datetime.utcnow():
                     return make_response(jsonify(code=400, message='验证码已过期'), 400)
                 user.phone_number = args['phone_number']
                 db.session.commit()
@@ -430,9 +430,9 @@ class Real_name_authentication(Resource):
                     return make_response(jsonify(code=400, message='你已经实名认证过了'), 400)
                 if db.session.query(User).filter_by(name=args['name'], id_card=args['id_card']).first():
                     return make_response(jsonify(code=400, message='该身份证已被使用'), 400)
-                if session.get(f'{user_id}_time') and session[f'{user_id}_time'] > datetime.datetime.now():
+                if session.get(f'{user_id}_time') and session[f'{user_id}_time'] > datetime.datetime.utcnow():
                     return make_response(jsonify(code=400, message='请勿重复提交'), 400)
-                session[f'{user_id}_time'] = datetime.datetime.now() + datetime.timedelta(days=90)
+                session[f'{user_id}_time'] = datetime.datetime.utcnow() + datetime.timedelta(days=90)
                 if r_n_a(args['name'], args['id_card']):
                     user.name = args['name']
                     user.id_card = args['id_card']

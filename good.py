@@ -1,4 +1,5 @@
 import logging
+from datetime import datetime
 
 import jwt
 from flask import request, jsonify, Blueprint, make_response
@@ -60,8 +61,6 @@ class Good_get(Resource):
                 return make_response(jsonify(code=404, message='商品不存在'), 404)
             # 获取商品信息
             else:
-                good.view += 1
-                db.session.commit()
                 picture_urls = good.picture.split(',')
                 picture_url = []
                 for picture in picture_urls:
@@ -113,7 +112,7 @@ class Good_add(Resource):
                     good = Good(id=id_generate(1, 2), view=0, game=args['game'],
                                 title=args['title'], content=args['content'], picture=pictures,
                                 account=args['account'], password=encrypted_password, status=0,
-                                seller_id=user.id, price=args['price'])
+                                seller_id=user.id, price=args['price'], add_time=datetime.utcnow())
                     # 提交修改
                     db.session.add(good)
                     db.session.commit()
@@ -157,7 +156,7 @@ class Good_update(Resource):
                     good.content = args['content']
                 if args['title']:
                     good.title = args['title']
-                if args['picture']:  # 此处不能删除照片，防止有人的头像是某人的商品图（有可能），从而把头像删了
+                if args['picture']:  # 此处不能删除照片，防止有人的头像或商品图是这里的商品图（有可能），从而把头像删了
                     if isinstance(args['picture'], list):
                         picture_list = []
                         for picture in args['picture']:

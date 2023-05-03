@@ -25,7 +25,7 @@ class HomePage(Resource):
             for good in goods:
                 good_dict = {"id": good.id, "view": good.view, "content": good.content, "game": good.game,
                              "title": good.title, "picture": good.picture, "status": good.status,
-                             "seller_id": good.seller_id, "price": good.price}
+                             'add_time': good.add_time, "seller_id": good.seller_id, "price": good.price}
                 good_list.append(good_dict)
             logger.debug('获取商品成功')
             # 返回结果
@@ -54,7 +54,7 @@ class Search(Resource):
             for good in goods:
                 good_dict = {"id": good.id, "view": good.view, "content": good.content, "game": good.game,
                              "title": good.title, "picture": good.picture, "status": good.status,
-                             "seller_id": good.seller_id}
+                             'add_time': good.add_time, "seller_id": good.seller_id}
                 good_list.append(good_dict)
             if not good_list:
                 return make_response(jsonify(code=404, message='找不到有关的商品'), 404)
