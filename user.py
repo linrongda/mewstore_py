@@ -363,6 +363,8 @@ class User_phone_number(Resource):
         with app.app_context():
             user = db.session.query(User).get(user_id)
             if user and user.status in (0, 3):
+                if not bool(re.match(r'^1[3-9]\d{9}$', args['phone_number'])):
+                    return make_response(jsonify(code=400, message='请输入11位有效的手机号'), 400)
                 if db.session.query(User).filter(User.phone_number == args['phone_number']).first():
                     return make_response(jsonify(code=400, message='该手机号已被使用'), 400)
                 if not session.get(f'{args["phone_number"]}_time') or not session.get(f'{args["phone_number"]}'):
@@ -426,6 +428,9 @@ class Real_name_authentication(Resource):
         with app.app_context():
             user = db.session.query(User).get(user_id)
             if user and user.status in (0, 3):
+                if not bool(re.match(r'^[1-9]\d{5}(19\d{2}|2\d{3})(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])\d{3}[0-9Xx]$',
+                                     args['id_card'])):
+                    return make_response(jsonify(code=400, message='请输入18位正确的身份证号'), 400)
                 if user.name and user.id_card:
                     return make_response(jsonify(code=400, message='你已经实名认证过了'), 400)
                 if db.session.query(User).filter_by(name=args['name'], id_card=args['id_card']).first():

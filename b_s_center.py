@@ -58,7 +58,7 @@ class Favorite_get(Resource):
                 # 查询
                 sql_favorites = db.session.query(Favorite).filter_by(user_id=user.id)
                 favorites = sql_favorites.paginate(page=page, per_page=size).items
-                favorite_list = []  # 这里需要前端通过id查询具体信息，可能需要修改
+                favorite_list = []
                 for favorite in favorites:
                     good = db.session.query(Good).get(favorite.good_id)
                     favorite_dict = {'id': good.id, 'view': good.view, 'game': good.game,
