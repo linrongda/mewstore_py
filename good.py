@@ -1,14 +1,13 @@
 import logging
 from datetime import datetime
 
-import jwt
 from flask import request, jsonify, Blueprint, make_response
 from flask_restful import Api, Resource, reqparse
 from werkzeug.datastructures import FileStorage
 
 from api.data import db, Good, app, User
 from api.snowflake import id_generate
-from api.user import jwt_required, JWT_SECRET_KEY, upload_photo
+from api.user import jwt_required, upload_photo
 
 # 定义应用和API
 good = Blueprint('good', __name__)
@@ -61,13 +60,16 @@ class Good_get(Resource):
                 return make_response(jsonify(code=404, message='商品不存在'), 404)
             # 获取商品信息
             else:
-                picture_urls = good.picture.split(',')
-                picture_url = []
-                for picture in picture_urls:
-                    picture = 'http://rtqcx0dtq.bkt.clouddn.com/' + picture
-                    picture_url.append(picture)
-                good_info = {'id': good.id, 'view': good.view, 'game': good.game,
-                             'title': good.title, 'content': good.content, 'picture_url': picture_url,
+                if not good.picture:
+                    picture_url = None
+                else:
+                    picture_urls = good.picture.split(',')
+                    picture_url = []
+                    for picture in picture_urls:
+                        picture = 'http://rtqcx0dtq.bkt.clouddn.com/' + picture
+                        picture_url.append(picture)
+                good_info = {'id': good.id, 'view': good.view, 'game': good.game, 'title': good.title,
+                             'content': good.content, 'picture_url': picture_url, 'add_time': good.add_time,
                              'status': good.status, 'seller_id': good.seller_id, 'price': good.price}
                 logger.debug('获取商品信息成功')
                 # 返回结果
@@ -81,15 +83,14 @@ class Good_add(Resource):
         parser.add_argument('game', type=str, required=True, location=['form'], help='游戏名不能为空')
         parser.add_argument('title', type=str, required=True, location=['form'], help='标题不能为空')
         parser.add_argument('content', type=str, required=True, location=['form'], help='内容不能为空')
-        parser.add_argument('picture', type=FileStorage, location=['files'], action=['append'], help='请上传有效格式的图片')
+        parser.add_argument('picture', type=FileStorage, location=['files'], action=['append'],
+                            help='请上传有效格式的图片')
         parser.add_argument('account', type=str, required=True, location=['form'], help='账号不能为空')
         parser.add_argument('password', type=str, required=True, location=['form'], help='密码不能为空')
         parser.add_argument('price', type=float, required=True, location=['form'], help='价格不能为空')
         args = parser.parse_args()
-        token = request.headers.get('Authorization')
-        user_id = jwt.decode(token, JWT_SECRET_KEY, algorithms=['HS256'])['id']
         with app.app_context():
-            user = db.session.query(User).get(user_id)
+            user = db.session.query(User).get(request.payload_id)
             if user and user.status in (0, 3):
                 # 查询
                 is_good = db.session.query(Good).filter_by(account=args['account'], game=args['game']).first()
@@ -100,15 +101,15 @@ class Good_add(Resource):
                     # 使用 CBC 模式对密码进行加密
                     encrypted_password = encrypt_aes_cbc(args['password'])
                     # 创建商品
-                    if isinstance(args['picture'], list):
-                        picture_list = []
-                        for picture in args['picture']:
-                            picture = upload_photo(picture)
-                            picture_list.append(picture)
-                        pictures = ','.join(picture_list)
-                    else:
-                        picture = upload_photo(args['picture'])
-                        pictures = picture
+                    if args['picture']:
+                        if isinstance(args['picture'], list):
+                            picture_list = []
+                            for picture in args['picture']:
+                                picture = upload_photo(picture)
+                                picture_list.append(picture)
+                            pictures = ','.join(picture_list)
+                        else:
+                            pictures = upload_photo(args['picture'])
                     good = Good(id=id_generate(1, 2), view=0, game=args['game'],
                                 title=args['title'], content=args['content'], picture=pictures,
                                 account=args['account'], password=encrypted_password, status=0,
@@ -133,16 +134,15 @@ class Good_update(Resource):
         parser.add_argument('game', type=str, location=['form'])
         parser.add_argument('title', type=str, location=['form'])
         parser.add_argument('content', type=str, location=['form'])
-        parser.add_argument('picture', type=FileStorage, action=['append'], location=['files'], help='请上传有效格式的图片')
+        parser.add_argument('picture', type=FileStorage, action=['append'], location=['files'],
+                            help='请上传有效格式的图片')
         parser.add_argument('account', type=str, location=['form'])
         parser.add_argument('password', type=str, location=['form'])
         parser.add_argument('status', type=int, location=['form'])
         parser.add_argument('price', type=float, location=['form'])
         args = parser.parse_args()
-        token = request.headers.get('Authorization')
-        user_id = jwt.decode(token, JWT_SECRET_KEY, algorithms=['HS256'])['id']
         with app.app_context():
-            user = db.session.query(User).get(user_id)
+            user = db.session.query(User).get(request.payload_id)
             if user and user.status in (0, 3):
                 # 查询
                 good = db.session.query(Good).get(args['id'])
@@ -190,10 +190,8 @@ class Good_delete(Resource):
         parser = reqparse.RequestParser()
         parser.add_argument('id', type=int, required=True, help='商品id不能为空')
         id = parser.parse_args().get('id')
-        token = request.headers.get('Authorization')
-        user_id = jwt.decode(token, JWT_SECRET_KEY, algorithms=['HS256'])['id']
         with app.app_context():
-            user = db.session.query(User).get(user_id)
+            user = db.session.query(User).get(request.payload_id)
             if user and user.status in (0, 3):
                 # 查询
                 good = db.session.query(Good).get(id)

@@ -37,10 +37,9 @@ def jwt_required(func):
         if token:
             try:
                 # 使用JWT密钥验证JWT令牌
-                payload = jwt.decode(token, JWT_SECRET_KEY, algorithms=['HS256'])
+                request.payload_id = jwt.decode(token, JWT_SECRET_KEY, algorithms=['HS256'])['id']
                 # # 在请求的上下文中保存JWT负载
                 logger.debug('解析token成功')
-                request.jwt_payload = payload
                 return func(*args, **kwargs)
             except jwt.ExpiredSignatureError:
                 return make_response(jsonify(code=401, message='登录信息过期'), 401)
@@ -147,28 +146,23 @@ def after_get_info(args, login_type=None):
     with app.app_context():
         # 验证用户登录信息
         if login_type == 'username':
-            user = db.session.query(User).filter_by(username=args['username']).first()
-            if user and check_password_hash(user.password, args['password']):
-                # 构建JWT负载
-                payload = {'exp': datetime.datetime.utcnow() + JWT_EXPIRATION_DELTA, 'iat': datetime.datetime.utcnow(),
-                           'id': user.id, 'status': user.status}
-                # 生成JWT令牌
-                token = jwt.encode(payload, JWT_SECRET_KEY, algorithm='HS256')
-                logger.debug('登录成功')
-                return make_response(jsonify(code=200, message='登录成功', token=token, status=user.status), 200)
-            return make_response(jsonify(code=401, message='用户名或密码错误'), 401)
+            is_user = db.session.query(User).filter_by(username=args['username']).first()
+            if is_user and check_password_hash(is_user.password, args['password']):
+                user = is_user
+            else:
+                return make_response(jsonify(code=401, message='用户名或密码错误'), 401)
         if login_type == 'phone':
-            if user := db.session.query(User).filter_by(phone_number=args['phone_number']).first():
-                # 构建JWT负载
-                payload = {'exp': datetime.datetime.utcnow() + JWT_EXPIRATION_DELTA, 'iat': datetime.datetime.utcnow(),
-                           'id': user.id, 'status': user.status}
-                # 生成JWT令牌
-                token = jwt.encode(payload, JWT_SECRET_KEY, algorithm='HS256')
-                logger.debug('登录成功')
-                return make_response(jsonify(code=200, message='登录成功', token=token, status=user.status), 200)
-            return make_response(jsonify(code=401, message='用户不存在'), 401)
-        else:
-            return make_response(jsonify(code=400, message='请求参数错误'), 400)
+            if is_user := db.session.query(User).filter_by(phone_number=args['phone_number']).first():
+                user = is_user
+            else:
+                return make_response(jsonify(code=401, message='用户不存在'), 401)
+        # 构建JWT负载
+        payload = {'exp': datetime.datetime.utcnow() + JWT_EXPIRATION_DELTA, 'iat': datetime.datetime.utcnow(),
+                   'id': user.id, 'status': user.status}
+        # 生成JWT令牌
+        token = jwt.encode(payload, JWT_SECRET_KEY, algorithm='HS256')
+        logger.debug('登录成功')
+        return make_response(jsonify(code=200, message='登录成功', token=token, status=user.status), 200)
 
 
 # 定义用户登录接口
@@ -242,10 +236,8 @@ def r_n_a(name, id_card):
 class User_get(Resource):
     @jwt_required
     def get(self):
-        token = request.headers.get('Authorization')
-        user_id = jwt.decode(token, JWT_SECRET_KEY, algorithms=['HS256'])['id']
         with app.app_context():
-            user = db.session.query(User).get(user_id)
+            user = db.session.query(User).get(request.payload_id)
             if user and user.status in range(0, 4):
                 if user.profile_photo:
                     profile_photo_url = 'http://rtqcx0dtq.bkt.clouddn.com/' + user.profile_photo
@@ -269,10 +261,8 @@ class User_nickname(Resource):
         parser = reqparse.RequestParser()
         parser.add_argument('nickname', type=str, required=True, help='请输入昵称')
         args = parser.parse_args()
-        token = request.headers.get('Authorization')
-        user_id = jwt.decode(token, JWT_SECRET_KEY, algorithms=['HS256'])['id']
         with app.app_context():
-            user = db.session.query(User).get(user_id)
+            user = db.session.query(User).get(request.payload_id)
             if user and user.status in (0, 3):
                 user.nickname = args['nickname']
                 db.session.commit()
@@ -288,10 +278,8 @@ class User_username(Resource):
         parser = reqparse.RequestParser()
         parser.add_argument('username', type=str, required=True, help='请输入用户名')
         args = parser.parse_args()
-        token = request.headers.get('Authorization')
-        user_id = jwt.decode(token, JWT_SECRET_KEY, algorithms=['HS256'])['id']
         with app.app_context():
-            user = db.session.query(User).get(user_id)
+            user = db.session.query(User).get(request.payload_id)
             if user and user.status in (0, 3):
                 if db.session.query(User).filter(User.username == args['username']).first():
                     return make_response(jsonify(code=400, message='该用户名已存在'), 400)
@@ -311,10 +299,8 @@ class User_password(Resource):
         parser.add_argument('password', type=str, required=True, help='请输入新密码')
         parser.add_argument('check_password', type=str, required=True, help='请输入确认密码')
         args = parser.parse_args()
-        token = request.headers.get('Authorization')
-        user_id = jwt.decode(token, JWT_SECRET_KEY, algorithms=['HS256'])['id']
         with app.app_context():
-            user = db.session.query(User).get(user_id)
+            user = db.session.query(User).get(request.payload_id)
             if user and user.status in (0, 3):
                 if check_password_hash(user.password, args['old_password']):
                     if args['password'] == args['check_password']:
@@ -336,10 +322,8 @@ class User_profile_photo(Resource):
         parser = reqparse.RequestParser()
         parser.add_argument('profile_photo', type=FileStorage, location=['files'], required=True, help='请上传头像')
         args = parser.parse_args()
-        token = request.headers.get('Authorization')
-        user_id = jwt.decode(token, JWT_SECRET_KEY, algorithms=['HS256'])['id']
         with app.app_context():
-            user = db.session.query(User).get(user_id)
+            user = db.session.query(User).get(request.payload_id)
             if user and user.status in (0, 3):
                 # if user.profile_photo:
                 #     delete_photo(user.profile_photo)
@@ -358,10 +342,8 @@ class User_phone_number(Resource):
         parser.add_argument('phone_number', type=str, required=True, help='请输入手机号')
         parser.add_argument('code', type=str, required=True, help='请输入验证码')
         args = parser.parse_args()
-        token = request.headers.get('Authorization')
-        user_id = jwt.decode(token, JWT_SECRET_KEY, algorithms=['HS256'])['id']
         with app.app_context():
-            user = db.session.query(User).get(user_id)
+            user = db.session.query(User).get(request.payload_id)
             if user and user.status in (0, 3):
                 if not bool(re.match(r'^1[3-9]\d{9}$', args['phone_number'])):
                     return make_response(jsonify(code=400, message='请输入11位有效的手机号'), 400)
@@ -390,10 +372,8 @@ class User_money(Resource):
         args = parser.parse_args()
         if args['type'] not in ('recharge', 'withdrawal'):
             return make_response(jsonify(code=400, message='type参数错误'), 400)
-        token = request.headers.get('Authorization')
-        user_id = jwt.decode(token, JWT_SECRET_KEY, algorithms=['HS256'])['id']
         with app.app_context():
-            user = db.session.query(User).get(user_id)
+            user = db.session.query(User).get(request.payload_id)
             if user and user.status in (0, 1, 3):
                 if user.money is None:
                     user.money = 0
@@ -423,8 +403,7 @@ class Real_name_authentication(Resource):
         parser.add_argument('name', type=str, required=True, help='请输入姓名')
         parser.add_argument('id_card', type=str, required=True, help='请输入身份证号')
         args = parser.parse_args()
-        token = request.headers.get('Authorization')
-        user_id = jwt.decode(token, JWT_SECRET_KEY, algorithms=['HS256'])['id']
+        user_id = request.payload_id
         with app.app_context():
             user = db.session.query(User).get(user_id)
             if user and user.status in (0, 3):
@@ -435,7 +414,8 @@ class Real_name_authentication(Resource):
                     return make_response(jsonify(code=400, message='你已经实名认证过了'), 400)
                 if db.session.query(User).filter_by(name=args['name'], id_card=args['id_card']).first():
                     return make_response(jsonify(code=400, message='该身份证已被使用'), 400)
-                if session.get(f'{user_id}_time') and session[f'{user_id}_time'] > datetime.datetime.utcnow():
+                if session.get(f'{user_id}_time') and \
+                        session[f'{user_id}_time'] > datetime.datetime.utcnow():
                     return make_response(jsonify(code=400, message='请勿重复提交'), 400)
                 session[f'{user_id}_time'] = datetime.datetime.utcnow() + datetime.timedelta(days=90)
                 if r_n_a(args['name'], args['id_card']):

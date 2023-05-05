@@ -20,10 +20,8 @@ class Favorite_add(Resource):
         parser = reqparse.RequestParser()
         parser.add_argument('good_id', type=int, required=True, help='商品id必须提供')
         args = parser.parse_args()
-        token = request.headers.get('Authorization')
-        user_id = jwt.decode(token, JWT_SECRET_KEY, algorithms=['HS256'])['id']
         with app.app_context():
-            user = db.session.query(User).get(user_id)
+            user = db.session.query(User).get(request.payload_id)
             if user and user.status in (0, 3):
                 # 查询
                 favorite = db.session.query(Favorite).filter_by(user_id=user.id, good_id=args['good_id']).first()
@@ -50,10 +48,8 @@ class Favorite_get(Resource):
     def get(self):
         page = request.args.get('page', type=int, default=1)
         size = request.args.get('size', type=int, default=4)
-        token = request.headers.get('Authorization')
-        user_id = jwt.decode(token, JWT_SECRET_KEY, algorithms=['HS256'])['id']
         with app.app_context():
-            user = db.session.query(User).get(user_id)
+            user = db.session.query(User).get(request.payload_id)
             if user and user.status in (0, 3):
                 # 查询
                 sql_favorites = db.session.query(Favorite).filter_by(user_id=user.id)
@@ -78,21 +74,22 @@ class Sell(Resource):
     def get(self):
         page = request.args.get('page', type=int, default=1)
         size = request.args.get('size', type=int, default=4)
-        token = request.headers.get('Authorization')
-        user_id = jwt.decode(token, JWT_SECRET_KEY, algorithms=['HS256'])['id']
         with app.app_context():
-            user = db.session.query(User).get(user_id)
+            user = db.session.query(User).get(request.payload_id)
             if user and user.status in (0, 3):
                 # 查询
                 sql_goods = db.session.query(Good).filter_by(seller_id=user.id)
                 goods = sql_goods.paginate(page=page, per_page=size).items
                 good_list = []
                 for good in goods:
-                    picture_urls = good.picture.split(',')
-                    picture_url = []
-                    for picture in picture_urls:
-                        picture = 'http://rtqcx0dtq.bkt.clouddn.com/' + picture
-                        picture_url.append(picture)
+                    if not good.picture:
+                        picture_url = None
+                    else:
+                        picture_urls = good.picture.split(',')
+                        picture_url = []
+                        for picture in picture_urls:
+                            picture = 'http://rtqcx0dtq.bkt.clouddn.com/' + picture
+                            picture_url.append(picture)
                     good_dict = {'id': good.id, 'view': good.view, 'game': good.game, 'title': good.title,
                                  'content': good.content, 'picture_url': picture_url, 'add_time': good.add_time,
                                  'status': good.status, 'seller_id': good.seller_id, 'price': good.price}
