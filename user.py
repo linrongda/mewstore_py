@@ -72,8 +72,8 @@ class Sms(Resource):
             if args['type'] == 'modify':
                 if User.query.filter_by(phone_number=args['phone_number']).first():
                     return make_response(jsonify(code=400, message='该手机号已被使用'), 400)
-            if session.get(f'{args["phone_number"]}') and session[
-                f'{args["phone_number"]}_time'] > datetime.datetime.utcnow():
+            if session.get(f'{args["phone_number"]}') and \
+                    session[f'{args["phone_number"]}_time'] > datetime.datetime.utcnow():
                 return make_response(jsonify(code=400, message='请勿重复发送验证码'), 400)
             else:
                 code = ''.join(random.choices('0123456789', k=6))
@@ -92,8 +92,8 @@ class Sms(Resource):
                     print(response)
                     if response.body.code == 'OK':
                         session[f'{args["phone_number"]}'] = code
-                        session[f'{args["phone_number"]}_time'] = datetime.datetime.utcnow() + datetime.timedelta(
-                            minutes=1)
+                        session[f'{args["phone_number"]}_time'] = \
+                            datetime.datetime.utcnow() + datetime.timedelta(minutes=1)
                         logger.debug('发送验证码成功')
                         return make_response(jsonify(code=200, message='发送成功'), 200)
                     else:
@@ -143,10 +143,10 @@ class Register(Resource):
                     return make_response(jsonify(code=400, message=f'发生未知错误：{e}'), 400)
 
 
-def after_get_info(args, type=None):
+def after_get_info(args, login_type=None):
     with app.app_context():
         # 验证用户登录信息
-        if type == 'username':
+        if login_type == 'username':
             user = db.session.query(User).filter_by(username=args['username']).first()
             if user and check_password_hash(user.password, args['password']):
                 # 构建JWT负载
@@ -157,7 +157,7 @@ def after_get_info(args, type=None):
                 logger.debug('登录成功')
                 return make_response(jsonify(code=200, message='登录成功', token=token, status=user.status), 200)
             return make_response(jsonify(code=401, message='用户名或密码错误'), 401)
-        if type == 'phone':
+        if login_type == 'phone':
             if user := db.session.query(User).filter_by(phone_number=args['phone_number']).first():
                 # 构建JWT负载
                 payload = {'exp': datetime.datetime.utcnow() + JWT_EXPIRATION_DELTA, 'iat': datetime.datetime.utcnow(),
@@ -179,7 +179,7 @@ class Login_Username(Resource):
         parser.add_argument('username', type=str, required=True, help='请输入用户名')
         parser.add_argument('password', type=str, required=True, help='请输入密码')
         args = parser.parse_args()
-        return after_get_info(args, type='username')
+        return after_get_info(args, login_type='username')
 
 
 class Login_Phone(Resource):
@@ -198,7 +198,7 @@ class Login_Phone(Resource):
         if session[f'{args["phone_number"]}_time'] + datetime.timedelta(minutes=4) < datetime.datetime.utcnow():
             return make_response(jsonify(code=400, message='验证码已过期'), 400)
         else:
-            return after_get_info(args, type='phone')
+            return after_get_info(args, login_type='phone')
 
 
 def upload_photo(photo):

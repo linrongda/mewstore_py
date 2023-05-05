@@ -52,10 +52,10 @@ def decrypt_aes_cbc(encrypted_data):
 
 
 class Good_get(Resource):
-    def get(self, id):
+    def get(self, good_id):
         with app.app_context():
             # 查询
-            good = db.session.query(Good).get(id)
+            good = db.session.query(Good).get(good_id)
             # 判断是否存在
             if not good:
                 return make_response(jsonify(code=404, message='商品不存在'), 404)
@@ -211,7 +211,7 @@ class Good_delete(Resource):
                 return make_response(jsonify(code=403, message='你没有权限'), 403)
 
 
-api.add_resource(Good_get, '/goods/<int:id>')
+api.add_resource(Good_get, '/goods/<int:good_id>')
 api.add_resource(Good_add, '/goods')
 api.add_resource(Good_update, '/goods')
 api.add_resource(Good_delete, '/goods')

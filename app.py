@@ -1,9 +1,12 @@
+import logging
+
 from flask import Flask
 from flask_cors import CORS
-from api.user import user
-from api.good import good
+
 from api.b_s_center import b_s_center
+from api.good import good
 from api.home_page import home_page
+from api.user import user
 
 app = Flask(__name__)
 app.secret_key = 'mewstore'
@@ -12,8 +15,6 @@ app.register_blueprint(user)  # 注册蓝图
 app.register_blueprint(good)  # 注册蓝图
 app.register_blueprint(b_s_center)  # 注册蓝图
 app.register_blueprint(home_page)  # 注册蓝图
-
-import logging
 
 logger = logging.getLogger()
 logger.setLevel(level=logging.DEBUG)  # 设置日志级别为DEBUG
