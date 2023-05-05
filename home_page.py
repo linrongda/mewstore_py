@@ -5,6 +5,7 @@ from flask_restful import Api, Resource
 from sqlalchemy import or_
 
 from api.data import db, app, Good
+from api.good import time_transform
 
 # 定义应用和API
 home_page = Blueprint('home_page', __name__)
@@ -33,7 +34,8 @@ class HomePage(Resource):
                         picture_url.append(picture)
                 good_dict = {"id": good.id, "view": good.view, "content": good.content, "game": good.game,
                              "title": good.title, "picture_url": picture_url, "status": good.status,
-                             'add_time': good.add_time, "seller_id": good.seller_id, "price": good.price}
+                             'add_time': time_transform(good.add_time), "seller_id": good.seller_id,
+                             "price": good.price}
                 good_list.append(good_dict)
             if not good_list:
                 return make_response(jsonify(code=404, message='找不到在售的商品'), 404)
@@ -72,7 +74,8 @@ class Search(Resource):
                         picture_url.append(picture)
                 good_dict = {"id": good.id, "view": good.view, "content": good.content, "game": good.game,
                              "title": good.title, "picture_url": picture_url, "status": good.status,
-                             'add_time': good.add_time, "seller_id": good.seller_id}
+                             'add_time': time_transform(good.add_time), "seller_id": good.seller_id,
+                             'price': good.price}
                 good_list.append(good_dict)
             if not good_list:
                 return make_response(jsonify(code=404, message='找不到有关的商品'), 404)

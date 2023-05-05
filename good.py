@@ -1,5 +1,5 @@
 import logging
-from datetime import datetime
+import datetime
 
 from flask import request, jsonify, Blueprint, make_response
 from flask_restful import Api, Resource, reqparse
@@ -50,6 +50,12 @@ def decrypt_aes_cbc(encrypted_data):
     return decrypted_data[:-decrypted_data[-1]].decode('utf-8')
 
 
+def time_transform(timestamp):
+    local_time = timestamp + datetime.timedelta(hours=8)  # 加上8小时是因为中国位于UTC+8时区
+    local_time_str = local_time.strftime('%Y-%m-%d %H:%M:%S')
+    return local_time_str
+
+
 class Good_get(Resource):
     def get(self, good_id):
         with app.app_context():
@@ -68,8 +74,8 @@ class Good_get(Resource):
                     for picture in picture_urls:
                         picture = 'http://rtqcx0dtq.bkt.clouddn.com/' + picture
                         picture_url.append(picture)
-                good_info = {'id': good.id, 'view': good.view, 'game': good.game, 'title': good.title,
-                             'content': good.content, 'picture_url': picture_url, 'add_time': good.add_time,
+                good_info = {'id': good.id, 'view': good.view, 'game': good.game, 'picture_url': picture_url,
+                             'title': good.title, 'content': good.content, 'add_time': time_transform(good.add_time),
                              'status': good.status, 'seller_id': good.seller_id, 'price': good.price}
                 logger.debug('获取商品信息成功')
                 # 返回结果
@@ -110,10 +116,10 @@ class Good_add(Resource):
                             pictures = ','.join(picture_list)
                         else:
                             pictures = upload_photo(args['picture'])
-                    good = Good(id=id_generate(1, 2), view=0, game=args['game'],
+                    good = Good(id=id_generate('good'), view=0, game=args['game'],
                                 title=args['title'], content=args['content'], picture=pictures,
                                 account=args['account'], password=encrypted_password, status=0,
-                                seller_id=user.id, price=args['price'], add_time=datetime.utcnow())
+                                seller_id=user.id, price=args['price'], add_time=datetime.datetime.utcnow())
                     # 提交修改
                     db.session.add(good)
                     db.session.commit()

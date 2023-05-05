@@ -2,8 +2,8 @@ import time
 
 
 class Snowflake(object):
-    def __init__(self, datacenter_id, machine_id, sequence=0):
-        self.twepoch = 1288834974657  # 定义起始的时间戳，以毫秒为单位，用于计算id的时间戳部分
+    def __init__(self, twepoch, datacenter_id, machine_id, sequence=0):
+        self.twepoch = twepoch  # 定义起始的时间戳，以毫秒为单位，用于计算id的时间戳部分
         self.datacenter_id = datacenter_id  # 数据中心ID，最大值为31
         self.machine_id = machine_id  # 机器ID，最大值为31
         self.sequence = sequence  # 序列号，最大值为4095
@@ -60,16 +60,17 @@ class Snowflake(object):
         return timestamp
 
 
-def id_generate(datacenter_id, machine_id):
+def id_generate(generate_type=None):
     # 初始化Snowflake对象
-    sf = Snowflake(datacenter_id, machine_id)
-
+    if generate_type == 'user':
+        sf = Snowflake(1436666666666, 1, 1)
+    if generate_type == 'good':
+        sf = Snowflake(966666666666, 1, 2)
+    if generate_type == 'order':
+        sf = Snowflake(466666666666, 1, 3)
+    if generate_type == 'report':
+        sf = Snowflake(9666666666, 1, 4)
     # 生成一个唯一ID
     unique_id = sf.generate_id()
 
-    # # 将唯一ID转化为字符串
-    # unique_id_str = str(unique_id)
-    #
-    # # 打印唯一ID
-    # print("Unique ID: ", unique_id_str)
     return unique_id

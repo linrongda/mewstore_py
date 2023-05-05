@@ -1,11 +1,11 @@
 import logging
 
-import jwt
 from flask import request, jsonify, Blueprint, make_response
 from flask_restful import Api, Resource, reqparse
 
 from api.data import db, app, User, Favorite, Good
-from api.user import jwt_required, JWT_SECRET_KEY
+from api.good import time_transform
+from api.user import jwt_required
 
 # 定义应用和API
 b_s_center = Blueprint('b_s_center', __name__)
@@ -57,10 +57,10 @@ class Favorite_get(Resource):
                 favorite_list = []
                 for favorite in favorites:
                     good = db.session.query(Good).get(favorite.good_id)
-                    favorite_dict = {'id': good.id, 'view': good.view, 'game': good.game,
-                                     'title': good.title, 'content': good.content, 'picture_url': good.picture,
-                                     'status': good.status, 'seller_id': good.seller_id, 'price': good.price,
-                                     "good_id": favorite.good_id, "user_id": favorite.user_id}
+                    favorite_dict = {'id': good.id, 'view': good.view, 'add_time': time_transform(good.add_time),
+                                     'game': good.game, 'title': good.title, 'content': good.content,
+                                     'picture_url': good.picture, 'status': good.status, 'seller_id': good.seller_id,
+                                     'price': good.price, "good_id": favorite.good_id, "user_id": favorite.user_id}
                     favorite_list.append(favorite_dict)
                 logger.debug('查询收藏的商品成功')
                 # 返回结果
@@ -91,7 +91,8 @@ class Sell(Resource):
                             picture = 'http://rtqcx0dtq.bkt.clouddn.com/' + picture
                             picture_url.append(picture)
                     good_dict = {'id': good.id, 'view': good.view, 'game': good.game, 'title': good.title,
-                                 'content': good.content, 'picture_url': picture_url, 'add_time': good.add_time,
+                                 'content': good.content, 'picture_url': picture_url,
+                                 'add_time': time_transform(good.add_time),
                                  'status': good.status, 'seller_id': good.seller_id, 'price': good.price}
                     good_list.append(good_dict)
                 logger.debug('获取出售商品成功')

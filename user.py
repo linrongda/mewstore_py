@@ -130,7 +130,7 @@ class Register(Resource):
                 return make_response(jsonify(code=400, message='验证码已过期'), 400)
             else:
                 try:
-                    user = User(id=id_generate(1, 1), username=args['username'],
+                    user = User(id=id_generate('user'), username=args['username'],
                                 password=generate_password_hash(args['password']),
                                 phone_number=args['phone_number'],
                                 status=0)
