@@ -1,0 +1,438 @@
+[2023-05-08 23:56:36,555]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.128:5000]
+[2023-05-08 23:56:36,556]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-08 23:56:36,563]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-08 23:56:39,232]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-08 23:56:39,260]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
+[2023-05-08 23:58:59,934]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.128:5000]
+[2023-05-08 23:58:59,938]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-08 23:58:59,943]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-08 23:59:01,744]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-08 23:59:01,748]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
+[2023-05-09 00:00:06,695]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 00:00:06] "[33mPOST /sms HTTP/1.1[0m" 404 -]
+[2023-05-09 00:01:06,751]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.128:5000]
+[2023-05-09 00:01:06,752]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-09 00:01:06,754]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-09 00:01:08,801]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-09 00:01:08,811]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
+[2023-05-09 00:01:38,245]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 00:01:38] "[33mPOST /sms HTTP/1.1[0m" 404 -]
+[2023-05-09 00:09:52,352]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 00:09:52] "[33mPOST /sms HTTP/1.1[0m" 404 -]
+[2023-05-09 00:11:35,436]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.128:5000]
+[2023-05-09 00:11:35,438]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-09 00:11:35,443]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-09 00:11:38,163]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-09 00:11:38,176]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
+[2023-05-09 00:11:38,562]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 00:11:38] "[33mPOST /sms HTTP/1.1[0m" 404 -]
+[2023-05-09 00:11:47,301]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 00:11:47] "[33mPOST /api/users/sms HTTP/1.1[0m" 404 -]
+[2023-05-09 00:15:38,383]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.128:5000]
+[2023-05-09 00:15:38,383]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-09 00:15:38,388]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-09 00:15:40,976]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-09 00:15:40,986]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
+[2023-05-09 00:15:53,415]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 00:15:53] "[33mPOST /sms HTTP/1.1[0m" 404 -]
+[2023-05-09 00:16:06,649]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.128:5000]
+[2023-05-09 00:16:06,650]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-09 00:16:06,658]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-09 00:16:08,695]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-09 00:16:08,708]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
+[2023-05-09 00:23:20,231]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.128:5000]
+[2023-05-09 00:23:20,232]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-09 00:23:20,236]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-09 00:23:22,531]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-09 00:23:22,543]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
+[2023-05-09 00:23:24,367]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 00:23:24] "[33mPOST /sms HTTP/1.1[0m" 404 -]
+[2023-05-09 00:23:27,637]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 00:23:27] "[33mPOST /sms HTTP/1.1[0m" 404 -]
+[2023-05-09 00:25:42,912]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.128:5000]
+[2023-05-09 00:25:42,914]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-09 00:25:42,921]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-09 00:25:45,505]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-09 00:25:45,515]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
+[2023-05-09 00:25:45,853]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 00:25:45] "[33mPOST /sms HTTP/1.1[0m" 404 -]
+[2023-05-09 00:25:48,279]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 00:25:48] "[33mPOST /sms HTTP/1.1[0m" 404 -]
+[2023-05-09 00:26:03,715]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.128:5000]
+[2023-05-09 00:26:03,715]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-09 00:26:03,721]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-09 00:26:05,514]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-09 00:26:05,517]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
+[2023-05-09 00:26:11,824]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 00:26:11] "[33mPOST /sms HTTP/1.1[0m" 404 -]
+[2023-05-09 00:37:20,613]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.128:5000]
+[2023-05-09 00:37:20,613]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-09 00:37:20,614]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-09 00:37:22,776]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-09 00:37:22,791]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
+[2023-05-09 00:37:54,129]-[DEBUG]-[connectionpool.py]-[Line:1003]-[Msg:Starting new HTTPS connection (1): dysmsapi.aliyuncs.com:443]
+[2023-05-09 00:37:54,619]-[DEBUG]-[connectionpool.py]-[Line:456]-[Msg:https://dysmsapi.aliyuncs.com:443 "POST /?PhoneNumbers=13345678901&SignName=%E9%97%B2%E7%8C%ABMewStore&TemplateCode=SMS_460685295&TemplateParam=%7B%22code%22%3A%22881675%22%7D HTTP/1.1" 200 148]
+[2023-05-09 00:37:54,674]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 00:37:54] "[31m[1mPOST /sms HTTP/1.1[0m" 400 -]
+[2023-05-09 00:40:47,303]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.128:5000]
+[2023-05-09 00:40:47,307]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-09 00:40:47,313]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-09 00:40:49,658]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-09 00:40:49,669]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
+[2023-05-09 00:40:55,961]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 00:40:55] "[33mPOST /sms HTTP/1.1[0m" 404 -]
+[2023-05-09 00:40:58,791]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 00:40:58] "[33mPOST /sms HTTP/1.1[0m" 404 -]
+[2023-05-09 00:42:01,413]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.128:5000]
+[2023-05-09 00:42:01,413]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-09 00:42:01,419]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-09 00:42:04,006]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-09 00:42:04,018]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
+[2023-05-09 00:42:11,026]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 00:42:11] "[33mPOST /sms HTTP/1.1[0m" 404 -]
+[2023-05-09 00:42:13,180]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 00:42:13] "[33mPOST /sms HTTP/1.1[0m" 404 -]
+[2023-05-09 00:42:14,919]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 00:42:14] "[33mPOST /sms HTTP/1.1[0m" 404 -]
+[2023-05-09 00:42:19,283]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.128:5000]
+[2023-05-09 00:42:19,283]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-09 00:42:19,289]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-09 00:42:21,689]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-09 00:42:21,699]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
+[2023-05-09 00:42:23,212]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 00:42:23] "[33mPOST /sms HTTP/1.1[0m" 404 -]
+[2023-05-09 00:42:25,301]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 00:42:25] "[33mPOST /sms HTTP/1.1[0m" 404 -]
+[2023-05-09 00:42:57,608]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.128:5000]
+[2023-05-09 00:42:57,609]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-09 00:42:57,615]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-09 00:43:00,136]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-09 00:43:00,149]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
+[2023-05-09 00:43:00,701]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 00:43:00] "[33mPOST /sms HTTP/1.1[0m" 404 -]
+[2023-05-09 00:43:02,947]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 00:43:02] "[33mPOST /sms HTTP/1.1[0m" 404 -]
+[2023-05-09 00:45:23,152]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.128:5000]
+[2023-05-09 00:45:23,152]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-09 00:45:23,155]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-09 00:45:25,399]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-09 00:45:25,408]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
+[2023-05-09 00:45:27,634]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 00:45:27] "[33mPOST /sms HTTP/1.1[0m" 404 -]
+[2023-05-09 00:45:44,707]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.128:5000]
+[2023-05-09 00:45:44,707]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-09 00:45:44,713]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-09 00:45:47,104]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-09 00:45:47,119]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
+[2023-05-09 00:45:47,604]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 00:45:47] "[33mPOST /sms HTTP/1.1[0m" 404 -]
+[2023-05-09 00:45:49,368]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 00:45:49] "[33mPOST /sms HTTP/1.1[0m" 404 -]
+[2023-05-09 00:45:50,617]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 00:45:50] "[33mPOST /sms HTTP/1.1[0m" 404 -]
+[2023-05-09 00:50:39,993]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.128:5000]
+[2023-05-09 00:50:39,993]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-09 00:50:39,994]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-09 00:50:42,139]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-09 00:50:42,151]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
+[2023-05-09 00:50:44,430]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 00:50:44] "[33mPOST /sms HTTP/1.1[0m" 404 -]
+[2023-05-09 00:51:00,364]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 00:51:00] "[33mPOST /users/sms HTTP/1.1[0m" 404 -]
+[2023-05-09 00:51:02,503]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 00:51:02] "[33mPOST /users/sms HTTP/1.1[0m" 404 -]
+[2023-05-09 00:51:03,729]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 00:51:03] "[33mPOST /users/sms HTTP/1.1[0m" 404 -]
+[2023-05-09 00:51:52,605]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.128:5000]
+[2023-05-09 00:51:52,606]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-09 00:51:52,609]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-09 00:51:54,707]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-09 00:51:54,711]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
+[2023-05-09 00:52:12,710]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 00:52:12] "[33mPOST /sms HTTP/1.1[0m" 404 -]
+[2023-05-09 00:52:14,822]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 00:52:14] "[33mPOST /sms HTTP/1.1[0m" 404 -]
+[2023-05-09 00:53:34,395]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.128:5000]
+[2023-05-09 00:53:34,395]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-09 00:53:34,398]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-09 00:53:36,853]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-09 00:53:36,862]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
+[2023-05-09 00:53:37,684]-[DEBUG]-[connectionpool.py]-[Line:1003]-[Msg:Starting new HTTPS connection (1): dysmsapi.aliyuncs.com:443]
+[2023-05-09 00:53:38,130]-[DEBUG]-[connectionpool.py]-[Line:456]-[Msg:https://dysmsapi.aliyuncs.com:443 "POST /?PhoneNumbers=13345678901&SignName=%E9%97%B2%E7%8C%ABMewStore&TemplateCode=SMS_460685295&TemplateParam=%7B%22code%22%3A%22983326%22%7D HTTP/1.1" 200 148]
+[2023-05-09 00:53:38,186]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 00:53:38] "[31m[1mPOST /sms HTTP/1.1[0m" 400 -]
+[2023-05-09 00:53:40,210]-[DEBUG]-[connectionpool.py]-[Line:456]-[Msg:https://dysmsapi.aliyuncs.com:443 "POST /?PhoneNumbers=13345678901&SignName=%E9%97%B2%E7%8C%ABMewStore&TemplateCode=SMS_460685295&TemplateParam=%7B%22code%22%3A%22121279%22%7D HTTP/1.1" 200 148]
+[2023-05-09 00:53:40,264]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 00:53:40] "[31m[1mPOST /sms HTTP/1.1[0m" 400 -]
+[2023-05-09 00:53:43,079]-[DEBUG]-[connectionpool.py]-[Line:456]-[Msg:https://dysmsapi.aliyuncs.com:443 "POST /?PhoneNumbers=13345678901&SignName=%E9%97%B2%E7%8C%ABMewStore&TemplateCode=SMS_460685295&TemplateParam=%7B%22code%22%3A%22553875%22%7D HTTP/1.1" 200 148]
+[2023-05-09 00:53:43,132]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 00:53:43] "[31m[1mPOST /sms HTTP/1.1[0m" 400 -]
+[2023-05-09 00:54:03,413]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.128:5000]
+[2023-05-09 00:54:03,414]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-09 00:54:03,418]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-09 00:54:05,696]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-09 00:54:05,706]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
+[2023-05-09 00:54:06,460]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 00:54:06] "[33mPOST /sms HTTP/1.1[0m" 404 -]
+[2023-05-09 00:54:08,059]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 00:54:08] "[33mPOST /sms HTTP/1.1[0m" 404 -]
+[2023-05-09 00:54:09,386]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 00:54:09] "[33mPOST /sms HTTP/1.1[0m" 404 -]
+[2023-05-09 00:54:10,856]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 00:54:10] "[33mPOST /sms HTTP/1.1[0m" 404 -]
+[2023-05-09 00:55:54,184]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.128:5000]
+[2023-05-09 00:55:54,184]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-09 00:55:54,188]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-09 00:55:56,889]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-09 00:55:56,890]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
+[2023-05-09 00:55:57,506]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 00:55:57] "[33mPOST /sms HTTP/1.1[0m" 404 -]
+[2023-05-09 00:56:06,536]-[DEBUG]-[connectionpool.py]-[Line:1003]-[Msg:Starting new HTTPS connection (1): dysmsapi.aliyuncs.com:443]
+[2023-05-09 00:56:06,855]-[DEBUG]-[connectionpool.py]-[Line:456]-[Msg:https://dysmsapi.aliyuncs.com:443 "POST /?PhoneNumbers=13345678901&SignName=%E9%97%B2%E7%8C%ABMewStore&TemplateCode=SMS_460685295&TemplateParam=%7B%22code%22%3A%22319076%22%7D HTTP/1.1" 200 148]
+[2023-05-09 00:56:06,900]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 00:56:06] "[31m[1mPOST /users/sms HTTP/1.1[0m" 400 -]
+[2023-05-09 00:57:49,635]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 00:57:49] "[35m[1mPOST /users/sms HTTP/1.1[0m" 500 -]
+[2023-05-09 01:16:57,141]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.128:5000]
+[2023-05-09 01:16:57,142]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-09 01:16:57,147]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-09 01:16:59,524]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-09 01:16:59,540]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
+[2023-05-09 01:17:00,950]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 01:17:00] "[35m[1mPOST /users/sms HTTP/1.1[0m" 500 -]
+[2023-05-09 01:22:21,157]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.128:5000]
+[2023-05-09 01:22:21,158]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-09 01:22:21,161]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-09 01:22:23,531]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-09 01:22:23,570]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
+[2023-05-09 01:22:24,575]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 01:22:24] "[35m[1mPOST /users/sms HTTP/1.1[0m" 500 -]
+[2023-05-09 01:25:50,755]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.128:5000]
+[2023-05-09 01:25:50,755]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-09 01:25:50,759]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-09 01:25:52,830]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-09 01:25:52,857]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
+[2023-05-09 01:25:54,873]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 01:25:54] "[35m[1mPOST /users/sms HTTP/1.1[0m" 500 -]
+[2023-05-09 01:26:18,620]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.128:5000]
+[2023-05-09 01:26:18,622]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-09 01:26:18,626]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-09 01:26:20,896]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-09 01:26:20,906]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
+[2023-05-09 01:26:22,050]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 01:26:22] "[35m[1mPOST /users/sms HTTP/1.1[0m" 500 -]
+[2023-05-09 01:29:51,445]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.128:5000]
+[2023-05-09 01:29:51,445]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-09 01:29:51,450]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-09 01:29:53,788]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-09 01:29:53,799]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
+[2023-05-09 01:29:55,972]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 01:29:55] "[35m[1mPOST /users/sms HTTP/1.1[0m" 500 -]
+[2023-05-09 01:33:56,159]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.128:5000]
+[2023-05-09 01:33:56,159]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-09 01:33:56,159]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-09 01:33:58,457]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-09 01:33:58,468]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
+[2023-05-09 01:33:59,773]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 01:33:59] "[35m[1mPOST /users/sms HTTP/1.1[0m" 500 -]
+[2023-05-09 01:38:18,509]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.128:5000]
+[2023-05-09 01:38:18,510]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-09 01:38:18,513]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-09 01:38:21,578]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-09 01:38:21,593]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
+[2023-05-09 01:38:22,450]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 01:38:22] "[35m[1mPOST /users/sms HTTP/1.1[0m" 500 -]
+[2023-05-09 01:38:25,343]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 01:38:25] "[35m[1mPOST /users/sms HTTP/1.1[0m" 500 -]
+[2023-05-09 01:44:46,328]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.128:5000]
+[2023-05-09 01:44:46,328]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-09 01:44:46,330]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-09 01:44:48,569]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-09 01:44:48,577]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
+[2023-05-09 01:44:50,267]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 01:44:50] "[35m[1mPOST /users/sms HTTP/1.1[0m" 500 -]
+[2023-05-09 01:44:53,019]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 01:44:53] "[35m[1mPOST /users/sms HTTP/1.1[0m" 500 -]
+[2023-05-09 01:46:32,351]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.128:5000]
+[2023-05-09 01:46:32,351]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-09 01:46:35,488]-[ERROR]-[app.py]-[Line:1744]-[Msg:Exception on /users/sms [POST]]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\flask_restful\__init__.py", line 467, in wrapper
+    resp = resource(*args, **kwargs)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\flask\views.py", line 107, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\flask_restful\__init__.py", line 582, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "C:\Users\Administrator\Desktop\mewstore\project\api\users\sms.py", line 30, in post
+    if not db.session.query(User).filter_by(phone_number=args['phone_number']).first():
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2752, in first
+    return self.limit(1)._iter().first()  # type: ignore
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2855, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\orm\session.py", line 2229, in execute
+    return self._execute_internal(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\orm\session.py", line 2112, in _execute_internal
+    bind = self.get_bind(**bind_arguments)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\flask_sqlalchemy\session.py", line 53, in get_bind
+    engines = self._db.engines
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\flask_sqlalchemy\extension.py", line 639, in engines
+    raise RuntimeError(
+RuntimeError: The current Flask app is not registered with this 'SQLAlchemy' instance. Did you forget to call 'init_app', or did you create multiple 'SQLAlchemy' instances?
+[2023-05-09 01:46:35,506]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 01:46:35] "[35m[1mPOST /users/sms HTTP/1.1[0m" 500 -]
+[2023-05-09 01:46:44,621]-[ERROR]-[app.py]-[Line:1744]-[Msg:Exception on /users/sms [POST]]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\flask_restful\__init__.py", line 467, in wrapper
+    resp = resource(*args, **kwargs)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\flask\views.py", line 107, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\flask_restful\__init__.py", line 582, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "C:\Users\Administrator\Desktop\mewstore\project\api\users\sms.py", line 30, in post
+    if not db.session.query(User).filter_by(phone_number=args['phone_number']).first():
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2752, in first
+    return self.limit(1)._iter().first()  # type: ignore
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2855, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\orm\session.py", line 2229, in execute
+    return self._execute_internal(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\orm\session.py", line 2112, in _execute_internal
+    bind = self.get_bind(**bind_arguments)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\flask_sqlalchemy\session.py", line 53, in get_bind
+    engines = self._db.engines
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\flask_sqlalchemy\extension.py", line 639, in engines
+    raise RuntimeError(
+RuntimeError: The current Flask app is not registered with this 'SQLAlchemy' instance. Did you forget to call 'init_app', or did you create multiple 'SQLAlchemy' instances?
+[2023-05-09 01:46:44,626]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 01:46:44] "[35m[1mPOST /users/sms HTTP/1.1[0m" 500 -]
+[2023-05-09 01:53:52,983]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.128:5000]
+[2023-05-09 01:53:52,983]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-09 01:53:52,988]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-09 01:53:56,033]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-09 01:53:56,052]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
+[2023-05-09 01:53:56,684]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 01:53:56] "[35m[1mPOST /users/sms HTTP/1.1[0m" 500 -]
+[2023-05-09 01:55:16,015]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.128:5000]
+[2023-05-09 01:55:16,016]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-09 01:55:16,021]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-09 01:55:18,575]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-09 01:55:18,604]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
+[2023-05-09 01:55:19,338]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 01:55:19] "[35m[1mPOST /users/sms HTTP/1.1[0m" 500 -]
+[2023-05-09 01:55:21,371]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 01:55:21] "[35m[1mPOST /users/sms HTTP/1.1[0m" 500 -]
+[2023-05-09 01:55:26,775]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.128:5000]
+[2023-05-09 01:55:26,775]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-09 01:55:26,781]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-09 01:55:29,406]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-09 01:55:29,418]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
+[2023-05-09 01:56:44,134]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.128:5000]
+[2023-05-09 01:56:44,134]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-09 01:56:44,141]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-09 01:56:47,526]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-09 01:56:47,537]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
+[2023-05-09 01:56:48,163]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 01:56:48] "[35m[1mPOST /users/sms HTTP/1.1[0m" 500 -]
+[2023-05-09 01:56:50,733]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 01:56:50] "[35m[1mPOST /users/sms HTTP/1.1[0m" 500 -]
+[2023-05-09 02:00:38,973]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.128:5000]
+[2023-05-09 02:00:38,973]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-09 02:00:38,975]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-09 02:00:41,542]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-09 02:00:41,558]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
+[2023-05-09 02:00:42,193]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 02:00:42] "[35m[1mPOST /users/sms HTTP/1.1[0m" 500 -]
+[2023-05-09 02:00:55,580]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.128:5000]
+[2023-05-09 02:00:55,580]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-09 02:00:55,585]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-09 02:00:58,228]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-09 02:00:58,228]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
+[2023-05-09 02:00:58,963]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 02:00:58] "[35m[1mPOST /users/sms HTTP/1.1[0m" 500 -]
+[2023-05-09 02:01:01,082]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 02:01:01] "[35m[1mPOST /users/sms HTTP/1.1[0m" 500 -]
+[2023-05-09 02:04:44,086]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.128:5000]
+[2023-05-09 02:04:44,086]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-09 02:04:44,087]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-09 02:04:47,103]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-09 02:04:47,119]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
+[2023-05-09 02:04:48,013]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 02:04:48] "[33mPOST /users/sms HTTP/1.1[0m" 404 -]
+[2023-05-09 02:04:59,408]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 02:04:59] "[33mPOST /users/sms HTTP/1.1[0m" 404 -]
+[2023-05-09 02:05:20,303]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.128:5000]
+[2023-05-09 02:05:20,304]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-09 02:05:20,309]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-09 02:05:22,953]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-09 02:05:22,970]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
+[2023-05-09 02:09:35,571]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 02:09:35] "[33mPOST /users/sms HTTP/1.1[0m" 404 -]
+[2023-05-09 02:09:41,130]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 02:09:41] "[33mPOST /users/sms HTTP/1.1[0m" 404 -]
+[2023-05-09 02:10:31,388]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.128:5000]
+[2023-05-09 02:10:31,388]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-09 02:10:31,393]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-09 02:10:33,790]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-09 02:10:33,802]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
+[2023-05-09 02:10:35,462]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 02:10:35] "[33mPOST /users/sms HTTP/1.1[0m" 404 -]
+[2023-05-09 02:10:37,629]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 02:10:37] "[33mPOST /users/sms HTTP/1.1[0m" 404 -]
