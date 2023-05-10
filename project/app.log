@@ -436,3 +436,121 @@ RuntimeError: The current Flask app is not registered with this 'SQLAlchemy' ins
 [2023-05-09 02:10:33,802]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
 [2023-05-09 02:10:35,462]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 02:10:35] "[33mPOST /users/sms HTTP/1.1[0m" 404 -]
 [2023-05-09 02:10:37,629]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [09/May/2023 02:10:37] "[33mPOST /users/sms HTTP/1.1[0m" 404 -]
+[2023-05-11 00:51:00,119]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.129:5000]
+[2023-05-11 00:51:00,120]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-11 00:51:00,124]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-11 00:51:01,448]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-11 00:51:01,454]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
+[2023-05-11 00:52:05,155]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [11/May/2023 00:52:05] "[31m[1mPOST /users/sms HTTP/1.1[0m" 400 -]
+[2023-05-11 00:52:19,581]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.129:5000]
+[2023-05-11 00:52:19,581]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-11 00:52:19,584]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-11 00:52:20,664]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-11 00:52:20,668]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
+[2023-05-11 00:52:23,029]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [11/May/2023 00:52:23] "[33mPOST /users/sms HTTP/1.1[0m" 404 -]
+[2023-05-11 00:52:34,180]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [11/May/2023 00:52:34] "[33mPOST /sms HTTP/1.1[0m" 404 -]
+[2023-05-11 00:52:35,954]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [11/May/2023 00:52:35] "[33mPOST /sms HTTP/1.1[0m" 404 -]
+[2023-05-11 00:52:39,934]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [11/May/2023 00:52:39] "[33mPOST /users/sms HTTP/1.1[0m" 404 -]
+[2023-05-11 00:52:47,939]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.129:5000]
+[2023-05-11 00:52:47,940]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-11 00:52:47,944]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-11 00:52:49,249]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-11 00:52:49,256]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
+[2023-05-11 00:52:54,170]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [11/May/2023 00:52:54] "[31m[1mPOST /users/sms HTTP/1.1[0m" 400 -]
+[2023-05-11 00:52:56,282]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [11/May/2023 00:52:56] "[31m[1mPOST /users/sms HTTP/1.1[0m" 400 -]
+[2023-05-11 01:30:16,863]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.129:5000]
+[2023-05-11 01:30:16,864]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-11 01:30:16,868]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-11 01:30:18,141]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-11 01:30:18,145]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
+[2023-05-11 01:30:37,054]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [11/May/2023 01:30:37] "[35m[1mPOST /users/login/username HTTP/1.1[0m" 500 -]
+[2023-05-11 01:32:07,289]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.129:5000]
+[2023-05-11 01:32:07,290]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-11 01:32:07,291]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-11 01:32:08,813]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-11 01:32:08,818]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
+[2023-05-11 01:32:09,630]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [11/May/2023 01:32:09] "[35m[1mPOST /users/login/username HTTP/1.1[0m" 500 -]
+[2023-05-11 01:33:28,865]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.129:5000]
+[2023-05-11 01:33:28,865]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-11 01:33:28,866]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-11 01:33:30,378]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-11 01:33:30,386]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
+[2023-05-11 01:33:31,884]-[DEBUG]-[auth.py]-[Line:57]-[Msg:登录成功]
+[2023-05-11 01:33:31,943]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [11/May/2023 01:33:31] "POST /users/login/username HTTP/1.1" 200 -]
+[2023-05-11 01:33:49,925]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [11/May/2023 01:33:49] "[33mGET /users HTTP/1.1[0m" 404 -]
+[2023-05-11 01:37:43,605]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.129:5000]
+[2023-05-11 01:37:43,605]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-11 01:37:43,605]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-11 01:37:45,037]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-11 01:37:45,043]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
+[2023-05-11 01:37:46,170]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [11/May/2023 01:37:46] "[33mGET /users HTTP/1.1[0m" 404 -]
+[2023-05-11 01:37:48,230]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [11/May/2023 01:37:48] "[33mGET /users HTTP/1.1[0m" 404 -]
+[2023-05-11 01:38:32,331]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.129:5000]
+[2023-05-11 01:38:32,332]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-11 01:38:32,334]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-11 01:38:33,883]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-11 01:38:33,888]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
+[2023-05-11 01:38:34,610]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [11/May/2023 01:38:34] "[32mGET /users HTTP/1.1[0m" 308 -]
+[2023-05-11 01:38:34,619]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-11 01:38:34,984]-[DEBUG]-[user_info.py]-[Line:26]-[Msg:获取用户信息成功]
+[2023-05-11 01:38:35,042]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [11/May/2023 01:38:35] "GET /users/ HTTP/1.1" 200 -]
+[2023-05-11 01:38:37,705]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [11/May/2023 01:38:37] "[32mGET /users HTTP/1.1[0m" 308 -]
+[2023-05-11 01:38:37,717]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-11 01:38:37,749]-[DEBUG]-[user_info.py]-[Line:26]-[Msg:获取用户信息成功]
+[2023-05-11 01:38:37,808]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [11/May/2023 01:38:37] "GET /users/ HTTP/1.1" 200 -]
+[2023-05-11 01:39:32,103]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.129:5000]
+[2023-05-11 01:39:32,103]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-11 01:39:32,106]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-11 01:39:33,560]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-11 01:39:33,565]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
+[2023-05-11 01:39:36,045]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [11/May/2023 01:39:36] "[32mGET /users HTTP/1.1[0m" 308 -]
+[2023-05-11 01:39:36,055]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-11 01:39:36,351]-[DEBUG]-[user_info.py]-[Line:26]-[Msg:获取用户信息成功]
+[2023-05-11 01:39:36,398]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [11/May/2023 01:39:36] "GET /users/ HTTP/1.1" 200 -]
+[2023-05-11 01:39:38,316]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [11/May/2023 01:39:38] "[32mGET /users HTTP/1.1[0m" 308 -]
+[2023-05-11 01:39:38,324]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-11 01:39:38,350]-[DEBUG]-[user_info.py]-[Line:26]-[Msg:获取用户信息成功]
+[2023-05-11 01:39:38,398]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [11/May/2023 01:39:38] "GET /users/ HTTP/1.1" 200 -]
+[2023-05-11 01:43:00,257]-[INFO]-[_internal.py]-[Line:224]-[Msg:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.102.129:5000]
+[2023-05-11 01:43:00,258]-[INFO]-[_internal.py]-[Line:224]-[Msg:[33mPress CTRL+C to quit[0m]
+[2023-05-11 01:43:00,260]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-11 01:43:01,811]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-11 01:43:01,811]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 263-924-088]
+[2023-05-11 01:47:30,770]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-11 01:47:31,141]-[DEBUG]-[connectionpool.py]-[Line:1003]-[Msg:Starting new HTTPS connection (1): uc.qbox.me:443]
+[2023-05-11 01:47:31,329]-[DEBUG]-[connectionpool.py]-[Line:456]-[Msg:https://uc.qbox.me:443 "GET /v1/query?ak=FU5sKsfrD422VmfLSxCm6AxnjNHxUA_VYf1xdT1b&bucket=mewstore HTTP/1.1" 200 650]
+[2023-05-11 01:47:31,334]-[DEBUG]-[retry.py]-[Line:351]-[Msg:Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None)]
+[2023-05-11 01:47:31,337]-[DEBUG]-[connectionpool.py]-[Line:228]-[Msg:Starting new HTTP connection (1): up-cn-east-2.qiniup.com:80]
+[2023-05-11 01:47:34,626]-[DEBUG]-[connectionpool.py]-[Line:456]-[Msg:http://up-cn-east-2.qiniup.com:80 "POST / HTTP/1.1" 200 76]
+[2023-05-11 01:47:34,720]-[DEBUG]-[user_profile_photo.py]-[Line:25]-[Msg:修改头像成功]
+[2023-05-11 01:47:34,723]-[INFO]-[_internal.py]-[Line:224]-[Msg:127.0.0.1 - - [11/May/2023 01:47:34] "[35m[1mPUT /users/profile-photo HTTP/1.1[0m" 201 -]

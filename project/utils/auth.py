@@ -1,7 +1,17 @@
+import datetime
+
 from flask import request, make_response, jsonify
 import jwt
+from werkzeug.security import check_password_hash
+
+from project.models import User, db
 from project.utils.log import logger
-from project.config import JWT_SECRET_KEY
+
+# 定义JWT密钥和过期时间
+JWT_SECRET_KEY = 'mewstore'
+JWT_EXPIRATION_DELTA = datetime.timedelta(days=1)
+
+
 def jwt_required(func):
     def wrapper(*args, **kwargs):
         # 获取Authorization头部信息中的JWT令牌
@@ -21,3 +31,26 @@ def jwt_required(func):
             return make_response(jsonify(code=401, message='找不到登录信息'), 401)
 
     return wrapper
+
+
+def after_get_info(args, login_type=None):
+    # with app.app_context():
+    # 验证用户登录信息
+    if login_type == 'username':
+        is_user = db.session.query(User).filter_by(username=args['username']).first()
+        if is_user and check_password_hash(is_user.password, args['password']):
+            user = is_user
+        else:
+            return make_response(jsonify(code=401, message='用户名或密码错误'), 401)
+    if login_type == 'phone':
+        if is_user := db.session.query(User).filter_by(phone_number=args['phone_number']).first():
+            user = is_user
+        else:
+            return make_response(jsonify(code=401, message='用户不存在'), 401)
+    # 构建JWT负载
+    payload = {'exp': datetime.datetime.utcnow() + JWT_EXPIRATION_DELTA, 'iat': datetime.datetime.utcnow(),
+               'id': user.id, 'status': user.status}
+    # 生成JWT令牌
+    token = jwt.encode(payload, JWT_SECRET_KEY, algorithm='HS256')
+    logger.debug('登录成功')
+    return make_response(jsonify(code=200, message='登录成功', token=token, status=user.status), 200)

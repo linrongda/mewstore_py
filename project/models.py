@@ -1,5 +1,6 @@
 from exts import db
 
+
 class User(db.Model):
     __tablename__ = "user"
     id = db.Column(db.BigInteger, primary_key=True)
@@ -66,6 +67,6 @@ class Favorite(db.Model):
 #     status = db.Column(db.Integer)  # 0为未处理，1为已处理
 
 
-# with app.app_context():  # 注意：新版flask操作数据库必须带这个,否则必报错,网上找半天才知道........#
+# with app.app_context(): #使用架构时不需要此代码
 #     # db.drop_all()  # 初始化表格，需要时再用
 #     db.create_all()
