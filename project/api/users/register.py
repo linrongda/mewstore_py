@@ -5,7 +5,6 @@ from flask import make_response, jsonify, session
 from flask_restful import Resource, reqparse
 from werkzeug.security import generate_password_hash
 
-# from project.app import app
 from project.models import User, db
 from project.utils.log import logger
 from project.utils.snowflake import id_generate

@@ -1,8 +1,7 @@
 from flask import request, make_response, jsonify
 from flask_restful import Resource, reqparse
 
-# from project.app import app
-from project.models import User, db
+from project.models import User
 from project.utils.auth import jwt_required
 from project.utils.log import logger
 
