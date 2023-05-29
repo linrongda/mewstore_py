@@ -3,14 +3,15 @@ from random import shuffle
 from flask import request, make_response, jsonify
 from flask_restful import Resource
 
-from project.models import Good, db, Favorite
+from project.models import Good, db, Favorite, User
 from project.utils.Time_Transform import time_transform
-from project.utils.auth import jwt_required
+from project.utils.auth import jwt_required, check_status
 from project.utils.log import logger
 
 
 class Guess(Resource):
     @jwt_required
+    @check_status([0, 3])
     def get(self):
         # with app.app_context():
         # 查询

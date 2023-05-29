@@ -3,23 +3,23 @@ from exts import db
 
 class User(db.Model):
     __tablename__ = "user"
-    id = db.Column(db.BigInteger, primary_key=True)
-    nickname = db.Column(db.String(50))
-    username = db.Column(db.String(50))
-    profile_photo = db.Column(db.String(50))
-    password = db.Column(db.String(102))
-    phone_number = db.Column(db.String(11))
-    money = db.Column(db.Numeric(20, 2))
+    id = db.Column(db.BigInteger, primary_key=True)  # 用户id
+    nickname = db.Column(db.String(50))  # 昵称
+    username = db.Column(db.String(50))  # 用户名
+    profile_photo = db.Column(db.String(50))  # 头像
+    password = db.Column(db.String(102))  # 密码
+    phone_number = db.Column(db.String(11))  # 手机号
+    money = db.Column(db.Numeric(20, 2))  # 余额
     status = db.Column(db.Integer)  # 0为正常用户，1为黑户，2为被冻结状态，3为管理员
-    name = db.Column(db.String(50))
-    id_card = db.Column(db.String(18))
+    name = db.Column(db.String(50))  # 真实姓名
+    id_card = db.Column(db.String(18))  # 身份证号
 
 
 class Good(db.Model):
     __tablename__ = "good"
     id = db.Column(db.BigInteger, primary_key=True)
     view = db.Column(db.Integer)  # 收藏量
-    game = db.Column(db.String(50))  # 游戏
+    game = db.Column(db.String(50))  # 游戏，目前有“王者荣耀”、“英雄联盟”、“原神”、“绝地求生”、“和平精英”、“第五人格”，6款游戏
     title = db.Column(db.String(50))  # 账号标题
     content = db.Column(db.Text)  # 账号简介
     picture = db.Column(db.Text)  # 商品图片
@@ -56,8 +56,9 @@ class Good(db.Model):
 
 class Favorite(db.Model):
     __tablename__ = "favorite"
-    user_id = db.Column(db.BigInteger, primary_key=True)
-    good_id = db.Column(db.BigInteger, primary_key=True)
+    user_id = db.Column(db.BigInteger, primary_key=True)  # 用户id
+    good_id = db.Column(db.BigInteger, primary_key=True)  # 商品id
+
 
 # class Freeze(db.Model):
 #     __tablename__ = "freeze"
@@ -66,6 +67,15 @@ class Favorite(db.Model):
 #     reason = db.Column(db.Text)
 #     status = db.Column(db.Integer)  # 0为未处理，1为已处理
 
+class Messages(db.Model):
+    __tablename__ = "messages"
+    id = db.Column(db.BigInteger, primary_key=True)  # 消息id
+    isSystem = db.Column(db.Boolean)  # 是否为系统消息，0为否，1为是
+    send_id = db.Column(db.BigInteger)  # 发送者id
+    receive_id = db.Column(db.BigInteger)  # 接收者id
+    message = db.Column(db.text)  # 消息内容
+    send_time = db.Column(db.TIMESTAMP)  # 发送时间
+    type = db.Column(db.Integer)  # 消息类型，0为文本，1为图片
 
 # with app.app_context(): #使用架构时不需要此代码
 #     # db.drop_all()  # 初始化表格，需要时再用

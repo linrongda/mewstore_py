@@ -33,6 +33,22 @@ def jwt_required(func):
     return wrapper
 
 
+def check_status(status):
+    def decorator(func):
+        def wrapper(*args, **kwargs):
+            # 检查JWT负载中是否包含指定权限
+            user = db.session.query(User).get(request.payload_id)
+            if user and user.status in status:
+                logger.debug('用户鉴权成功')
+                return func(*args, **kwargs)
+            else:
+                return make_response(jsonify(code=403, message='你没有权限'), 403)
+
+        return wrapper
+
+    return decorator
+
+
 def after_get_info(args, login_type=None):
     # with app.app_context():
     # 验证用户登录信息
