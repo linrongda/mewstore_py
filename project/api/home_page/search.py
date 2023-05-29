@@ -15,10 +15,10 @@ class Search(Resource):
         # with app.app_context():
         # 查询
         if keywords == '':
-            sql_good = db.session.query(Good).filter_by(status=0).order_by(Good.id.desc())
+            sql_good = db.session.query(Good).filter_by(status=1).order_by(Good.id.desc())
         else:
             sql_good = Good.query.filter(
-                Good.status == 0,  # 只显示status为0的商品
+                Good.status == 1,  # 只显示status为1的商品
                 or_(
                     Good.game.like(f"%{keywords}%"),
                     Good.title.like(f"%{keywords}%"),

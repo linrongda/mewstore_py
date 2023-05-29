@@ -12,7 +12,7 @@ class HomePage(Resource):
         size = request.args.get('size', type=int, default=4)
         # with app.app_context():
         # 查询
-        sql_good = db.session.query(Good).filter_by(status=0).order_by(Good.id.desc())
+        sql_good = db.session.query(Good).filter_by(status=1).order_by(Good.id.desc())
         goods = sql_good.paginate(page=page, per_page=size).items
         good_list = []
         for good in goods:

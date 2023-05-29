@@ -16,36 +16,25 @@ class Guess(Resource):
         # 查询
         favorites = db.session.query(Favorite).filter_by(user_id=request.payload_id).all()
         fav_count = len(favorites)
-        game_type = game_rate = game_num = {'王者荣耀': 0, '英雄联盟': 0, '原神': 0, '绝地求生': 0, '和平精英': 0,
-                                            '第五人格': 0}
+        game_type = game_num = {'王者荣耀': 0, '英雄联盟': 0, '原神': 0, '绝地求生': 0, '和平精英': 0, '第五人格': 0}
         for favorite in favorites:
             good = db.session.query(Good).filter_by(id=favorite.good_id).first()
-            if good.game == '王者荣耀':
-                game_type['王者荣耀'] += 1
-            elif good.game == '英雄联盟':
-                game_type['英雄联盟'] += 1
-            elif good.game == '原神':
-                game_type['原神'] += 1
-            elif good.game == '绝地求生':
-                game_type['绝地求生'] += 1
-            elif good.game == '和平精英':
-                game_type['和平精英'] += 1
-            elif good.game == '第五人格':
-                game_type['第五人格'] += 1
-        for game in game_type:
-            game_rate[game] = game_type[game] / fav_count
+            if good and good.game in game_type:
+                game_type[good.game] += 1
         fav_total = 0
-        for game in game_rate:
-            game_num[game] = int(15 * game_rate[game])
+        for game in game_type:
+            game_rate = game_type[game] / fav_count
+            game_num[game] = int(15 * game_rate)
             fav_total += game_num[game]
         remain = 20 - fav_total
         recommended_items = []
         for game, count in game_num.items():
-            items = Good.query.filter_by(game=game).all()
+            items = Good.query.filter_by(game=game, status=1).all()
             shuffle(items)
             items = items[:count]
             recommended_items.extend(items)
-        remaining_items = Good.query.filter(~Good.id.in_([item.id for item in recommended_items])).all()
+        remaining_items = Good.query.filter(~Good.id.in_([item.id for item in recommended_items]),
+                                            Good.status == 1).all()
         shuffle(remaining_items)
         # Take the required number of remaining items
         remaining_items = remaining_items[:remain]
