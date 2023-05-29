@@ -6,6 +6,8 @@ api = Api(home_page_bp)
 # 导入和注册视图函数
 from .homepage import HomePage
 from .search import Search
+from .guess import Guess
 
 api.add_resource(HomePage, '/home-page')
 api.add_resource(Search, '/search')
+api.add_resource(Guess, '/guess')
