@@ -73,9 +73,10 @@ class Messages(db.Model):
     isSystem = db.Column(db.Boolean)  # 是否为系统消息，0为否，1为是
     send_id = db.Column(db.BigInteger)  # 发送者id
     receive_id = db.Column(db.BigInteger)  # 接收者id
-    message = db.Column(db.text)  # 消息内容
+    message = db.Column(db.Text)  # 消息内容
     send_time = db.Column(db.TIMESTAMP)  # 发送时间
     type = db.Column(db.Integer)  # 消息类型，0为文本，1为图片
+    is_read = db.Column(db.Boolean)  # 是否已读，0为否，1为是
 
 # with app.app_context(): #使用架构时不需要此代码
 #     # db.drop_all()  # 初始化表格，需要时再用

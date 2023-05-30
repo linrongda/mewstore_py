@@ -2,13 +2,12 @@ from flask import request, make_response, jsonify
 from flask_restful import Resource, reqparse
 
 from project.models import User, db, Favorite, Good
-from project.utils.auth import jwt_required, check_status
+from project.utils.auth import jwt_required
 from project.utils.log import logger
 
 
 class Favorite_add(Resource):
     @jwt_required
-    @check_status([0, 3])
     def post(self):
         parser = reqparse.RequestParser()
         parser.add_argument('good_id', type=int, required=True, help='商品id必须提供')

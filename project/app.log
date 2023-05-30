@@ -4399,3 +4399,1076 @@ RuntimeError: The current Flask app is not registered with this 'SQLAlchemy' ins
 [2023-05-29 22:58:35,172]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
 [2023-05-29 23:01:27,794]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\models.py', reloading]
 [2023-05-29 23:01:28,096]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 13:13:00,685]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 13:13:02,605]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 13:13:02,610]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 13:13:28,116]-[INFO]-[csrf.py]-[Line:263]-[Msg:The CSRF token is missing.]
+[2023-05-30 13:13:53,868]-[INFO]-[csrf.py]-[Line:263]-[Msg:The CSRF token is missing.]
+[2023-05-30 13:14:09,935]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 13:14:11,895]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 13:14:11,899]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 13:14:15,443]-[DEBUG]-[auth.py]-[Line:71]-[Msg:登录成功]
+[2023-05-30 13:20:51,347]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\message.py', reloading]
+[2023-05-30 13:20:51,689]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 13:20:53,991]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 13:20:53,994]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 13:42:04,372]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\message.py', reloading]
+[2023-05-30 13:42:04,644]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 13:42:07,447]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 13:42:07,449]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 14:00:22,975]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 14:00:25,210]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 14:00:25,217]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 14:01:54,179]-[DEBUG]-[auth.py]-[Line:71]-[Msg:登录成功]
+[2023-05-30 14:03:29,862]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 14:03:31,751]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 14:03:31,753]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 14:04:07,239]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 14:04:09,234]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 14:04:09,239]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 14:05:36,382]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\message.py', reloading]
+[2023-05-30 14:05:36,645]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 14:05:39,363]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 14:05:39,367]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 14:07:02,751]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 14:07:04,912]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 14:07:04,918]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 14:08:57,706]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\message.py', reloading]
+[2023-05-30 14:08:57,975]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 14:09:01,009]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 14:09:01,014]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 14:16:00,055]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\message.py', reloading]
+[2023-05-30 14:16:00,406]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 14:16:02,943]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 14:16:02,950]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 14:18:25,956]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 14:18:27,904]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 14:18:27,908]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 14:20:02,123]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 14:20:04,834]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 14:20:04,837]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 14:23:01,894]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 14:23:03,996]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 14:23:03,998]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 14:28:25,453]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 14:28:28,107]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 14:28:28,112]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 14:34:32,907]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\models.py', reloading]
+[2023-05-30 14:34:33,252]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 14:34:36,038]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 14:34:36,042]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 14:34:37,083]-[ERROR]-[server.py]-[Line:623]-[Msg:message handler error]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\flask_socketio\__init__.py", line 824, in _handle_event
+    ret = handler(auth)
+TypeError: on_connect() takes 1 positional argument but 2 were given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\engine\default.py", line 748, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\cursors.py", line 158, in execute
+    result = self._query(query)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\cursors.py", line 325, in _query
+    conn.query(q)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\connections.py", line 549, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\connections.py", line 779, in _read_query_result
+    result.read()
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\connections.py", line 1157, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\connections.py", line 729, in _read_packet
+    packet.raise_for_error()
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1054, "Unknown column 'messages.is_read' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\engineio\server.py", line 621, in _trigger_event
+    return self.handlers[event](*args)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\socketio\server.py", line 791, in _handle_eio_message
+    self._handle_connect(eio_sid, pkt.namespace, pkt.data)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\socketio\server.py", line 681, in _handle_connect
+    success = self._trigger_event(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\socketio\server.py", line 767, in _trigger_event
+    return self.namespace_handlers[namespace].trigger_event(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\flask_socketio\namespace.py", line 25, in trigger_event
+    return self.socketio._handle_event(handler, event, self.namespace,
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\flask_socketio\__init__.py", line 826, in _handle_event
+    ret = handler()
+  File "C:\Users\Administrator\Desktop\mewstore\project\api\chat\message.py", line 19, in on_connect
+    self.send_offline_messages(user_id)
+  File "C:\Users\Administrator\Desktop\mewstore\project\api\chat\message.py", line 69, in send_offline_messages
+    offline_messages = Messages.query.filter_by(receive_id=receive_id, is_read=0).all()
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2697, in all
+    return self._iter().all()  # type: ignore
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2855, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\orm\session.py", line 2229, in execute
+    return self._execute_internal(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\orm\session.py", line 2124, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\orm\context.py", line 253, in orm_execute_statement
+    result = conn.execute(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1414, in execute
+    return meth(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 486, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1842, in _execute_context
+    return self._exec_single_context(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\engine\base.py", line 2326, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\engine\default.py", line 748, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\cursors.py", line 158, in execute
+    result = self._query(query)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\cursors.py", line 325, in _query
+    conn.query(q)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\connections.py", line 549, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\connections.py", line 779, in _read_query_result
+    result.read()
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\connections.py", line 1157, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\connections.py", line 729, in _read_packet
+    packet.raise_for_error()
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (1054, "Unknown column 'messages.is_read' in 'field list'")
+[SQL: SELECT messages.id AS messages_id, messages.`isSystem` AS `messages_isSystem`, messages.send_id AS messages_send_id, messages.receive_id AS messages_receive_id, messages.message AS messages_message, messages.send_time AS messages_send_time, messages.type AS messages_type, messages.is_read AS messages_is_read 
+FROM messages 
+WHERE messages.receive_id = %(receive_id_1)s AND messages.is_read = %(is_read_1)s]
+[parameters: {'receive_id_1': 1653305391263649792, 'is_read_1': 0}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+[2023-05-30 14:34:44,033]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\models.py', reloading]
+[2023-05-30 14:34:44,321]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 14:34:46,483]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 14:34:46,487]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 14:34:49,751]-[ERROR]-[server.py]-[Line:623]-[Msg:message handler error]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\flask_socketio\__init__.py", line 824, in _handle_event
+    ret = handler(auth)
+TypeError: on_connect() takes 1 positional argument but 2 were given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\engine\default.py", line 748, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\cursors.py", line 158, in execute
+    result = self._query(query)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\cursors.py", line 325, in _query
+    conn.query(q)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\connections.py", line 549, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\connections.py", line 779, in _read_query_result
+    result.read()
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\connections.py", line 1157, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\connections.py", line 729, in _read_packet
+    packet.raise_for_error()
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1054, "Unknown column 'messages.is_read' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\engineio\server.py", line 621, in _trigger_event
+    return self.handlers[event](*args)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\socketio\server.py", line 791, in _handle_eio_message
+    self._handle_connect(eio_sid, pkt.namespace, pkt.data)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\socketio\server.py", line 681, in _handle_connect
+    success = self._trigger_event(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\socketio\server.py", line 767, in _trigger_event
+    return self.namespace_handlers[namespace].trigger_event(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\flask_socketio\namespace.py", line 25, in trigger_event
+    return self.socketio._handle_event(handler, event, self.namespace,
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\flask_socketio\__init__.py", line 826, in _handle_event
+    ret = handler()
+  File "C:\Users\Administrator\Desktop\mewstore\project\api\chat\message.py", line 19, in on_connect
+    self.send_offline_messages(user_id)
+  File "C:\Users\Administrator\Desktop\mewstore\project\api\chat\message.py", line 69, in send_offline_messages
+    offline_messages = Messages.query.filter_by(receive_id=receive_id, is_read=0).all()
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2697, in all
+    return self._iter().all()  # type: ignore
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2855, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\orm\session.py", line 2229, in execute
+    return self._execute_internal(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\orm\session.py", line 2124, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\orm\context.py", line 253, in orm_execute_statement
+    result = conn.execute(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1414, in execute
+    return meth(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 486, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1842, in _execute_context
+    return self._exec_single_context(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\engine\base.py", line 2326, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\engine\default.py", line 748, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\cursors.py", line 158, in execute
+    result = self._query(query)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\cursors.py", line 325, in _query
+    conn.query(q)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\connections.py", line 549, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\connections.py", line 779, in _read_query_result
+    result.read()
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\connections.py", line 1157, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\connections.py", line 729, in _read_packet
+    packet.raise_for_error()
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (1054, "Unknown column 'messages.is_read' in 'field list'")
+[SQL: SELECT messages.id AS messages_id, messages.`isSystem` AS `messages_isSystem`, messages.send_id AS messages_send_id, messages.receive_id AS messages_receive_id, messages.message AS messages_message, messages.send_time AS messages_send_time, messages.type AS messages_type, messages.is_read AS messages_is_read 
+FROM messages 
+WHERE messages.receive_id = %(receive_id_1)s AND messages.is_read = %(is_read_1)s]
+[parameters: {'receive_id_1': 1653305391263649792, 'is_read_1': 0}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+[2023-05-30 14:40:57,551]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\models.py', reloading]
+[2023-05-30 14:40:57,862]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 14:41:00,386]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 14:41:00,389]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 14:42:38,169]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 14:42:38,198]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 14:42:38,208]-[DEBUG]-[connectionpool.py]-[Line:1003]-[Msg:Starting new HTTPS connection (1): uc.qbox.me:443]
+[2023-05-30 14:42:38,366]-[DEBUG]-[connectionpool.py]-[Line:456]-[Msg:https://uc.qbox.me:443 "GET /v1/query?ak=FU5sKsfrD422VmfLSxCm6AxnjNHxUA_VYf1xdT1b&bucket=mewstore HTTP/1.1" 200 650]
+[2023-05-30 14:42:38,373]-[DEBUG]-[retry.py]-[Line:351]-[Msg:Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None)]
+[2023-05-30 14:42:38,378]-[DEBUG]-[connectionpool.py]-[Line:228]-[Msg:Starting new HTTP connection (1): up-cn-east-2.qiniup.com:80]
+[2023-05-30 14:42:42,073]-[DEBUG]-[connectionpool.py]-[Line:456]-[Msg:http://up-cn-east-2.qiniup.com:80 "POST / HTTP/1.1" 200 76]
+[2023-05-30 14:42:42,076]-[DEBUG]-[picture.py]-[Line:28]-[Msg:上传图片成功]
+[2023-05-30 14:50:15,414]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 14:50:17,360]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 14:50:17,365]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 14:51:54,141]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 14:51:56,706]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 14:51:56,711]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 15:03:33,711]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\message.py', reloading]
+[2023-05-30 15:03:34,057]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 15:03:36,326]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 15:03:36,330]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 15:05:14,432]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 15:05:17,149]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 15:05:17,150]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 15:12:06,648]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\message.py', reloading]
+[2023-05-30 15:12:06,929]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 15:12:09,755]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 15:12:09,761]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 15:15:42,308]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\message.py', reloading]
+[2023-05-30 15:15:42,557]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 15:15:44,829]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 15:15:44,831]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 15:18:36,014]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\message.py', reloading]
+[2023-05-30 15:18:36,295]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 15:18:38,629]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 15:18:38,634]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 15:24:25,126]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\message.py', reloading]
+[2023-05-30 15:24:25,413]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 15:24:27,730]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 15:24:27,735]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 15:28:42,863]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\message.py', reloading]
+[2023-05-30 15:28:43,107]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 15:28:45,308]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 15:28:45,312]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 15:31:46,753]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\message.py', reloading]
+[2023-05-30 15:31:46,997]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 15:31:49,064]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 15:31:49,066]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 15:38:04,985]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\message.py', reloading]
+[2023-05-30 15:38:05,256]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 15:38:07,361]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 15:38:07,363]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 15:39:05,735]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\message.py', reloading]
+[2023-05-30 15:39:06,013]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 15:39:08,162]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 15:39:08,166]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 15:41:07,441]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 15:41:09,304]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 15:41:09,307]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 15:47:29,284]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\message.py', reloading]
+[2023-05-30 15:47:29,607]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 15:47:31,941]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 15:47:31,946]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 15:48:47,469]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 15:48:49,345]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 15:48:49,348]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 15:51:57,841]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\message.py', reloading]
+[2023-05-30 15:51:58,116]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 15:52:00,490]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 15:52:00,493]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 15:52:34,127]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\message.py', reloading]
+[2023-05-30 15:52:34,493]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 15:52:36,951]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 15:52:36,956]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 15:53:56,717]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\message.py', reloading]
+[2023-05-30 15:53:56,984]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 15:53:59,086]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 15:53:59,090]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 15:54:14,479]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 15:54:16,357]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 15:54:16,361]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 15:55:13,187]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 15:55:16,058]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 15:55:16,063]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 15:56:22,353]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\message.py', reloading]
+[2023-05-30 15:56:22,688]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 15:56:25,242]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 15:56:25,245]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 15:58:24,209]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\message.py', reloading]
+[2023-05-30 15:58:24,493]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 15:58:26,870]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 15:58:26,874]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 16:01:34,490]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\message.py', reloading]
+[2023-05-30 16:01:34,760]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 16:01:36,908]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 16:01:36,911]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 16:02:12,726]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\message.py', reloading]
+[2023-05-30 16:02:12,996]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 16:02:15,381]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 16:02:15,390]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 16:07:05,867]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\message.py', reloading]
+[2023-05-30 16:07:06,173]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 16:07:08,484]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 16:07:08,485]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 16:07:34,070]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\message.py', reloading]
+[2023-05-30 16:07:34,369]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 16:07:36,680]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 16:07:36,682]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 16:08:58,519]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\message.py', reloading]
+[2023-05-30 16:08:58,819]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 16:09:01,591]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 16:09:01,594]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 16:15:30,618]-[ERROR]-[server.py]-[Line:623]-[Msg:message handler error]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\flask_socketio\__init__.py", line 824, in _handle_event
+    ret = handler(auth)
+TypeError: on_connect() takes 1 positional argument but 2 were given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\connections.py", line 736, in _read_bytes
+    data = self._rfile.read(num_bytes)
+  File "C:\ProgramData\Anaconda3\lib\socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\engine\default.py", line 748, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\cursors.py", line 158, in execute
+    result = self._query(query)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\cursors.py", line 325, in _query
+    conn.query(q)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\connections.py", line 549, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\connections.py", line 779, in _read_query_result
+    result.read()
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\connections.py", line 1157, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\connections.py", line 696, in _read_packet
+    packet_header = self._read_bytes(4)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\connections.py", line 742, in _read_bytes
+    raise err.OperationalError(
+pymysql.err.OperationalError: (2013, 'Lost connection to MySQL server during query ([WinError 10054] 远程主机强迫关闭了一个现有的连接。)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\engineio\server.py", line 621, in _trigger_event
+    return self.handlers[event](*args)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\socketio\server.py", line 791, in _handle_eio_message
+    self._handle_connect(eio_sid, pkt.namespace, pkt.data)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\socketio\server.py", line 681, in _handle_connect
+    success = self._trigger_event(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\socketio\server.py", line 767, in _trigger_event
+    return self.namespace_handlers[namespace].trigger_event(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\flask_socketio\namespace.py", line 25, in trigger_event
+    return self.socketio._handle_event(handler, event, self.namespace,
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\flask_socketio\__init__.py", line 826, in _handle_event
+    ret = handler()
+  File "C:\Users\Administrator\Desktop\mewstore\project\api\chat\message.py", line 18, in on_connect
+    if user_id := self.verify_token(token):
+  File "C:\Users\Administrator\Desktop\mewstore\project\api\chat\message.py", line 65, in verify_token
+    user = db.session.query(User).get(payload_id)
+  File "<string>", line 2, in get
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\util\deprecations.py", line 383, in warned
+    return fn(*args, **kwargs)  # type: ignore[no-any-return]
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\orm\query.py", line 1130, in get
+    return self._get_impl(ident, loading.load_on_pk_identity)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\orm\query.py", line 1139, in _get_impl
+    return self.session._get_impl(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\orm\session.py", line 3672, in _get_impl
+    return db_load_fn(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\orm\loading.py", line 668, in load_on_pk_identity
+    session.execute(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\orm\session.py", line 2229, in execute
+    return self._execute_internal(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\orm\session.py", line 2124, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\orm\context.py", line 253, in orm_execute_statement
+    result = conn.execute(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1414, in execute
+    return meth(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 486, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1842, in _execute_context
+    return self._exec_single_context(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\engine\base.py", line 2326, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\engine\default.py", line 748, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\cursors.py", line 158, in execute
+    result = self._query(query)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\cursors.py", line 325, in _query
+    conn.query(q)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\connections.py", line 549, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\connections.py", line 779, in _read_query_result
+    result.read()
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\connections.py", line 1157, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\connections.py", line 696, in _read_packet
+    packet_header = self._read_bytes(4)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\connections.py", line 742, in _read_bytes
+    raise err.OperationalError(
+sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (2013, 'Lost connection to MySQL server during query ([WinError 10054] 远程主机强迫关闭了一个现有的连接。)')
+[SQL: SELECT user.id AS user_id, user.nickname AS user_nickname, user.username AS user_username, user.profile_photo AS user_profile_photo, user.password AS user_password, user.phone_number AS user_phone_number, user.money AS user_money, user.status AS user_status, user.name AS user_name, user.id_card AS user_id_card 
+FROM user 
+WHERE user.id = %(pk_1)s]
+[parameters: {'pk_1': 1653305391263649792}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+[2023-05-30 16:19:50,628]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\message.py', reloading]
+[2023-05-30 16:19:50,967]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 16:19:53,303]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 16:19:53,306]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 16:20:32,503]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 16:20:34,904]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 16:20:34,907]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 16:21:16,819]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 16:21:19,203]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 16:21:19,206]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 16:26:04,390]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\message.py', reloading]
+[2023-05-30 16:26:04,721]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 16:26:07,281]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 16:26:07,286]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 16:30:56,737]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\message.py', reloading]
+[2023-05-30 16:30:56,987]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 16:30:59,223]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 16:30:59,225]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 16:33:01,446]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\message.py', reloading]
+[2023-05-30 16:33:01,750]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 16:33:04,106]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 16:33:04,108]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 16:38:44,680]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\message.py', reloading]
+[2023-05-30 16:38:45,063]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 16:38:47,205]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 16:38:47,208]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 16:41:47,158]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\message.py', reloading]
+[2023-05-30 16:41:47,433]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 16:41:50,042]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 16:41:50,045]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 16:44:37,704]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\message.py', reloading]
+[2023-05-30 16:44:38,003]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 16:44:40,422]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 16:44:40,424]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 16:49:01,517]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 16:49:03,391]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 16:49:03,392]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 16:51:47,162]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 16:51:49,169]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 16:51:49,174]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 16:54:09,077]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 16:54:10,863]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 16:54:10,866]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 16:56:12,796]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 16:56:14,795]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 16:56:14,800]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 16:57:25,179]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\message.py', reloading]
+[2023-05-30 16:57:25,478]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 16:57:27,948]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 16:57:27,952]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 16:59:33,195]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\message.py', reloading]
+[2023-05-30 16:59:33,566]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 16:59:36,261]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 16:59:36,265]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 17:00:11,045]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\message.py', reloading]
+[2023-05-30 17:00:11,338]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 17:00:13,880]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 17:00:13,884]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 17:06:05,366]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\message.py', reloading]
+[2023-05-30 17:06:05,635]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 17:06:07,979]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 17:06:07,983]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 17:09:19,133]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 17:09:21,048]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 17:09:21,054]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 17:10:21,822]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 17:10:23,860]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 17:10:23,865]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 17:11:06,999]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 17:11:09,159]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 17:11:09,162]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 17:13:16,188]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 17:13:18,289]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 17:13:18,295]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 17:14:04,290]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 17:14:06,260]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 17:14:06,264]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 17:14:20,248]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 17:14:22,247]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 17:14:22,249]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 17:15:04,221]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\message.py', reloading]
+[2023-05-30 17:15:04,520]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 17:15:06,719]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 17:15:06,723]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 17:32:22,044]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 17:32:24,078]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 17:32:24,083]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 17:34:42,093]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\message.py', reloading]
+[2023-05-30 17:34:42,458]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 17:34:45,012]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 17:34:45,017]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 17:36:06,059]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\message.py', reloading]
+[2023-05-30 17:36:06,596]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 17:36:09,234]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 17:36:09,241]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 17:40:42,134]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\message.py', reloading]
+[2023-05-30 17:40:42,423]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 17:40:45,140]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 17:40:45,147]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 17:44:22,733]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\message.py', reloading]
+[2023-05-30 17:44:23,184]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 17:44:25,737]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 17:44:25,741]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 17:46:08,936]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\__init__.py', reloading]
+[2023-05-30 17:46:09,222]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 17:46:11,595]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 17:46:11,600]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 17:47:34,769]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\message.py', reloading]
+[2023-05-30 17:47:35,063]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 17:47:37,926]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 17:47:37,931]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 17:52:53,113]-[ERROR]-[server.py]-[Line:623]-[Msg:message handler error]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\flask_socketio\__init__.py", line 824, in _handle_event
+    ret = handler(auth)
+TypeError: on_connect() takes 1 positional argument but 2 were given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\connections.py", line 736, in _read_bytes
+    data = self._rfile.read(num_bytes)
+  File "C:\ProgramData\Anaconda3\lib\socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\engine\default.py", line 748, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\cursors.py", line 158, in execute
+    result = self._query(query)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\cursors.py", line 325, in _query
+    conn.query(q)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\connections.py", line 549, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\connections.py", line 779, in _read_query_result
+    result.read()
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\connections.py", line 1157, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\connections.py", line 696, in _read_packet
+    packet_header = self._read_bytes(4)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\connections.py", line 742, in _read_bytes
+    raise err.OperationalError(
+pymysql.err.OperationalError: (2013, 'Lost connection to MySQL server during query ([WinError 10054] 远程主机强迫关闭了一个现有的连接。)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\engineio\server.py", line 621, in _trigger_event
+    return self.handlers[event](*args)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\socketio\server.py", line 791, in _handle_eio_message
+    self._handle_connect(eio_sid, pkt.namespace, pkt.data)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\socketio\server.py", line 681, in _handle_connect
+    success = self._trigger_event(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\socketio\server.py", line 767, in _trigger_event
+    return self.namespace_handlers[namespace].trigger_event(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\flask_socketio\namespace.py", line 25, in trigger_event
+    return self.socketio._handle_event(handler, event, self.namespace,
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\flask_socketio\__init__.py", line 826, in _handle_event
+    ret = handler()
+  File "C:\Users\Administrator\Desktop\mewstore\project\api\chat\message.py", line 99, in on_connect
+    if receive_id := verify_token(token):
+  File "C:\Users\Administrator\Desktop\mewstore\project\api\chat\message.py", line 67, in verify_token
+    user = db.session.query(User).get(payload_id)
+  File "<string>", line 2, in get
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\util\deprecations.py", line 383, in warned
+    return fn(*args, **kwargs)  # type: ignore[no-any-return]
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\orm\query.py", line 1130, in get
+    return self._get_impl(ident, loading.load_on_pk_identity)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\orm\query.py", line 1139, in _get_impl
+    return self.session._get_impl(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\orm\session.py", line 3672, in _get_impl
+    return db_load_fn(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\orm\loading.py", line 668, in load_on_pk_identity
+    session.execute(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\orm\session.py", line 2229, in execute
+    return self._execute_internal(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\orm\session.py", line 2124, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\orm\context.py", line 253, in orm_execute_statement
+    result = conn.execute(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1414, in execute
+    return meth(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 486, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1842, in _execute_context
+    return self._exec_single_context(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\engine\base.py", line 2326, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\sqlalchemy\engine\default.py", line 748, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\cursors.py", line 158, in execute
+    result = self._query(query)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\cursors.py", line 325, in _query
+    conn.query(q)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\connections.py", line 549, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\connections.py", line 779, in _read_query_result
+    result.read()
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\connections.py", line 1157, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\connections.py", line 696, in _read_packet
+    packet_header = self._read_bytes(4)
+  File "C:\Users\Administrator\Desktop\mewstore\venv\lib\site-packages\pymysql\connections.py", line 742, in _read_bytes
+    raise err.OperationalError(
+sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (2013, 'Lost connection to MySQL server during query ([WinError 10054] 远程主机强迫关闭了一个现有的连接。)')
+[SQL: SELECT user.id AS user_id, user.nickname AS user_nickname, user.username AS user_username, user.profile_photo AS user_profile_photo, user.password AS user_password, user.phone_number AS user_phone_number, user.money AS user_money, user.status AS user_status, user.name AS user_name, user.id_card AS user_id_card 
+FROM user 
+WHERE user.id = %(pk_1)s]
+[parameters: {'pk_1': 1653305391263649792}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+[2023-05-30 17:57:53,995]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\app.py', reloading]
+[2023-05-30 17:57:54,265]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 17:57:57,289]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 17:57:57,296]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 18:18:20,112]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\message.py', reloading]
+[2023-05-30 18:18:20,425]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 18:18:56,749]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 18:18:58,768]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 18:18:58,773]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 18:20:04,717]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\message.py', reloading]
+[2023-05-30 18:20:04,981]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 18:20:07,564]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 18:20:07,569]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 18:25:12,727]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\message.py', reloading]
+[2023-05-30 18:25:13,000]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 18:25:15,362]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 18:25:15,367]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 18:28:07,534]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\history.py', reloading]
+[2023-05-30 18:28:07,863]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 18:28:10,528]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 18:28:10,534]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 18:28:32,107]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\read.py', reloading]
+[2023-05-30 18:28:32,358]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 18:28:34,646]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 18:28:34,648]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 18:29:55,997]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\read.py', reloading]
+[2023-05-30 18:29:56,313]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 18:29:58,704]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 18:29:58,711]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 18:33:47,717]-[DEBUG]-[auth.py]-[Line:71]-[Msg:登录成功]
+[2023-05-30 18:33:56,990]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 18:33:57,035]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 18:36:48,799]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 18:36:48,885]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 18:37:09,442]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 18:37:09,478]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 18:42:13,991]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 18:42:16,521]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 18:42:16,526]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 18:42:36,982]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 18:42:39,552]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 18:42:39,557]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 18:42:54,979]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 18:42:55,310]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 18:43:00,846]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 18:43:00,874]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 18:44:34,032]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 18:44:34,061]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 18:44:34,179]-[DEBUG]-[read.py]-[Line:25]-[Msg:消息已读]
+[2023-05-30 18:49:52,888]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Detected change in 'C:\\Users\\Administrator\\Desktop\\mewstore\\project\\api\\chat\\history.py', reloading]
+[2023-05-30 18:49:53,129]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 18:49:55,725]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 18:49:55,729]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 19:00:06,883]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Restarting with stat]
+[2023-05-30 19:00:09,015]-[WARNING]-[_internal.py]-[Line:224]-[Msg: * Debugger is active!]
+[2023-05-30 19:00:09,017]-[INFO]-[_internal.py]-[Line:224]-[Msg: * Debugger PIN: 799-964-004]
+[2023-05-30 19:00:16,878]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:00:17,253]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:00:17,332]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:00:51,750]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:00:51,781]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:00:51,845]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:00:58,940]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:00:58,973]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:00:59,035]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:00:59,098]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:00:59,129]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:00:59,198]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:00:59,264]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:00:59,295]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:00:59,362]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:00:59,420]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:00:59,450]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:00:59,510]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:00:59,570]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:00:59,602]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:00:59,667]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:00:59,777]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:00:59,809]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:00:59,872]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:00:59,934]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:00:59,965]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:00,028]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:00,089]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:00,119]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:00,183]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:00,243]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:00,276]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:00,336]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:00,394]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:00,426]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:00,494]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:00,557]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:00,591]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:00,660]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:00,720]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:00,752]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:00,825]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:00,888]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:00,920]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:00,985]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:01,051]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:01,083]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:01,146]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:01,207]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:01,239]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:01,303]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:01,371]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:01,404]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:01,470]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:01,538]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:01,571]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:01,642]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:01,701]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:01,732]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:01,798]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:01,868]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:01,901]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:01,965]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:02,039]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:02,068]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:02,130]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:02,191]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:02,221]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:02,281]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:02,350]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:02,391]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:02,455]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:02,517]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:02,548]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:02,612]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:02,675]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:02,705]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:02,770]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:02,828]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:02,860]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:02,933]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:02,994]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:03,024]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:03,103]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:03,166]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:03,197]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:03,259]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:03,320]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:03,352]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:03,416]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:03,480]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:03,512]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:03,576]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:03,636]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:03,673]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:03,736]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:03,796]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:03,827]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:03,889]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:03,949]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:03,980]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:04,048]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:04,122]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:04,154]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:04,221]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:04,284]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:04,317]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:04,380]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:04,442]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:04,472]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:04,532]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:04,591]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:04,620]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:04,741]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:04,801]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:04,831]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:04,893]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:04,953]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:04,982]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:05,045]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:05,105]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:05,138]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:05,201]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:05,259]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:05,290]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:05,349]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:05,412]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:05,445]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:05,508]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:05,569]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:05,600]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:05,661]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:05,725]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:05,759]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:05,823]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:05,885]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:05,917]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:05,978]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:06,037]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:06,066]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:06,143]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:06,221]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:06,258]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:06,321]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:06,380]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:06,411]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:06,472]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:06,531]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:06,564]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:06,627]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:06,690]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:06,721]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:06,786]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:06,848]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:06,879]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:06,940]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:07,003]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:07,035]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:07,102]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:07,167]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:07,204]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:07,267]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:07,345]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:07,374]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:07,434]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:07,494]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:07,525]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:07,589]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:07,664]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:07,703]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:07,769]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:07,833]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:07,863]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:07,924]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:07,985]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:08,018]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:08,083]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:08,142]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:08,173]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:08,247]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:08,309]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:08,342]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:08,406]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:08,467]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:08,499]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:08,558]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:08,617]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:08,647]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:08,708]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:08,768]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:08,798]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:08,860]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:08,918]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:08,954]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:09,017]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:09,081]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:09,111]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:09,174]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:09,238]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:09,269]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:09,331]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:09,391]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:09,422]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:09,500]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:09,563]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:09,596]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:09,672]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:09,779]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:09,809]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:09,873]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:09,935]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:09,965]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:10,027]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:10,086]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:10,117]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:10,178]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:10,240]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:10,270]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:10,331]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:10,400]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:10,430]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:10,491]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:10,550]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:10,579]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:10,640]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:10,702]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:10,735]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:10,799]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:10,861]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:10,891]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:10,968]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:11,033]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:11,063]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:11,126]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:11,183]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:11,213]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:11,274]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:11,340]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:11,386]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:11,457]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:11,517]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:11,551]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:11,611]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:11,670]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:11,701]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:11,762]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:11,833]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:11,864]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:11,937]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:12,004]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:12,038]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:12,103]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:12,166]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:12,199]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:12,280]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:12,339]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:12,371]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:12,434]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:12,493]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:12,526]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:12,586]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:12,646]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:12,678]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:12,738]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:12,795]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:12,824]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:12,883]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:12,944]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:12,975]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:13,041]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:13,103]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:13,134]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:13,196]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:13,259]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:13,290]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:13,352]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:13,413]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:13,443]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:13,506]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:13,577]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:13,608]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:13,670]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:13,730]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:13,761]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:13,827]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:13,887]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:13,920]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:13,984]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:14,046]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:14,077]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:14,136]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:14,192]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:14,221]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:14,282]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:14,342]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:14,373]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:14,433]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:14,491]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:14,522]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:14,580]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:14,638]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:14,668]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:14,773]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:01:14,834]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:01:14,863]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:01:14,924]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:02:31,095]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:02:31,138]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:02:31,226]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:02:40,537]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:02:40,570]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:02:40,635]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]
+[2023-05-30 19:02:41,952]-[DEBUG]-[auth.py]-[Line:24]-[Msg:解析token成功]
+[2023-05-30 19:02:41,984]-[DEBUG]-[auth.py]-[Line:42]-[Msg:用户鉴权成功]
+[2023-05-30 19:02:42,048]-[DEBUG]-[history.py]-[Line:35]-[Msg:用户1653305391263649792获取与用户1653305391263649792的历史消息]

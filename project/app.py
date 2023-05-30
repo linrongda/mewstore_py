@@ -1,6 +1,6 @@
 from flask import Flask
 from api import bp as api_bp
-from exts import db, cors, socketio
+from exts import db, cors, socketio, csrf
 import config
 from project.api.chat import Message
 
@@ -13,6 +13,7 @@ app.config.from_object(config)
 db.init_app(app)
 cors.init_app(app)
 socketio.init_app(app, cors_allowed_origins='*')
+# csrf.init_app(app)
 # 注册蓝图
 app.register_blueprint(api_bp)
 
