@@ -7,12 +7,11 @@ from project.utils.Time_Transform import time_transform
 from project.utils.log import logger
 
 
-class Search(Resource):
+class Search(Resource):  # 搜索商品
     def get(self):
         page = request.args.get('page', type=int, default=1)
         size = request.args.get('size', type=int, default=4)
         keywords = request.args.get('keywords', type=str, default='')
-        # with app.app_context():
         # 查询
         if keywords == '':
             sql_good = db.session.query(Good).filter_by(status=1).order_by(Good.id.desc())
@@ -42,6 +41,6 @@ class Search(Resource):
             good_list.append(good_dict)
         if not good_list:
             return make_response(jsonify(code=404, message='找不到有关的商品'), 404)
-        logger.debug('获取商品成功')
+        logger.debug('获取搜索商品成功')
         # 返回结果
-        return make_response(jsonify(code=200, message='获取商品成功', data=good_list), 200)
+        return make_response(jsonify(code=200, message='获取搜索商品成功', data=good_list), 200)

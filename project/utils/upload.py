@@ -1,3 +1,4 @@
+# 实现图片上传的功能
 import qiniu
 
 

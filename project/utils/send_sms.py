@@ -42,11 +42,11 @@ class Sample:
 #         args: List[str],
 #     ) -> None:
 #         # 工程代码泄露可能会导致AccessKey泄露，并威胁账号下所有资源的安全性。以下代码示例仅供参考，建议使用更安全的 STS 方式，更多鉴权访问方式请参见：https://help.aliyun.com/document_detail/378659.html
-#         client = Sample.create_client('LTAI5tNVqQ16EgH2Xn6fxar1', 'eIm61r1Uy8e5IDjDepBN3JKiqXmLeO')
+#         client = Sample.create_client('accessKeyId', 'accessKeySecret')
 #         send_sms_request = dysmsapi_20170525_models.SendSmsRequest(
 #             sign_name='闲猫MewStore',
 #             template_code='SMS_460685295',
-#             phone_numbers='18659800581',
+#             phone_numbers='18859522606',
 #             template_param='{"code":"114514"}'
 #         )
 #         runtime = util_models.RuntimeOptions()

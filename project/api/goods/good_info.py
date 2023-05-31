@@ -6,9 +6,8 @@ from project.utils.Time_Transform import time_transform
 from project.utils.log import logger
 
 
-class Good_get(Resource):
+class Good_get(Resource):  # 获取商品信息
     def get(self, good_id):
-        # with app.app_context():
         # 查询
         good = db.session.query(Good).get(good_id)
         # 判断是否存在
@@ -27,6 +26,6 @@ class Good_get(Resource):
             good_info = {'id': good.id, 'view': good.view, 'game': good.game, 'picture_url': picture_url,
                          'title': good.title, 'content': good.content, 'add_time': time_transform(good.add_time),
                          'status': good.status, 'seller_id': good.seller_id, 'price': good.price}
-            logger.debug('获取商品信息成功')
+            logger.debug(f'获取商品{good.id}信息成功')
             # 返回结果
             return make_response(jsonify(code=200, message='获取商品信息成功', data=good_info), 200)

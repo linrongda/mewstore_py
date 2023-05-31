@@ -10,17 +10,15 @@ from project.utils.log import logger
 from project.utils.snowflake import id_generate
 
 
-class Register(Resource):
+class Register(Resource):  # 注册
     def post(self):
         parser = reqparse.RequestParser()
         parser.add_argument('username', type=str, required=True, help='请输入用户名')
         parser.add_argument('password', type=str, required=True, help='请输入密码')
         parser.add_argument('check_password', type=str, required=True, help='请输入确认密码')
         parser.add_argument('phone_number', type=str, required=True, help='请输入手机号')
-        # parser.add_argument('status', type=int, required=True, help='请输入用户状态')
         parser.add_argument('code', type=str, required=True, help='请输入验证码')
         args = parser.parse_args()
-        # with app.app_context():
         if args['password'] != args['check_password']:
             return make_response(jsonify(code=400, message='两次输入的密码不一致'), 400)
         if db.session.query(User).filter_by(username=args['username']).first():
@@ -40,10 +38,10 @@ class Register(Resource):
                 user = User(id=id_generate('user'), username=args['username'],
                             password=generate_password_hash(args['password']),
                             phone_number=args['phone_number'],
-                            status=0)
+                            status=0)  # 使用雪花算法生成id，密码使用hash加密，status=0表示普通用户
                 db.session.add(user)
                 db.session.commit()
-                logger.debug('注册成功')
+                logger.debug(f'用户{args["username"]}注册成功')
                 return make_response(jsonify(code=201, message='注册成功'), 201)
             except Exception as e:
                 return make_response(jsonify(code=400, message=f'发生未知错误：{e}'), 400)

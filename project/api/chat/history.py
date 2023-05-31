@@ -1,13 +1,13 @@
 from flask import request, make_response, jsonify
 from flask_restful import Resource
 
-from project.models import User, db, Favorite, Good, Messages
+from project.models import Messages
 from project.utils.Time_Transform import time_transform
 from project.utils.auth import jwt_required, check_status
 from project.utils.log import logger
 
 
-class MessageHistory(Resource):
+class MessageHistory(Resource):  # 用户获取历史消息
     @jwt_required
     @check_status([0, 3])
     def get(self):

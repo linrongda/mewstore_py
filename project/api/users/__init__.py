@@ -17,6 +17,7 @@ from .user_phone_number import User_phone_number
 from .user_money import User_money
 from .real_name_auth import Real_name_authentication
 
+# 为各个视图函数添加路由
 api.add_resource(Sms, '/sms')
 api.add_resource(Register, '/')
 api.add_resource(Login_Username, '/login/username')

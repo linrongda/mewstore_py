@@ -6,11 +6,10 @@ from project.utils.Time_Transform import time_transform
 from project.utils.log import logger
 
 
-class HomePage(Resource):
+class HomePage(Resource):  # 首页
     def get(self):
         page = request.args.get('page', type=int, default=1)
         size = request.args.get('size', type=int, default=4)
-        # with app.app_context():
         # 查询
         sql_good = db.session.query(Good).filter_by(status=1).order_by(Good.id.desc())
         goods = sql_good.paginate(page=page, per_page=size).items
@@ -31,6 +30,6 @@ class HomePage(Resource):
             good_list.append(good_dict)
         if not good_list:
             return make_response(jsonify(code=404, message='找不到在售的商品'), 404)
-        logger.debug('获取商品成功')
+        logger.debug('获取首页商品成功')
         # 返回结果
-        return make_response(jsonify(code=200, message='获取商品成功', data=good_list), 200)
+        return make_response(jsonify(code=200, message='获取首页商品成功', data=good_list), 200)

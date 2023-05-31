@@ -11,7 +11,7 @@ from project.utils.auth import JWT_SECRET_KEY
 from project.utils.snowflake import id_generate
 
 
-class Message(Namespace):
+class Message(Namespace):  # 聊天功能
     def on_connect(self):
         token = request.headers.get('Authorization')
         if user_id := self.verify_token(token):
