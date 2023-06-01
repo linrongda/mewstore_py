@@ -1,5 +1,5 @@
 import pytest
-import json
+
 from project.app import app  # 导入第三方包的时候报错no module？不急，pip重装解决
 
 
@@ -31,7 +31,7 @@ def client():
     )
 ])
 def test_login(client, data, expected_status_code, expected_response):
-    response = client.post('/users/login/username', data=json.dumps(data), content_type='application/json')
+    response = client.post('/users/login/username', json=data, content_type='application/json')
     assert response.status_code == expected_status_code
     assert response.json.get('code') == expected_response.get('code')
     assert response.json.get('message') == expected_response.get('message')

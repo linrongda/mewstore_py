@@ -1,6 +1,5 @@
-#
 # import pytest
-# import json
+
 # from project.app import app
 #
 #
@@ -80,6 +79,6 @@
 #     # )
 # ])
 # def test_register(client, data, expected_status_code, expected_response):
-#     response = client.post('/users', data=json.dumps(data), content_type='application/json')
+#     response = client.post('/users', json=data, content_type='application/json')
 #     assert response.status_code == expected_status_code
 #     assert response.json == expected_response

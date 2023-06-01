@@ -1,5 +1,5 @@
 import pytest
-import json
+
 from project.app import app
 
 
@@ -10,7 +10,7 @@ def client():
         yield client
 
 
-@pytest.mark.parametrize('data, expected_status_code, expected_response', [
+@pytest.mark.parametrize('headers, expected_status_code, expected_response', [
     # 测试成功注册的情况
     (
             {
@@ -21,15 +21,15 @@ def client():
                                                                   "id_card": None,
                                                                   "money": "3778.00",
                                                                   "name": None,
-                                                                  "nickname": None,
+                                                                  "nickname": 'user',
                                                                   "phone_number": "13333333333",
-                                                                  "profile_photo": "http://qiniuyun.mewtopia.cn/FgQuh8Z8hTTTHt4pMtSlsi",
+                                                                  "profile_photo": "http://qiniuyun.mewtopia.cn/FgQuh8Z8hTTTHt4pMtSlsiugZfHk",
                                                                   "status": 0,
                                                                   "username": "user"}}
     )
 ])
-def test_user_info(client, data, expected_status_code, expected_response):
-    response = client.get('/users', headers=data)
+def test_user_info(client, headers, expected_status_code, expected_response):
+    response = client.get('/users', headers=headers)
     assert response.status_code == expected_status_code
     assert response.json.get('code') == expected_response.get('code')
     assert response.json.get('message') == expected_response.get('message')
