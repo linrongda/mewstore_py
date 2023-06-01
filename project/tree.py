@@ -1,6 +1,3 @@
-import os
-import subprocess as sp
-
 import re
 from pathlib import Path
 from pathlib import WindowsPath

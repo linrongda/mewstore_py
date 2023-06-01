@@ -19,10 +19,10 @@ from .real_name_auth import Real_name_authentication
 
 # 为各个视图函数添加路由
 api.add_resource(Sms, '/sms')
-api.add_resource(Register, '/')
+api.add_resource(Register, '')
 api.add_resource(Login_Username, '/login/username')
 api.add_resource(Login_Phone, '/login/phone')
-api.add_resource(User_get, '/')
+api.add_resource(User_get, '')
 api.add_resource(User_nickname, '/nickname')
 api.add_resource(User_username, '/username')
 api.add_resource(User_password, '/password')

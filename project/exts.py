@@ -7,7 +7,3 @@ db = SQLAlchemy()
 cors = CORS()
 socketio = SocketIO()
 csrf = CSRFProtect()
-# def init_app(app):
-#     db.init_app(app)
-#     cors.init_app(app)
-#     socketio.init_app(app)
