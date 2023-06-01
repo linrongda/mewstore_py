@@ -9,4 +9,4 @@ def upload_photo(photo):
     auth = qiniu.Auth(access_key, secret_key)
     uptoken = auth.upload_token(bucket)
     ret, info = qiniu.put_data(uptoken, None, photo.read())
-    return ret['key']
+    return 'http://qiniuyun.mewtopia.cn/'+ret['key']

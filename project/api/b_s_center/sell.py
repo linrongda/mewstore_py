@@ -19,16 +19,8 @@ class Sell(Resource):  # 用户查询出售商品
         goods = sql_goods.paginate(page=page, per_page=size).items
         good_list = []
         for good in goods:
-            if not good.picture:
-                picture_url = None
-            else:
-                picture_urls = good.picture.split(',')
-                picture_url = []
-                for picture in picture_urls:
-                    picture = 'http://rtqcx0dtq.bkt.clouddn.com/' + picture
-                    picture_url.append(picture)
             good_dict = {'id': good.id, 'view': good.view, 'game': good.game, 'title': good.title,
-                         'content': good.content, 'picture_url': picture_url,
+                         'content': good.content, 'picture_url': good.picture,
                          'add_time': time_transform(good.add_time),
                          'status': good.status, 'seller_id': good.seller_id, 'price': good.price}
             good_list.append(good_dict)

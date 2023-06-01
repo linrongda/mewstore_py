@@ -1,4 +1,4 @@
-from exts import db  # 奇怪的db导入方法，我也不知道为什么，但是这样用就对了
+from .exts import db  # 奇怪的db导入方法，我也不知道为什么，但是这样用就对了
 
 
 class User(db.Model):
@@ -52,6 +52,7 @@ class Good(db.Model):
 #     reporter_id = db.Column(db.BigInteger)  # 举报者的id
 #     status = db.Column(db.Integer)  # 举报信息的处理情况，-1为未通过，0为未处理，1为通过举报
 #     content = db.Column(db.Text)  # 举报的原因和描述
+#     type = db.Column(db.Integer)  # 举报的类型
 
 
 class Favorite(db.Model):
@@ -59,13 +60,6 @@ class Favorite(db.Model):
     user_id = db.Column(db.BigInteger, primary_key=True)  # 用户id
     good_id = db.Column(db.BigInteger, primary_key=True)  # 商品id
 
-
-# class Freeze(db.Model):
-#     __tablename__ = "freeze"
-#     user_id = db.Column(db.BigInteger, primary_key=True)
-#     order_id = db.Column(db.BigInteger, primary_key=True)
-#     reason = db.Column(db.Text)
-#     status = db.Column(db.Integer)  # 0为未处理，1为已处理
 
 class Messages(db.Model):
     __tablename__ = "messages"

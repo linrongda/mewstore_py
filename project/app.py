@@ -1,8 +1,8 @@
 from flask import Flask
 
-import config
-from api import bp as api_bp
-from exts import db, cors, socketio
+from . import config
+from .api import bp as api_bp
+from .exts import db, cors, socketio
 from project.api.chat import Message
 
 app = Flask(__name__)

@@ -18,10 +18,10 @@ class Picture(Resource):  # 上传图片
         if isinstance(args['picture'], list):
             picture_list = []
             for picture in args['picture']:
-                picture = 'http://rtqcx0dtq.bkt.clouddn.com/' + upload_photo(picture)
+                picture = upload_photo(picture)
                 picture_list.append(picture)
             pictures = ','.join(picture_list)
         else:
-            pictures = 'http://rtqcx0dtq.bkt.clouddn.com/' + upload_photo(args['picture'])
+            pictures = upload_photo(args['picture'])
         logger.debug(f'用户{request.user.username}上传图片{pictures}成功')
         return make_response(jsonify(code=201, message='上传图片成功', data=pictures), 201)

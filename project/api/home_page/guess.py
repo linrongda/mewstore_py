@@ -41,16 +41,8 @@ class Guess(Resource):  # 猜你喜欢
         shuffle(all_items)  # 打乱所有推荐的商品顺序
         good_list = []
         for good in all_items:
-            if not good.picture:
-                picture_url = None
-            else:
-                picture_urls = good.picture.split(',')
-                picture_url = []
-                for picture in picture_urls:
-                    picture = 'http://rtqcx0dtq.bkt.clouddn.com/' + picture
-                    picture_url.append(picture)
             good_dict = {"id": good.id, "view": good.view, "content": good.content, "game": good.game,
-                         "title": good.title, "picture_url": picture_url, "status": good.status,
+                         "title": good.title, "picture_url": good.picture, "status": good.status,
                          'add_time': time_transform(good.add_time), "seller_id": good.seller_id,
                          "price": good.price}
             good_list.append(good_dict)
