@@ -31,7 +31,8 @@ class Register(Resource):  # 注册
             return make_response(jsonify(code=400, message='请先获取验证码'), 400)
         if args['code'] != session[f'{args["phone_number"]}']:
             return make_response(jsonify(code=400, message='验证码错误'), 400)
-        if session[f'{args["phone_number"]}_time'] + datetime.timedelta(minutes=4) < datetime.datetime.utcnow():
+        if (session[f'{args["phone_number"]}_time'] + datetime.timedelta(minutes=4)).replace(
+                tzinfo=None) < datetime.datetime.utcnow():
             return make_response(jsonify(code=400, message='验证码已过期'), 400)
         else:
             try:

@@ -28,14 +28,14 @@ class Real_name_authentication(Resource):  # 实名认证
         if db.session.query(User).filter_by(name=args['name'], id_card=args['id_card']).first():
             return make_response(jsonify(code=400, message='该身份证已被使用'), 400)
         if session.get(f'{user_id}_time') and \
-                session[f'{user_id}_time'] > datetime.datetime.utcnow():
+                session[f'{user_id}_time'].replace(tzinfo=None) > datetime.datetime.utcnow():
             return make_response(jsonify(code=400, message='请勿重复提交'), 400)
         session[f'{user_id}_time'] = datetime.datetime.utcnow() + datetime.timedelta(days=90)
-        if r_n_a(args['name'], args['id_card']):
-            user.name = args['name']
-            user.id_card = args['id_card']
-            db.session.commit()
-            logger.debug(f'用户{user.username}实名认证成功')
-            return make_response(jsonify(code=201, message='实名认证成功'), 201)
-        else:
-            return make_response(jsonify(code=400, message='实名认证失败'), 400)
+        # if r_n_a(args['name'], args['id_card']):
+        #     user.name = args['name']
+        #     user.id_card = args['id_card']
+        #     db.session.commit()
+        #     logger.debug(f'用户{user.username}实名认证成功')
+        #     return make_response(jsonify(code=201, message='实名认证成功'), 201)
+        # else:
+        return make_response(jsonify(code=400, message='实名认证失败'), 400)

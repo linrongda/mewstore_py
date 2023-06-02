@@ -53,7 +53,8 @@ class Good_add(Resource):  # 添加商品
                         seller_id=user.id, price=args['price'], add_time=datetime.datetime.utcnow())
             # 提交修改
             db.session.add(good)
+            db.session.flush()
             db.session.commit()
             logger.debug(f'用户{user.username}创建商品{args["title"]}信息成功')
             # 返回结果
-            return make_response(jsonify(code=201, message='创建商品信息成功'), 201)
+            return make_response(jsonify(code=201, message='创建商品信息成功', data={'id': good.id}), 201)
