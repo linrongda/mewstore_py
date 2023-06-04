@@ -22,6 +22,6 @@ class MessageRead(Resource):  # 用户已读消息
             message.is_read = 1
             db.session.commit()
             logger.debug(f'消息{message_id}已读')
-            return make_response(jsonify(code=200, message='消息已读'), 200)
+            return make_response(jsonify(code=201, message='消息已读'), 201)
         else:
             return make_response(jsonify(code=404, message='消息不存在或已读'), 404)

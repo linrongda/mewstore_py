@@ -36,6 +36,8 @@ class Real_name_authentication(Resource):  # 实名认证
         #     user.id_card = args['id_card']
         #     db.session.commit()
         #     logger.debug(f'用户{user.username}实名认证成功')
-        #     return make_response(jsonify(code=201, message='实名认证成功'), 201)
+        #     name = '*' * (len(user.name) - 1) + user.name[-1] if user.name else None
+        #     id_card = user.id_card[0] + '*' * (len(user.id_card) - 2) + user.id_card[-1] if user.id_card else None
+        #     return make_response(jsonify(code=201, message='实名认证成功',data={'name':name,'id_card':id_card}), 201)
         # else:
         return make_response(jsonify(code=400, message='实名认证失败'), 400)

@@ -19,4 +19,4 @@ class User_profile_photo(Resource):  # 修改用户头像
         user.profile_photo = upload_photo(args['profile_photo'])
         db.session.commit()
         logger.debug(f'用户{user.username}修改头像成功')
-        return make_response(jsonify(code=201, message='修改头像成功'), 201)
+        return make_response(jsonify(code=201, message='修改头像成功', data={'profile_photo': user.profile_photo}), 201)

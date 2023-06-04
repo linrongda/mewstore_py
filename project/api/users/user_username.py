@@ -19,4 +19,4 @@ class User_username(Resource):  # 修改用户名
         user.username = args['username']
         db.session.commit()
         logger.debug(f'用户{user.username}修改用户名成功')
-        return make_response(jsonify(code=201, message='修改用户名成功'), 201)
+        return make_response(jsonify(code=201, message='修改用户名成功', data={'username': user.username}), 201)

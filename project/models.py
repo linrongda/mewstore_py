@@ -6,7 +6,7 @@ class User(db.Model):
     id = db.Column(db.BigInteger, primary_key=True)  # 用户id
     nickname = db.Column(db.String(50))  # 昵称
     username = db.Column(db.String(50))  # 用户名
-    profile_photo = db.Column(db.String(50))  # 头像
+    profile_photo = db.Column(db.String(56))  # 头像
     password = db.Column(db.String(102))  # 密码
     phone_number = db.Column(db.String(11))  # 手机号
     money = db.Column(db.Numeric(20, 2))  # 余额

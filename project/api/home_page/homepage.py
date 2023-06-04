@@ -1,7 +1,7 @@
 from flask import request, make_response, jsonify
 from flask_restful import Resource
 
-from project.models import Good, db
+from project.models import Good, db, User
 from project.utils.Time_Transform import time_transform
 from project.utils.log import logger
 
@@ -15,10 +15,12 @@ class HomePage(Resource):  # 首页
         goods = sql_good.paginate(page=page, per_page=size).items
         good_list = []
         for good in goods:
+            seller = db.session.query(User).get(good.seller_id)
             good_dict = {"id": good.id, "view": good.view, "content": good.content, "game": good.game,
                          "title": good.title, "picture_url": good.picture, "status": good.status,
                          'add_time': time_transform(good.add_time), "seller_id": good.seller_id,
-                         "price": good.price}
+                         "price": good.price, 'seller_nickname': seller.nickname,
+                         'seller_profile_photo': seller.profile_photo}
             good_list.append(good_dict)
         if not good_list:
             return make_response(jsonify(code=404, message='找不到在售的商品'), 404)

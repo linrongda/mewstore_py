@@ -17,4 +17,4 @@ class User_nickname(Resource):  # 修改用户昵称
         user.nickname = args['nickname']
         db.session.commit()
         logger.debug(f'用户{user.username}修改昵称成功')
-        return make_response(jsonify(code=201, message='修改昵称成功'), 201)
+        return make_response(jsonify(code=201, message='修改昵称成功', data={'nickname': user.nickname}), 201)

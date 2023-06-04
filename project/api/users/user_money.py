@@ -25,12 +25,12 @@ class User_money(Resource):  # 修改用户金额
             user.money += args['money']
             db.session.commit()
             logger.debug(f'用户{user.username}充值成功')
-            return make_response(jsonify(code=201, message='充值成功'), 201)
+            return make_response(jsonify(code=201, message='充值成功', data={'money': user.money}), 201)
         if args['type'] == 'withdrawal':
             if user.money >= args['money']:
                 user.money -= args['money']
                 db.session.commit()
                 logger.debug(f'用户{user.username}提现成功')
-                return make_response(jsonify(code=201, message='提现成功'), 201)
+                return make_response(jsonify(code=201, message='提现成功', data={'money': user.money}), 201)
             else:
                 return make_response(jsonify(code=400, message='余额不足'), 400)

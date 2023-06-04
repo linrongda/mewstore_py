@@ -31,4 +31,4 @@ class User_phone_number(Resource):  # 修改用户手机号
         user.phone_number = args['phone_number']
         db.session.commit()
         logger.debug(f'用户{user.username}修改手机号成功')
-        return make_response(jsonify(code=201, message='修改手机号成功'), 201)
+        return make_response(jsonify(code=201, message='修改手机号成功', data={'phone_number': user.phone_number}), 201)
