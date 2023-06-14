@@ -8,11 +8,11 @@ class User(db.Model):
     username = db.Column(db.String(50))  # 用户名
     profile_photo = db.Column(db.String(56))  # 头像
     password = db.Column(db.String(102))  # 密码
-    phone_number = db.Column(db.String(11))  # 手机号
+    phone_number = db.Column(db.String(24))  # 手机号
     money = db.Column(db.Numeric(20, 2))  # 余额
     status = db.Column(db.Integer)  # 0为正常用户，1为黑户，2为被冻结状态，3为管理员
-    name = db.Column(db.String(50))  # 真实姓名
-    id_card = db.Column(db.String(18))  # 身份证号
+    name = db.Column(db.String(44))  # 真实姓名
+    id_card = db.Column(db.String(44))  # 身份证号
 
 
 class Good(db.Model):

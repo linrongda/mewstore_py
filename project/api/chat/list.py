@@ -41,11 +41,11 @@ class Chat_list(Resource):  # 用户获取聊天列表
             message_history = sorted(message_history, key=lambda x: x.send_time)
             conversation = message_history[-1]
             results.append({'person_id': person.id, 'person_nickname': person.nickname,
-                            'person_profie_photo': person.profile_photo, 'last_message_id': conversation.id,
+                            'person_profile_photo': person.profile_photo, 'last_message_id': conversation.id,
                             'last_message': conversation.message,
                             'last_message_time': time_transform(conversation.send_time)})
 
         if not results:
-            return make_response(jsonify({'code': 400, 'message': '暂无消息'}), 400)
-        logger.debug(f'用户{user_id}获取历史消息')
-        return make_response(jsonify({'code': 200, 'message': '获取成功', 'data': results}), 200)
+            return make_response(jsonify({'code': 404, 'message': '暂无消息'}), 404)
+        logger.debug(f'用户{user_id}获取消息列表')
+        return make_response(jsonify({'code': 200, 'message': '获取消息列表成功', 'data': results}), 200)

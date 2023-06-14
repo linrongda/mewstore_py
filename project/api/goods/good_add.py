@@ -5,7 +5,7 @@ from flask_restful import Resource, reqparse
 from werkzeug.datastructures import FileStorage
 
 from project.models import db, Good
-from project.utils.aes import encrypt_aes_cbc
+from project.utils.aes import encrypt
 from project.utils.auth import jwt_required, check_status
 from project.utils.log import logger
 from project.utils.snowflake import id_generate
@@ -34,7 +34,7 @@ class Good_add(Resource):  # 添加商品
             return make_response(jsonify(code=400, message='商品已存在'), 400)
         else:
             # 使用 CBC 模式对密码进行加密
-            encrypted_password = encrypt_aes_cbc(args['password'])
+            encrypted_password = encrypt(args['password'])
             # 创建商品
             if args['picture']:
                 if isinstance(args['picture'], list):

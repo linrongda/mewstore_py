@@ -5,6 +5,7 @@ from flask import request, make_response, jsonify, session
 from flask_restful import Resource, reqparse
 
 from project.models import User, db
+from project.utils.aes import encrypt
 from project.utils.auth import jwt_required, check_status
 from project.utils.log import logger
 
@@ -20,7 +21,7 @@ class User_phone_number(Resource):  # 修改用户手机号
         user = request.user
         if not bool(re.match(r'^1[3-9]\d{9}$', args['phone_number'])):
             return make_response(jsonify(code=400, message='请输入11位有效的手机号'), 400)
-        if db.session.query(User).filter(User.phone_number == args['phone_number']).first():
+        if db.session.query(User).filter(User.phone_number == encrypt(args['phone_number'])).first():
             return make_response(jsonify(code=400, message='该手机号已被使用'), 400)
         if not session.get(f'{args["phone_number"]}_time') or not session.get(f'{args["phone_number"]}'):
             return make_response(jsonify(code=400, message='请先获取验证码'), 400)
@@ -28,7 +29,8 @@ class User_phone_number(Resource):  # 修改用户手机号
             return make_response(jsonify(code=400, message='验证码错误'), 400)
         if session[f'{args["phone_number"]}_time'] + datetime.timedelta(minutes=4) < datetime.datetime.utcnow():
             return make_response(jsonify(code=400, message='验证码已过期'), 400)
-        user.phone_number = args['phone_number']
+        user.phone_number = encrypt(args['phone_number'])
         db.session.commit()
         logger.debug(f'用户{user.username}修改手机号成功')
-        return make_response(jsonify(code=201, message='修改手机号成功', data={'phone_number': user.phone_number}), 201)
+        return make_response(
+            jsonify(code=201, message='修改手机号成功', data={'phone_number': encrypt(user.phone_number)}), 201)

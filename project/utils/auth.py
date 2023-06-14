@@ -5,6 +5,7 @@ import jwt
 from werkzeug.security import check_password_hash
 
 from project.models import User, db
+from project.utils.aes import encrypt
 from project.utils.log import logger
 
 # 定义JWT密钥和过期时间
@@ -59,7 +60,7 @@ def after_get_info(args, login_type=None):  # 用于登录,用户名或手机号
         else:
             return make_response(jsonify(code=401, message='用户名或密码错误'), 401)
     if login_type == 'phone':
-        if is_user := db.session.query(User).filter_by(phone_number=args['phone_number']).first():
+        if is_user := db.session.query(User).filter_by(phone_number=encrypt(args['phone_number'])).first():
             user = is_user
         else:
             return make_response(jsonify(code=401, message='用户不存在'), 401)

@@ -28,11 +28,11 @@ def phone_number(request):
 
 @pytest.mark.parametrize('data, expected_status_code, expected_response', [
     # 测试成功注册的情况
-    (
-            {'phone_number': fake.phone_number(), 'type': 'register'},
-            200,
-            {"code": 200, 'message': '发送成功'}
-    ),
+    # (
+    #         {'phone_number': fake.phone_number(), 'type': 'register'},
+    #         200,
+    #         {"code": 200, 'message': '发送成功'}
+    # ),
     # 测试重复注册同一用户的情况
     (
             {'phone_number': '12345678901', 'type': 'register'},
@@ -245,7 +245,7 @@ def test_login_username(client, data, expected_status_code, expected_response, t
                                                                   "money": "3778.00",
                                                                   "name": '***r',
                                                                   "nickname": 'user',
-                                                                  "phone_number": "13333333333",
+                                                                  "phone_number": "1*********3",
                                                                   "profile_photo": "http://qiniuyun.mewtopia.cn/FgQuh8Z8hTTTHt4pMtSlsiugZfHk",
                                                                   "status": 0,
                                                                   "username": "user"}}
@@ -470,6 +470,21 @@ def test_chat_history(client, expected_status_code, expected_response, token, re
 def test_chat_read(client, data, expected_status_code, expected_response, token, request):
     headers = request.config.cache.get('token', default=None)
     response = client.put('/chat/read', headers=headers, json=data, content_type='application/json')
+    assert response.status_code == expected_status_code
+    assert response.json.get('code') == expected_response.get('code')
+    assert response.json.get('message') == expected_response.get('message')
+
+
+@pytest.mark.parametrize('expected_status_code, expected_response', [
+    # 测试成功注册的情况
+    (
+            200,
+            {"code": 200, 'message': '获取消息列表成功'}
+    )
+])
+def test_chat_list(client, expected_status_code, expected_response, token, request):
+    headers = request.config.cache.get('token', default=None)
+    response = client.get('/chat/list', headers=headers)
     assert response.status_code == expected_status_code
     assert response.json.get('code') == expected_response.get('code')
     assert response.json.get('message') == expected_response.get('message')

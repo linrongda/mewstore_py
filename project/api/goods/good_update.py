@@ -3,7 +3,7 @@ from flask_restful import Resource, reqparse
 from werkzeug.datastructures import FileStorage
 
 from project.models import db, Good
-from project.utils.aes import encrypt_aes_cbc
+from project.utils.aes import encrypt
 from project.utils.auth import jwt_required, check_status
 from project.utils.log import logger
 from project.utils.upload import upload_photo
@@ -52,7 +52,7 @@ class Good_update(Resource):  # 修改商品信息
         if args['account']:
             good.account = args['account']
         if args['password']:
-            good.password = encrypt_aes_cbc(args['password'])
+            good.password = encrypt(args['password'])
         if args['status']:
             good.status = args['status']
         if args['price']:
