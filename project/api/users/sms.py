@@ -36,7 +36,7 @@ class Sms(Resource):  # 获取短信验证码
         if session.get(f'{args["phone_number"]}') and \
                 session[f'{args["phone_number"]}_time'].replace(tzinfo=None) > datetime.datetime.utcnow():
             return make_response(jsonify(code=400, message='请勿重复发送验证码'), 400)
-        else:  # 调用阿里云短信服务################################## 测试覆盖率时未启用短信服务 ###############################
+        else:
             code = ''.join(random.choices('0123456789', k=6))
             client = Sample.create_client(access_key_id='LTAI5tNVqQ16EgH2Xn6fxar1',
                                           access_key_secret='eIm61r1Uy8e5IDjDepBN3JKiqXmLeO')
@@ -49,15 +49,15 @@ class Sms(Resource):  # 获取短信验证码
             runtime = util_models.RuntimeOptions()
             try:
                 # 复制代码运行请自行打印 API 的返回值
-                # response = client.send_sms_with_options(send_sms_request, runtime)
-                # if response.body.code == 'OK':
-                session[f'{args["phone_number"]}'] = code
-                session[f'{args["phone_number"]}_time'] = \
-                    datetime.datetime.utcnow() + datetime.timedelta(minutes=1)
-                logger.debug(f'手机号{args["phone_number"]}发送验证码成功')
-                return make_response(jsonify(code=200, message='发送成功', data={'code': code}), 200)
-            # else:
-            #     return make_response(jsonify(code=400, message='发送失败'), 400)
+                response = client.send_sms_with_options(send_sms_request, runtime)
+                if response.body.code == 'OK':
+                    session[f'{args["phone_number"]}'] = code
+                    session[f'{args["phone_number"]}_time'] = \
+                        datetime.datetime.utcnow() + datetime.timedelta(minutes=1)
+                    logger.debug(f'手机号{args["phone_number"]}发送验证码成功')
+                    return make_response(jsonify(code=200, message='发送成功', data={'code': code}), 200)
+                else:
+                    return make_response(jsonify(code=400, message='发送失败'), 400)
             except Exception as error:
                 # 如有需要，请打印 error
                 return make_response(jsonify(code=400, message=f'发生未知错误：{error}'), 400)

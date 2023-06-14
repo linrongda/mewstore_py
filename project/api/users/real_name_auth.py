@@ -6,7 +6,7 @@ from flask_restful import Resource, reqparse
 
 from project.models import User, db
 from project.utils.R_N_A import r_n_a
-from project.utils.aes import encrypt
+from project.utils.aes import encrypt, decrypt
 from project.utils.auth import jwt_required, check_status
 from project.utils.log import logger
 
@@ -32,14 +32,15 @@ class Real_name_authentication(Resource):  # 实名认证
                 session[f'{user_id}_time'].replace(tzinfo=None) > datetime.datetime.utcnow():
             return make_response(jsonify(code=400, message='请勿重复提交'), 400)
         session[f'{user_id}_time'] = datetime.datetime.utcnow() + datetime.timedelta(days=90)
-        # if r_n_a(args['name'], args['id_card']):
-        #     user.name = encrypt(args['name'])
-        #     user.id_card = encrypt(args['id_card'])
-        #     db.session.commit()
-        #     logger.debug(f'用户{user.username}实名认证成功')
-        #     name = '*' * (len(decrypt(user.name)) - 1) + decrypt(user.name)[-1] if user.name else None
-        #     id_card = decrypt(user.id_card)[0] + '*' * (len(decrypt(user.id_card)) - 2) + decrypt(user.id_card)[
-        #             -1] if user.id_card else None
-        #     return make_response(jsonify(code=201, message='实名认证成功',data={'name':name,'id_card':id_card}), 201)
-        # else:
-        return make_response(jsonify(code=400, message='实名认证失败'), 400)
+        if r_n_a(args['name'], args['id_card']):
+            user.name = encrypt(args['name'])
+            user.id_card = encrypt(args['id_card'])
+            db.session.commit()
+            logger.debug(f'用户{user.username}实名认证成功')
+            name = '*' * (len(decrypt(user.name)) - 1) + decrypt(user.name)[-1] if user.name else None
+            id_card = decrypt(user.id_card)[0] + '*' * (len(decrypt(user.id_card)) - 2) + decrypt(user.id_card)[
+                -1] if user.id_card else None
+            return make_response(jsonify(code=201, message='实名认证成功', data={'name': name, 'id_card': id_card}),
+                                 201)
+        else:
+            return make_response(jsonify(code=400, message='实名认证失败'), 400)

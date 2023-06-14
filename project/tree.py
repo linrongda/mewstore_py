@@ -59,7 +59,7 @@ class DirectionTree:
 if __name__ == '__main__':
     i_l = [
         '\.git', '__pycache__', 'test.+', 'venv', '.+\.whl', '\.idea', '.+\.jpg', '.+\.png',
-        'image', 'css', 'admin', 'tool.py', 'db.sqlite3', '.coverage', '.pytest_cache'
+        'image', 'css', 'admin', 'tool.py', 'db.sqlite3', '.coverage', '.pytest_cache', '.json', '.log'
     ]
     tree = DirectionTree(ignore_list=i_l, direction_path=r'.')
     print(tree.tree)

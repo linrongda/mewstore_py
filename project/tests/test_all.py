@@ -14,16 +14,16 @@ def client():
         yield client
 
 
-@pytest.fixture(scope='session')
-def code(request):
-    # 在测试会话级别的缓存中存储 code
-    request.config.cache.set('code', None)
-
-
-@pytest.fixture(scope='session')
-def phone_number(request):
-    # 在测试会话级别的缓存中存储 phone_number
-    request.config.cache.set('phone_number', None)
+# @pytest.fixture(scope='session')
+# def code(request):
+#     # 在测试会话级别的缓存中存储 code
+#     request.config.cache.set('code', None)
+#
+#
+# @pytest.fixture(scope='session')
+# def phone_number(request):
+#     # 在测试会话级别的缓存中存储 phone_number
+#     request.config.cache.set('phone_number', None)
 
 
 @pytest.mark.parametrize('data, expected_status_code, expected_response', [
@@ -66,11 +66,11 @@ def phone_number(request):
             {"code": 400, 'message': '该手机号已被使用'}
     )
 ])
-def test_sms(client, data, expected_status_code, expected_response, code, phone_number, request):
+def test_sms(client, data, expected_status_code, expected_response):
     response = client.post('/users/sms', json=data, content_type='application/json')
-    if response.status_code == 200:
-        request.config.cache.set('phone_number', {'phone_number': data['phone_number']})
-        request.config.cache.set('code', {'code': response.json['data']['code']})
+    # if response.status_code == 200:
+    #     request.config.cache.set('phone_number', {'phone_number': data['phone_number']})
+    #     request.config.cache.set('code', {'code': response.json['data']['code']})
     assert response.status_code == expected_status_code
     assert response.json.get('code') == expected_response['code']
     assert response.json.get('message') == expected_response['message']
@@ -142,7 +142,7 @@ def test_sms(client, data, expected_status_code, expected_response, code, phone_
     #         {'code': 400, 'message': '验证码错误'}
     # ),
 ])
-def test_register(client, data, expected_status_code, expected_response, code, phone_number, request):
+def test_register(client, data, expected_status_code, expected_response):
     # if expected_status_code == 201:
     #     data['password'] = data['check_password'] = fake.password()
     #     data.update(request.config.cache.get('code', default=None))
@@ -192,7 +192,7 @@ def token(request):
     #         {"code": 404, 'message': '用户不存在'}
     # )
 ])
-def test_login_phone(client, data, expected_status_code, expected_response, code, phone_number, request):
+def test_login_phone(client, data, expected_status_code, expected_response):
     # if expected_status_code == 201:
     #     data.update(request.config.cache.get('code', default=None))
     #     data.update(request.config.cache.get('phone_number', default=None))
@@ -410,7 +410,7 @@ def test_rna(client, data, expected_status_code, expected_response, token, reque
             {"code": 400, 'message': '该手机号已被使用'}
     )
 ])
-def test_user_phone_number(client, data, expected_status_code, expected_response, code, phone_number, request):
+def test_user_phone_number(client, data, expected_status_code, expected_response, request):
     headers = request.config.cache.get('token', default=None)
     # if expected_status_code == 201:
     #     data.update(request.config.cache.get('code', default=None))
@@ -521,7 +521,7 @@ def good_id(request):
                 ('account', fake.email()),
                 ('password', fake.password()),
                 ('picture', open('C:/Users/Administrator/Desktop/t.png', 'rb')),
-                ('picture', open('C:/Users/Administrator/Desktop/t.png', 'rb')),
+                ('picture', open('C:/Users/Administrator/Desktop/t.png', 'rb'))
             ]),
             201,
             {"code": 201, 'message': '创建商品信息成功'}
