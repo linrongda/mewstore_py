@@ -55,7 +55,7 @@ class Sms(Resource):  # 获取短信验证码
                     session[f'{args["phone_number"]}_time'] = \
                         datetime.datetime.utcnow() + datetime.timedelta(minutes=1)
                     logger.debug(f'手机号{args["phone_number"]}发送验证码成功')
-                    return make_response(jsonify(code=200, message='发送成功', data={'code': code}), 200)
+                    return make_response(jsonify(code=200, message='发送成功'), 200)
                 else:
                     return make_response(jsonify(code=400, message='发送失败'), 400)
             except Exception as error:

@@ -4,9 +4,12 @@ from werkzeug.datastructures import MultiDict
 
 from project.app import app  # 导入第三方包的时候报错no module？不急，pip重装解决
 
-fake = Faker(locale='zh_CN')
+fake = Faker(locale='zh_CN')  # 生成虚假的随机数据，具体用法自行搜索
 
 
+# 以下测试均在命令行使用 pytest --cov 测试覆盖率，pycharm中测试可能会出现导入路径问题
+
+# 配置pytest应用
 @pytest.fixture
 def client():
     app.config['TESTING'] = True
@@ -14,11 +17,27 @@ def client():
         yield client
 
 
+"""
+由于pytest为每个接口单独测试，
+故无法很好地使用flask应用中的session功能，
+后端中所有与跨接口session存储和读取有关的代码均无法正常发挥作用。
+
+而我的后端对验证码的存储和读取均使用了session，
+所以在测试时无法正常使用验证码功能，已弃用。
+"""
+
 # @pytest.fixture(scope='session')
 # def code(request):
 #     # 在测试会话级别的缓存中存储 code
 #     request.config.cache.set('code', None)
-#
+"""
+注意！“scope='session'”为在整个测试会话中缓存，与flask应用中的session不同。注意区分。
+
+set()方法用于存储数据，get()方法用于读取数据。get要有default=None哦，不然会报错。
+使用这个缓存，通过设计良好的接口测试顺序，可以实现一定程度上的自动化测试。
+例如：登录获取token并存储，之后的接口测试都可以使用这个token。
+
+"""
 #
 # @pytest.fixture(scope='session')
 # def phone_number(request):
@@ -26,22 +45,31 @@ def client():
 #     request.config.cache.set('phone_number', None)
 
 
+"""
+！！！
+！！！测试用法说明：'data, expected_status_code, expected_response'为需要传入的参数以及断言所需参数，可自定义，
+！！！使用列表来存储多个测试用例，每个测试用例为一个元组，元组中的元素为测试用例的参数。
+！！！其他具体用法可以分析下面每个接口测试之间的差异。例如get、post、put、delete等用法。
+！！！还有不懂得可以上网搜或chatGPT。
+！！！json=data可以自动帮你把数据格式化为json，而content_type必不可少哦。cv工程师？那就无脑搬吧！
+！！！怎么传表单数据？见350行，多数据见533行
+！！！
+"""
+
+
 @pytest.mark.parametrize('data, expected_status_code, expected_response', [
-    # 测试成功注册的情况
     # (
     #         {'phone_number': fake.phone_number(), 'type': 'register'},
     #         200,
     #         {"code": 200, 'message': '发送成功'}
     # ),
-    # 测试重复注册同一用户的情况
     (
             {'phone_number': '12345678901', 'type': 'register'},
             400,
             {'code': 400, 'message': '请输入11位有效的手机号'}
     ),
-    # 测试注册信息不完整的情况
     # (
-    #         {'phone_number': fake.phone_number(), 'type': 'register'},
+    #         {'phone_number': None, 'type': 'register'},
     #         400,
     #         {'code': 400, 'message': '请勿重复发送验证码'}
     # ),
@@ -71,6 +99,7 @@ def test_sms(client, data, expected_status_code, expected_response):
     # if response.status_code == 200:
     #     request.config.cache.set('phone_number', {'phone_number': data['phone_number']})
     #     request.config.cache.set('code', {'code': response.json['data']['code']})
+
     assert response.status_code == expected_status_code
     assert response.json.get('code') == expected_response['code']
     assert response.json.get('message') == expected_response['message']
@@ -114,7 +143,7 @@ def test_sms(client, data, expected_status_code, expected_response):
                 "username": "test",
                 "password": "password",
                 "check_password": "check_password",
-                "phone_number": "13003808916",
+                "phone_number": "13333333333",
                 "code": "123456"
             },
             400,
@@ -125,7 +154,7 @@ def test_sms(client, data, expected_status_code, expected_response):
                 "username": "test",
                 "password": "password",
                 "check_password": "password",
-                "phone_number": "15935746829",
+                "phone_number": fake.phone_number(),
                 "code": "123456"
             },
             400,
@@ -140,7 +169,7 @@ def test_sms(client, data, expected_status_code, expected_response):
     #         },
     #         400,
     #         {'code': 400, 'message': '验证码错误'}
-    # ),
+    # )
 ])
 def test_register(client, data, expected_status_code, expected_response):
     # if expected_status_code == 201:
@@ -162,10 +191,17 @@ def token(request):
 
 
 @pytest.mark.parametrize('data, expected_status_code, expected_response', [
-
+    # (
+    #         {
+    #             "phone_number": None,
+    #             "code": None
+    #         },
+    #         200,
+    #         {'code': 200, 'message': '登录成功'}
+    # ),
     (
             {
-                "phone_number": "15935746829",
+                "phone_number": fake.phone_number(),
                 "code": "123456"
             },
             400,
@@ -173,9 +209,7 @@ def token(request):
     ),
     # (
     #         {
-    #             "username": "test",
-    #             "password": "password",
-    #             "check_password": "password",
+    #             "phone_number": None,
     #             "code": "123456"
     #         },
     #         400,
@@ -193,7 +227,7 @@ def token(request):
     # )
 ])
 def test_login_phone(client, data, expected_status_code, expected_response):
-    # if expected_status_code == 201:
+    # if expected_status_code == 200:
     #     data.update(request.config.cache.get('code', default=None))
     #     data.update(request.config.cache.get('phone_number', default=None))
     # if expected_status_code == 400 and expected_response['message'] == '验证码错误':
@@ -205,7 +239,6 @@ def test_login_phone(client, data, expected_status_code, expected_response):
 
 
 @pytest.mark.parametrize('data, expected_status_code, expected_response', [
-    # 测试成功注册的情况
     (
             {
                 "username": "user",
@@ -214,7 +247,6 @@ def test_login_phone(client, data, expected_status_code, expected_response):
             200,
             {"code": 200, 'message': '登录成功'}
     ),
-    # 测试重复注册同一用户的情况
     (
             {
                 "username": "testuser",
@@ -237,7 +269,6 @@ def test_login_username(client, data, expected_status_code, expected_response, t
 
 
 @pytest.mark.parametrize('expected_status_code, expected_response', [
-    # 测试成功注册的情况
     (
             200,
             {"code": 200, 'message': '获取用户信息成功', 'user': {"id": 1653305391263649792,
@@ -246,7 +277,7 @@ def test_login_username(client, data, expected_status_code, expected_response, t
                                                                   "name": '***r',
                                                                   "nickname": 'user',
                                                                   "phone_number": "1*********3",
-                                                                  "profile_photo": "http://qiniuyun.mewtopia.cn/FgQuh8Z8hTTTHt4pMtSlsiugZfHk",
+                                                                  "profile_photo": None,
                                                                   "status": 0,
                                                                   "username": "user"}}
     )
@@ -261,7 +292,6 @@ def test_user_info(client, expected_status_code, expected_response, token, reque
 
 
 @pytest.mark.parametrize('data, expected_status_code, expected_response', [
-    # 测试成功注册的情况
     (
             {"username": "user"},
             400,
@@ -277,7 +307,6 @@ def test_user_username(client, data, expected_status_code, expected_response, to
 
 
 @pytest.mark.parametrize('data, expected_status_code, expected_response', [
-    # 测试成功注册的情况
     (
             {"nickname": "user"},
             201,
@@ -293,7 +322,6 @@ def test_user_nickname(client, data, expected_status_code, expected_response, to
 
 
 @pytest.mark.parametrize('data, expected_status_code, expected_response', [
-    # 测试成功注册的情况
     (
             {"old_password": "123456", "password": "123456", "check_password": "123456"},
             201,
@@ -319,8 +347,7 @@ def test_user_password(client, data, expected_status_code, expected_response, to
 
 
 @pytest.mark.parametrize('data, expected_status_code, expected_response', [
-    # 测试成功注册的情况
-    (
+    (  # 你居然能够看到这里！注意哦，传入图片等需要使用表单，这里需要使用MultiDict，并使用data=data, content_type='multipart/form-data'
             MultiDict([
                 ('profile_photo', open('C:/Users/Administrator/Desktop/t.png', 'rb'))
             ]),
@@ -337,13 +364,11 @@ def test_user_profile_photo(client, data, expected_status_code, expected_respons
 
 
 @pytest.mark.parametrize('data, expected_status_code, expected_response', [
-    # 测试成功注册的情况
     (
             {"money": 99999, "type": "recharge"},
             201,
             {"code": 201, 'message': '充值成功'}
     ),
-    # 测试余额不足的情况
     (
             {"money": 99999, "type": "withdrawal"},
             201,
@@ -358,13 +383,11 @@ def test_user_money(client, data, expected_status_code, expected_response, token
 
 
 @pytest.mark.parametrize('data, expected_status_code, expected_response', [
-    # 测试成功注册的情况
     (
             {"name": 'name', "id_card": "123456789012345678"},
             400,
             {"code": 400, 'message': '请输入18位正确的身份证号'}
     ),
-    # 测试余额不足的情况
     (
             {"name": 'user', "id_card": "666666206606066666"},
             400,
@@ -383,7 +406,7 @@ def test_rna(client, data, expected_status_code, expected_response, token, reque
 
     (
             {
-                "phone_number": "15935746829",
+                "phone_number": fake.phone_number(),
                 "code": "123456"
             },
             400,
@@ -424,13 +447,12 @@ def test_user_phone_number(client, data, expected_status_code, expected_response
 
 
 @pytest.mark.parametrize('data, expected_status_code, expected_response', [
-    # 测试成功注册的情况
     (
             MultiDict([
                 ('picture', open('C:/Users/Administrator/Desktop/t.png', 'rb'))
             ]),
             201,
-            {"code": 201, 'message': '上传图片成功', 'data': 'http://qiniuyun.mewtopia.cn/FgQuh8Z8hTTTHt4pMtSlsiugZfHk'}
+            {"code": 201, 'message': '上传图片成功', 'data': 'url不要告诉别让人哦！'}
     )
 ])
 def test_chat_picture(client, data, expected_status_code, expected_response, token, request):
@@ -443,7 +465,6 @@ def test_chat_picture(client, data, expected_status_code, expected_response, tok
 
 
 @pytest.mark.parametrize('expected_status_code, expected_response', [
-    # 测试成功注册的情况
     (
             200,
             {"code": 200, 'message': '获取成功'}
@@ -460,7 +481,6 @@ def test_chat_history(client, expected_status_code, expected_response, token, re
 
 
 @pytest.mark.parametrize('data, expected_status_code, expected_response', [
-    # 测试成功注册的情况
     (
             {"send_id": '1652948308014010368', "message_id": "1337400298553102336"},
             404,
@@ -476,7 +496,6 @@ def test_chat_read(client, data, expected_status_code, expected_response, token,
 
 
 @pytest.mark.parametrize('expected_status_code, expected_response', [
-    # 测试成功注册的情况
     (
             200,
             {"code": 200, 'message': '获取消息列表成功'}
@@ -491,7 +510,6 @@ def test_chat_list(client, expected_status_code, expected_response, token, reque
 
 
 @pytest.mark.parametrize('expected_status_code, expected_response', [
-    # 测试成功注册的情况
     (
             200,
             {"code": 200, 'message': '获取商品信息成功'}
@@ -511,8 +529,7 @@ def good_id(request):
 
 
 @pytest.mark.parametrize('data, expected_status_code, expected_response', [
-    # 测试成功注册的情况
-    (
+    (  # 哟，来啦
             MultiDict([
                 ('price', '666.0'),
                 ('title', fake.word()),
@@ -551,7 +568,6 @@ def test_good_add(client, data, expected_status_code, expected_response, token, 
 
 
 @pytest.mark.parametrize('expected_status_code, expected_response', [
-    # 测试成功注册的情况
     (
             204,
             {"code": 204, 'message': '删除商品成功'}
@@ -572,7 +588,6 @@ def test_good_delete(client, expected_status_code, expected_response, token, goo
 
 
 @pytest.mark.parametrize('data, expected_status_code, expected_response', [
-    # 测试成功注册的情况
     (
             MultiDict([
                 ('id', '1654432305042825216'),
@@ -599,7 +614,6 @@ def test_good_update(client, data, expected_status_code, expected_response, toke
 
 
 @pytest.mark.parametrize('expected_status_code, expected_response', [
-    # 测试成功注册的情况
     (
             200,
             {"code": 200, 'message': '查询收藏的商品成功'}
@@ -614,7 +628,6 @@ def test_favorite_get(client, expected_status_code, expected_response, token, re
 
 
 @pytest.mark.parametrize('data, expected_status_code, expected_response', [
-    # 测试成功注册的情况
     (
             {"good_id": "1654432305042825216"},
             400,
@@ -630,7 +643,6 @@ def test_favorite_add(client, data, expected_status_code, expected_response, tok
 
 
 @pytest.mark.parametrize('expected_status_code, expected_response', [
-    # 测试成功注册的情况
     (
             200,
             {"code": 200, 'message': '获取出售商品成功'}
@@ -645,7 +657,6 @@ def test_sell(client, expected_status_code, expected_response, token, request):
 
 
 @pytest.mark.parametrize('expected_status_code, expected_response', [
-    # 测试成功注册的情况
     (
             200,
             {"code": 200, 'message': '获取猜你喜欢商品成功'}
@@ -660,7 +671,6 @@ def test_guess(client, expected_status_code, expected_response, token, request):
 
 
 @pytest.mark.parametrize('expected_status_code, expected_response', [
-    # 测试成功注册的情况
     (
             200,
             {"code": 200, 'message': '获取首页商品成功'}
@@ -674,7 +684,6 @@ def test_homepage(client, expected_status_code, expected_response):
 
 
 @pytest.mark.parametrize('expected_status_code, expected_response', [
-    # 测试成功注册的情况
     (
             200,
             {"code": 200, 'message': '获取搜索商品成功'}

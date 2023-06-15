@@ -19,9 +19,8 @@ def jwt_required(func):  # 用于验证JWT令牌
         token = request.headers.get('Authorization')
         if token:
             try:
-                # 使用JWT密钥验证JWT令牌
+                # 使用JWT密钥验证JWT令牌，在请求的上下文中保存JWT负载
                 request.payload_id = jwt.decode(token, JWT_SECRET_KEY, algorithms=['HS256'])['id']
-                # # 在请求的上下文中保存JWT负载
                 logger.debug(f'用户id:{request.payload_id}解析token成功')
                 return func(*args, **kwargs)
             except jwt.ExpiredSignatureError:
