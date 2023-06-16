@@ -9,7 +9,7 @@ from .good_add import Good_add
 from .good_update import Good_update
 from .good_delete import Good_delete
 
-api.add_resource(Good_get, '/<int:good_id>')
+api.add_resource(Good_get, '')
 api.add_resource(Good_add, '')
 api.add_resource(Good_update, '')
 api.add_resource(Good_delete, '')

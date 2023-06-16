@@ -12,7 +12,7 @@ class MessageHistory(Resource):  # 用户获取历史消息
     @check_status([0, 3])
     def get(self):
         receive_id = request.payload_id
-        send_id = request.headers.get('send_id')
+        send_id = request.args.get('send_id', type=int)
         # 查询数据库中的历史记录
         receive_history = Messages.query.filter(
             Messages.send_id == send_id, Messages.receive_id == receive_id, Messages.is_read == 1).order_by(

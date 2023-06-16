@@ -1,4 +1,4 @@
-from flask import make_response, jsonify
+from flask import make_response, jsonify, request
 from flask_restful import Resource
 
 from project.models import Good, db, User
@@ -7,7 +7,8 @@ from project.utils.log import logger
 
 
 class Good_get(Resource):  # 获取商品信息
-    def get(self, good_id):
+    def get(self):
+        good_id = request.args.get('id', type=int)
         # 查询
         good = db.session.query(Good).get(good_id)
         # 判断是否存在
