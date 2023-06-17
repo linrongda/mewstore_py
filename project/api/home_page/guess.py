@@ -30,12 +30,12 @@ class Guess(Resource):  # 猜你喜欢
         recommended_items = []
         for game, count in game_num.items():
             items = Good.query.filter_by(game=game, status=1).all()  # 查询用户喜欢的游戏的商品
-            shuffle(items)  # 打乱顺序
+            shuffle(items)  # 打乱喜欢的商品顺序
             items = items[:count]  # 根据数量取出用户喜欢的游戏的商品
             recommended_items.extend(items)
         remaining_items = Good.query.filter(~Good.id.in_([item.id for item in recommended_items]),
                                             Good.status == 1).all()  # 查询剩余商品
-        shuffle(remaining_items)
+        shuffle(remaining_items)  # 打乱剩余商品顺序
         remaining_items = remaining_items[:remain]
         all_items = recommended_items + remaining_items  # 合并推荐的商品
         shuffle(all_items)  # 打乱所有推荐的商品顺序

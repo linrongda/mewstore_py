@@ -34,7 +34,7 @@
 
   
 
-- ##### 成员2：林荣达(本人)
+- ##### 成员2：林荣达
 
 - ##### 语言与框架：Python（Flask）
 
@@ -62,12 +62,61 @@ Python后端项目地址：https://github.com/linrongda/mewstore_py
 ```tree
 WorkingDirection/
 ├────api/
-│    ├────b_s_center
-│    ├────chat
-│    ├────goods
-│    ├────home_page
-│    └────users
-└────utils
+│    ├────__init__.py
+│    ├────b_s_center/
+│    │    ├────__init__.py
+│    │    ├────favorite_add.py
+│    │    ├────favorite_get.py
+│    │    └────sell.py
+│    ├────chat/
+│    │    ├────__init__.py
+│    │    ├────history.py
+│    │    ├────list.py
+│    │    ├────message.py
+│    │    ├────picture.py
+│    │    └────read.py
+│    ├────goods/
+│    │    ├────__init__.py
+│    │    ├────good_add.py
+│    │    ├────good_delete.py
+│    │    ├────good_info.py
+│    │    └────good_update.py
+│    ├────home_page/
+│    │    ├────__init__.py
+│    │    ├────guess.py
+│    │    ├────homepage.py
+│    │    └────search.py
+│    └────users/
+│    │    ├────__init__.py
+│    │    ├────login_phone.py
+│    │    ├────login_username.py
+│    │    ├────real_name_auth.py
+│    │    ├────register.py
+│    │    ├────sms.py
+│    │    ├────user_info.py
+│    │    ├────user_money.py
+│    │    ├────user_nickname.py
+│    │    ├────user_password.py
+│    │    ├────user_phone_number.py
+│    │    ├────user_profile_photo.py
+│    │    └────user_username.py
+├────app.py
+├────config.py
+├────exts.py
+├────models.py
+├────README.md
+├────requirements.txt
+├────tree.py
+└────utils/
+│    ├────__init__.py
+│    ├────aes.py
+│    ├────auth.py
+│    ├────log.py
+│    ├────R_N_A.py
+│    ├────send_sms.py
+│    ├────snowflake.py
+│    ├────Time_Transform.py
+│    └────upload.py
 ```
 
 ## 
@@ -77,7 +126,7 @@ WorkingDirection/
 ### 技术亮点
 
 + 接口有较为完备的数据校验
-+ 采用相关算法来计算“为你推荐”的游戏商品
++ 采用相关算法来计算“猜你喜欢”的游戏商品
 
 ### 设计亮点
 
@@ -107,3 +156,4 @@ https://console-docs.apipost.cn/preview/9ee328c89b7c6eea/fd7048006ceb2e1f?target
 - 支持聊天功能
 - 服务安全性能
 - 具有高覆盖率的单元测试
+
