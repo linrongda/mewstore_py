@@ -17,7 +17,7 @@ class User_get(Resource):  # 获取用户信息
         name = '*' * (len(decrypt(user.name)) - 1) + decrypt(user.name)[-1] if user.name else None
         id_card = decrypt(user.id_card)[0] + '*' * (len(decrypt(user.id_card)) - 2) + decrypt(user.id_card)[
             -1] if user.id_card else None
-        user_info = {'id': user.id, 'nickname': user.nickname, 'username': user.username,
+        user_info = {'id': str(user.id), 'nickname': user.nickname, 'username': user.username,
                      'profile_photo': user.profile_photo, 'phone_number': phone_number,
                      'money': user.money, 'status': user.status, 'name': name, 'id_card': id_card}
         logger.debug(f'用户{user.username}获取用户信息成功')

@@ -40,8 +40,8 @@ class Chat_list(Resource):  # 用户获取聊天列表
             message_history = list(set(receive_history + send_history))
             message_history = sorted(message_history, key=lambda x: x.send_time)
             conversation = message_history[-1]  # 获取最后一条消息
-            results.append({'person_id': person.id, 'person_nickname': person.nickname,
-                            'person_profile_photo': person.profile_photo, 'last_message_id': conversation.id,
+            results.append({'person_id': str(person.id), 'person_nickname': person.nickname,
+                            'person_profile_photo': person.profile_photo, 'last_message_id': str(conversation.id),
                             'last_message': conversation.message,
                             'last_message_time': time_transform(conversation.send_time)})
         if not results:

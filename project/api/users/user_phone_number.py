@@ -5,7 +5,7 @@ from flask import request, make_response, jsonify, session
 from flask_restful import Resource, reqparse
 
 from project.models import User, db
-from project.utils.aes import encrypt
+from project.utils.aes import encrypt, decrypt
 from project.utils.auth import jwt_required, check_status
 from project.utils.log import logger
 
@@ -27,10 +27,11 @@ class User_phone_number(Resource):  # 修改用户手机号
             return make_response(jsonify(code=400, message='请先获取验证码'), 400)
         if args['code'] != session[f'{args["phone_number"]}']:
             return make_response(jsonify(code=400, message='验证码错误'), 400)
-        if session[f'{args["phone_number"]}_time'] + datetime.timedelta(minutes=4) < datetime.datetime.utcnow():
+        if (session[f'{args["phone_number"]}_time'] + datetime.timedelta(minutes=4)).replace(
+                tzinfo=None) < datetime.datetime.utcnow():
             return make_response(jsonify(code=400, message='验证码已过期'), 400)
         user.phone_number = encrypt(args['phone_number'])
         db.session.commit()
         logger.debug(f'用户{user.username}修改手机号成功')
         return make_response(
-            jsonify(code=201, message='修改手机号成功', data={'phone_number': encrypt(user.phone_number)}), 201)
+            jsonify(code=201, message='修改手机号成功', data={'phone_number': decrypt(user.phone_number)}), 201)

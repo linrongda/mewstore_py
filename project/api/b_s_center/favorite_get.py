@@ -21,10 +21,10 @@ class Favorite_get(Resource):  # 用户查询收藏
         for favorite in favorites:
             good = db.session.query(Good).get(favorite.good_id)
             seller = db.session.query(User).get(good.seller_id)
-            favorite_dict = {'id': good.id, 'view': good.view, 'add_time': time_transform(good.add_time),
+            favorite_dict = {'id': str(good.id), 'view': good.view, 'add_time': time_transform(good.add_time),
                              'game': good.game, 'title': good.title, 'content': good.content,
-                             'picture_url': good.picture, 'status': good.status, 'seller_id': good.seller_id,
-                             'price': good.price, "user_id": favorite.user_id, 'seller_nickname': seller.nickname,
+                             'picture_url': good.picture, 'status': good.status, 'seller_id': str(good.seller_id),
+                             'price': good.price, "user_id": str(favorite.user_id), 'seller_nickname': seller.nickname,
                              'seller_profile_photo': seller.profile_photo}
             favorite_list.append(favorite_dict)
         logger.debug(f'用户{user.username}查询收藏的商品成功')

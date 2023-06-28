@@ -17,9 +17,9 @@ class Good_get(Resource):  # 获取商品信息
         # 获取商品信息
         else:
             seller = db.session.query(User).get(good.seller_id)
-            good_info = {'id': good.id, 'view': good.view, 'game': good.game, 'picture_url': good.picture,
+            good_info = {'id': str(good.id), 'view': good.view, 'game': good.game, 'picture_url': good.picture,
                          'title': good.title, 'content': good.content, 'add_time': time_transform(good.add_time),
-                         'status': good.status, 'seller_id': good.seller_id, 'price': good.price,
+                         'status': good.status, 'seller_id': str(good.seller_id), 'price': good.price,
                          'seller_nickname': seller.nickname, 'seller_profile_photo': seller.profile_photo}
             logger.debug(f'获取商品{good.id}信息成功')
             # 返回结果

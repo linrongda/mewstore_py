@@ -19,10 +19,10 @@ class Sell(Resource):  # 用户查询出售商品
         goods = sql_goods.paginate(page=page, per_page=size).items
         good_list = []
         for good in goods:
-            good_dict = {'id': good.id, 'view': good.view, 'game': good.game, 'title': good.title,
+            good_dict = {'id': str(good.id), 'view': good.view, 'game': good.game, 'title': good.title,
                          'content': good.content, 'picture_url': good.picture,
                          'add_time': time_transform(good.add_time),
-                         'status': good.status, 'seller_id': good.seller_id, 'price': good.price}
+                         'status': good.status, 'seller_id': str(good.seller_id), 'price': good.price}
             good_list.append(good_dict)
         logger.debug(f'用户{user.username}获取出售商品成功')
         # 返回结果

@@ -16,9 +16,9 @@ class HomePage(Resource):  # 首页
         good_list = []
         for good in goods:
             seller = db.session.query(User).get(good.seller_id)
-            good_dict = {"id": good.id, "view": good.view, "content": good.content, "game": good.game,
+            good_dict = {"id": str(good.id), "view": good.view, "content": good.content, "game": good.game,
                          "title": good.title, "picture_url": good.picture, "status": good.status,
-                         'add_time': time_transform(good.add_time), "seller_id": good.seller_id,
+                         'add_time': time_transform(good.add_time), "seller_id": str(good.seller_id),
                          "price": good.price, 'seller_nickname': seller.nickname,
                          'seller_profile_photo': seller.profile_photo}
             good_list.append(good_dict)

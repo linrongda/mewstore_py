@@ -57,4 +57,4 @@ class Good_add(Resource):  # 添加商品
             db.session.commit()
             logger.debug(f'用户{user.username}创建商品{args["title"]}信息成功')
             # 返回结果
-            return make_response(jsonify(code=201, message='创建商品信息成功', data={'id': good.id}), 201)
+            return make_response(jsonify(code=201, message='创建商品信息成功', data={'id': str(good.id)}), 201)
