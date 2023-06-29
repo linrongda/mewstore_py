@@ -1,10 +1,10 @@
-import datetime
 import re
 
-from flask import make_response, jsonify, session
+from flask import make_response, jsonify
 from flask_restful import Resource, reqparse
 from werkzeug.security import generate_password_hash
 
+from project.exts import redis
 from project.models import User, db
 from project.utils.aes import encrypt
 from project.utils.log import logger
@@ -28,13 +28,10 @@ class Register(Resource):  # 注册
             return make_response(jsonify(code=400, message='请输入11位有效的手机号'), 400)
         if db.session.query(User).filter_by(phone_number=encrypt(args['phone_number'])).first():
             return make_response(jsonify(code=400, message='手机号已存在'), 400)
-        if not session.get(f'{args["phone_number"]}_time') or not session.get(f'{args["phone_number"]}'):
+        if not redis.get(f'{args["phone_number"]}'):
             return make_response(jsonify(code=400, message='请先获取验证码'), 400)
-        if args['code'] != session[f'{args["phone_number"]}']:
+        if args['code'] != redis.get(f'{args["phone_number"]}'):
             return make_response(jsonify(code=400, message='验证码错误'), 400)
-        if (session[f'{args["phone_number"]}_time'] + datetime.timedelta(minutes=4)).replace(
-                tzinfo=None) < datetime.datetime.utcnow():
-            return make_response(jsonify(code=400, message='验证码已过期'), 400)
         else:
             try:
                 user = User(id=id_generate('user'), username=args['username'],

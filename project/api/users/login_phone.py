@@ -1,9 +1,9 @@
-import datetime
 import re
 
-from flask import make_response, jsonify, session
+from flask import make_response, jsonify
 from flask_restful import Resource, reqparse
 
+from project.exts import redis
 from project.utils.auth import after_get_info
 
 
@@ -16,12 +16,9 @@ class Login_Phone(Resource):  # 手机号登陆
         args = parser.parse_args()
         if not bool(re.match(r'^1[3-9]\d{9}$', args['phone_number'])):
             return make_response(jsonify(code=400, message='请输入11位有效的手机号'), 400)
-        if not session.get(f'{args["phone_number"]}_time') or not session.get(f'{args["phone_number"]}'):
+        if not redis.get(f'{args["phone_number"]}'):
             return make_response(jsonify(code=400, message='请先获取验证码'), 400)
-        if args['code'] != session[f'{args["phone_number"]}']:
+        if args['code'] != redis.get(f'{args["phone_number"]}'):
             return make_response(jsonify(code=400, message='验证码错误'), 400)
-        if (session[f'{args["phone_number"]}_time'] + datetime.timedelta(minutes=4)).replace(
-                tzinfo=None) < datetime.datetime.utcnow():
-            return make_response(jsonify(code=400, message='验证码已过期'), 400)
         else:
             return after_get_info(args, login_type='phone')

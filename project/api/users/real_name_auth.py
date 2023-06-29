@@ -1,9 +1,9 @@
-import datetime
 import re
 
-from flask import request, make_response, jsonify, session
+from flask import request, make_response, jsonify
 from flask_restful import Resource, reqparse
 
+from project.exts import redis
 from project.models import User, db
 from project.utils.R_N_A import r_n_a
 from project.utils.aes import encrypt, decrypt
@@ -28,10 +28,9 @@ class Real_name_authentication(Resource):  # 实名认证
             return make_response(jsonify(code=400, message='你已经实名认证过了'), 400)
         if db.session.query(User).filter_by(name=encrypt(args['name']), id_card=encrypt(args['id_card'])).first():
             return make_response(jsonify(code=400, message='该身份证已被使用'), 400)
-        if session.get(f'{user_id}_time') and \
-                session[f'{user_id}_time'].replace(tzinfo=None) > datetime.datetime.utcnow():
-            return make_response(jsonify(code=400, message='请勿重复提交'), 400)
-        session[f'{user_id}_time'] = datetime.datetime.utcnow() + datetime.timedelta(days=90)
+        if redis.get(f'{user_id}'):
+            return make_response(jsonify(code=400, message='每个身份证7天内只能进行一次认证，请勿重复提交'), 400)
+        redis.set(f'{user_id}', 1, ex=60 * 60 * 24 * 7)
         if r_n_a(args['name'], args['id_card']):
             user.name = encrypt(args['name'])
             user.id_card = encrypt(args['id_card'])

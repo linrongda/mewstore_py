@@ -1,12 +1,10 @@
 from flask import request, make_response, jsonify
 from flask_restful import Resource, reqparse
-from werkzeug.datastructures import FileStorage
 
 from project.models import db, Good
 from project.utils.aes import encrypt
 from project.utils.auth import jwt_required, check_status
 from project.utils.log import logger
-from project.utils.upload import upload_photo
 
 
 class Good_update(Resource):  # 修改商品信息
@@ -18,8 +16,7 @@ class Good_update(Resource):  # 修改商品信息
         parser.add_argument('game', type=str, location=['form'])
         parser.add_argument('title', type=str, location=['form'])
         parser.add_argument('content', type=str, location=['form'])
-        parser.add_argument('picture', type=FileStorage, action=['append'], location=['files'],
-                            help='请上传有效格式的图片')
+        parser.add_argument('picture', type=str, location=['form'])
         parser.add_argument('account', type=str, location=['form'])
         parser.add_argument('password', type=str, location=['form'])
         parser.add_argument('status', type=int, location=['form'])
@@ -39,16 +36,7 @@ class Good_update(Resource):  # 修改商品信息
         if args['title']:
             good.title = args['title']
         if args['picture']:  # 此处不能删除照片，防止有人的头像或商品图是这里的商品图（有可能），从而把头像删了
-            if isinstance(args['picture'], list):
-                picture_list = []
-                for picture in args['picture']:
-                    picture = upload_photo(picture)
-                    picture_list.append(picture)
-                pictures = ','.join(picture_list)
-                good.picture = pictures
-            else:
-                picture = upload_photo(args['picture'])
-                good.picture = picture
+            good.picture = args['picture']
         if args['account']:
             good.account = args['account']
         if args['password']:
