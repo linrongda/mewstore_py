@@ -16,8 +16,7 @@ class MessageRead(Resource):  # 用户已读消息
         args = parser.parse_args()
         send_id = args.get('send_id')
         message_id = args.get('message_id')
-        message = db.session.query(Messages).filter_by(id=message_id, send_id=send_id, receive_id=request.payload_id,
-                                                       is_read=0).first()
+        message = db.session.query(Messages).filter_by(id=message_id, send_id=send_id, is_read=0).first()
         if message:
             message.is_read = 1
             db.session.commit()

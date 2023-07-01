@@ -43,7 +43,7 @@ class Chat_list(Resource):  # 用户获取聊天列表
             results.append({'person_id': str(person.id), 'person_nickname': person.nickname,
                             'person_profile_photo': person.profile_photo, 'last_message_id': str(conversation.id),
                             'last_message': conversation.message,
-                            'last_message_time': time_transform(conversation.send_time)})
+                            'last_message_time': time_transform(conversation.send_time, True)})
         if not results:
             return make_response(jsonify({'code': 404, 'message': '暂无消息'}), 404)
         logger.debug(f'用户{user_id}获取消息列表')
