@@ -1,3 +1,7 @@
+import sys
+
+sys.path.append('../')  # '../'表示当前目录的父目录，也即这个项目的项目目录，引入环境变量，让python认为project是一个模块，终端下也可以使用
+
 from flask import Flask
 
 import config
