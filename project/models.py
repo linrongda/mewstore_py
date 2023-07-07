@@ -1,4 +1,4 @@
-from exts import db  # 奇怪的db导入方法，我也不知道为什么，但是这样用就对了
+from project.exts import db  # 奇怪的db导入方法，我也不知道为什么，但是这样用就对了
 
 
 class User(db.Model):

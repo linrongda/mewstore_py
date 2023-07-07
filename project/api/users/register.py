@@ -34,10 +34,10 @@ class Register(Resource):  # 注册
             return make_response(jsonify(code=400, message='验证码错误'), 400)
         else:
             try:
-                user = User(id=id_generate('user'), username=args['username'],
-                            password=generate_password_hash(args['password']),
+                user = User(id=id_generate('user'), username=args['username'], nickname='默认昵称', status=0,
+                            password=generate_password_hash(args['password']), money=0,
                             phone_number=encrypt(args['phone_number']),
-                            status=0)  # 使用雪花算法生成id，密码使用hash加密，status=0表示普通用户
+                            profile_photo='http://qiniuyun.mewtopia.cn/Fuo2xUtkCE3MHDj87R3nqMpmMm5W')  # 使用雪花算法生成id，密码使用hash加密，status=0表示普通用户
                 db.session.add(user)
                 db.session.commit()
                 logger.debug(f'用户{args["username"]}注册成功')

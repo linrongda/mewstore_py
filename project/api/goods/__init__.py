@@ -7,7 +7,9 @@ api = Api(goods_bp)
 from .good_info import Good_get
 from .good_add import Good_add
 from .good_update import Good_update
+from .good_delete import Good_delete
 
 api.add_resource(Good_get, '')
 api.add_resource(Good_add, '')
 api.add_resource(Good_update, '')
+api.add_resource(Good_delete, '')

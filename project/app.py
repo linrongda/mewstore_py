@@ -4,10 +4,10 @@ sys.path.append('../')  # '../'表示当前目录的父目录，也即这个项�
 
 from flask import Flask
 
-import config
-from api import bp as api_bp
-from exts import db, cors, socketio
-from api.chat import Message
+from project import config
+from project.api import bp as api_bp
+from project.exts import db, cors, socketio
+from project.api.chat import Message
 
 app = Flask(__name__)
 

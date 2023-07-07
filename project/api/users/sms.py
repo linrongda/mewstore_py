@@ -40,7 +40,7 @@ class Sms(Resource):  # 获取短信验证码
                                           access_key_secret='eIm61r1Uy8e5IDjDepBN3JKiqXmLeO')
             send_sms_request = dysmsapi_20170525_models.SendSmsRequest(
                 sign_name='闲猫MewStore',
-                template_code='SMS_460685295',
+                template_code='SMS_461830320',
                 phone_numbers=args["phone_number"],
                 template_param='{"code":"%s"}' % code
             )

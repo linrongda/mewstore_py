@@ -1,3 +1,5 @@
+import datetime
+
 from flask import request, make_response, jsonify
 from flask_restful import Resource
 
@@ -14,11 +16,22 @@ class Chat_list(Resource):  # 用户获取聊天列表
         user_id = request.payload_id
         # 查询数据库中的历史记录
         receive_list = Messages.query.filter(Messages.receive_id == user_id, Messages.send_id != 6).order_by(
-            Messages.send_time.desc()).all()  # 查询用户作为接收者的消息，且不是系统消息
-        send_list = Messages.query.filter_by(send_id=user_id).order_by(Messages.send_time.desc()).all()  # 查询用户作为发送者的消息
+            Messages.send_time.asc()).all()  # 查询用户作为接收者的消息，且不是系统消息
+        send_list = Messages.query.filter_by(send_id=user_id).order_by(Messages.send_time.asc()).all()  # 查询用户作为发送者的消息
         chat_lists = list(set(receive_list + send_list))  # 去重
         chat_lists = sorted(chat_lists, key=lambda x: x.send_time)  # 按照时间排序
         results = []
+        # 获取系统消息
+        system_list = Messages.query.filter(Messages.send_id == 6, Messages.receive_id == user_id).order_by(
+            Messages.send_time.asc()).all()
+        if system_list:
+            conversation = system_list[-1]
+            results.append({'person_id': str(6), 'person_nickname': '系统消息',
+                            'person_profile_photo': 'http://qiniuyun.mewtopia.cn/FrXOPwQ9y5GrCPiU3lRjw7j3q5iu',
+                            'last_message_id': str(conversation.id), 'last_message': conversation.message,
+                            'last_message_time': time_transform(conversation.send_time - datetime.timedelta(hours=8),
+                                                                True)})
+        # 获取聊天列表
         conversation_partners = set()
         for conversation in chat_lists:  # 遍历所有的聊天记录
             other_person_id = (

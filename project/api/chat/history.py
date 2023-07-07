@@ -13,10 +13,12 @@ class MessageHistory(Resource):  # 用户获取历史消息
     def get(self):
         receive_id = request.payload_id
         send_id = request.args.get('send_id', type=str)
+        if send_id == '6':  # 如果是系统消息
+            return make_response(jsonify({'code': 404, 'message': '接口错误'}), 404)
         # 查询数据库中的历史记录
         receive_history = Messages.query.filter(
             Messages.send_id == send_id, Messages.receive_id == receive_id, Messages.is_read == 1).order_by(
-            Messages.send_time.asc()).all()  # 查询用户作为接收者且已读的消息，且不是系统消息
+            Messages.send_time.asc()).all()  # 查询用户作为接收者且已读的消息
         send_history = Messages.query.filter(
             Messages.send_id == receive_id, Messages.receive_id == send_id, Messages.is_read == 1).order_by(
             Messages.send_time.asc()).all()  # 查询用户作为发送者且已读的消息

@@ -119,7 +119,7 @@ def test_sms(client, data, expected_status_code, expected_response):
     # 测试重复注册同一用户的情况
     (
             {
-                "username": "user",
+                "username": "tuser",
                 "password": "password",
                 "check_password": "password",
                 "phone_number": "13333333333",
@@ -241,7 +241,7 @@ def test_login_phone(client, data, expected_status_code, expected_response):
 @pytest.mark.parametrize('data, expected_status_code, expected_response', [
     (
             {
-                "username": "user",
+                "username": "tuser",
                 "password": "123456"
             },
             200,
@@ -284,7 +284,7 @@ def test_user_info(client, expected_status_code, expected_response, token, reque
 
 @pytest.mark.parametrize('data, expected_status_code, expected_response', [
     (
-            {"username": "user"},
+            {"username": "tuser"},
             400,
             {"code": 400, 'message': '该用户名已存在'}
     )
@@ -299,7 +299,7 @@ def test_user_username(client, data, expected_status_code, expected_response, to
 
 @pytest.mark.parametrize('data, expected_status_code, expected_response', [
     (
-            {"nickname": "user"},
+            {"nickname": "tuser"},
             201,
             {"code": 201, 'message': '修改昵称成功'}
     )
@@ -446,9 +446,9 @@ def test_user_phone_number(client, data, expected_status_code, expected_response
             {"code": 201, 'message': '上传图片成功'}
     )
 ])
-def test_chat_picture(client, data, expected_status_code, expected_response, token, request):
+def test_picture(client, data, expected_status_code, expected_response, token, request):
     headers = request.config.cache.get('token', default=None)
-    response = client.post('/chat/picture', headers=headers, data=data, content_type='multipart/form-data')
+    response = client.post('/picture', headers=headers, data=data, content_type='multipart/form-data')
     assert response.status_code == expected_status_code
     assert response.json.get('code') == expected_response.get('code')
     assert response.json.get('message') == expected_response.get('message')
@@ -462,7 +462,7 @@ def test_chat_picture(client, data, expected_status_code, expected_response, tok
 ])
 def test_chat_history(client, expected_status_code, expected_response, token, request):
     headers = request.config.cache.get('token', default=None)
-    response = client.get('/chat/history', headers=headers, query_string={'send_id': '1653305391263649792'})
+    response = client.get('/chat/history', headers=headers, query_string={'send_id': '1652948308014010368'})
     assert response.status_code == expected_status_code
     assert response.json.get('code') == expected_response.get('code')
     assert response.json.get('message') == expected_response.get('message')
@@ -525,8 +525,7 @@ def good_id(request):
                 ('game', fake.word()),
                 ('account', fake.email()),
                 ('password', fake.password()),
-                ('picture', open('C:/Users/Administrator/Desktop/t.png', 'rb')),
-                ('picture', open('C:/Users/Administrator/Desktop/t.png', 'rb'))
+                ('picture', 'http://qiniuyun.mewtopia.cn/FgQuh8Z8hTTTHt4pMtSlsiugZfHk')
             ]),
             201,
             {"code": 201, 'message': '创建商品信息成功'}
@@ -534,12 +533,12 @@ def good_id(request):
     (
             MultiDict([
                 ('price', '666.0'),
-                ('title', 'test6'),
-                ('content', 'test6'),
-                ('game', 'test6'),
-                ('account', 'test6'),
+                ('title', '崩坏自抽初始号国服官服'),
+                ('content', '账号等级:35级(220抽) 星琼数量:13000-14000 普票:95+张 专票:20+张'),
+                ('game', '崩坏:星穹铁道'),
+                ('account', '111111'),
                 ('password', 'test6'),
-                ('picture', open('C:/Users/Administrator/Desktop/t.png', 'rb'))
+                ('picture', 'http://qiniuyun.mewtopia.cn/FpUvj43w9GCj6o5oMCogUbkp9nIC')
             ]),
             400,
             {"code": 400, 'message': '商品已存在'}
@@ -580,14 +579,13 @@ def test_good_delete(client, expected_status_code, expected_response, token, goo
             MultiDict([
                 ('id', '1654432305042825216'),
                 ('price', '666.0'),
-                ('title', 'test6'),
-                ('content', 'test6'),
-                ('game', 'test6'),
-                ('account', 'test6'),
+                ('title', '崩坏自抽初始号国服官服'),
+                ('content', '账号等级:35级(220抽) 星琼数量:13000-14000 普票:95+张 专票:20+张'),
+                ('game', '崩坏:星穹铁道'),
+                ('account', '111111'),
                 ('password', 'test6'),
                 ('status', '1'),
-                ('picture', open('C:/Users/Administrator/Desktop/t.png', 'rb')),
-                ('picture', open('C:/Users/Administrator/Desktop/t.png', 'rb'))
+                ('picture', 'http://qiniuyun.mewtopia.cn/FpUvj43w9GCj6o5oMCogUbkp9nIC')
             ]),
             201,
             {"code": 201, 'message': '修改商品信息成功'}
@@ -679,6 +677,20 @@ def test_homepage(client, expected_status_code, expected_response):
 ])
 def test_search(client, expected_status_code, expected_response):
     response = client.get('/search', query_string={'page': 1, 'size': 4, 'keywords': ''})
+    assert response.status_code == expected_status_code
+    assert response.json.get('code') == expected_response.get('code')
+    assert response.json.get('message') == expected_response.get('message')
+
+
+@pytest.mark.parametrize('expected_status_code, expected_response', [
+    (
+            200,
+            {"code": 200, 'message': '获取商品成功'}
+    )
+])
+def test_admin_goods(client, expected_status_code, expected_response, token, request):
+    headers = request.config.cache.get('token', default=None)
+    response = client.get('admin/goods', headers=headers)
     assert response.status_code == expected_status_code
     assert response.json.get('code') == expected_response.get('code')
     assert response.json.get('message') == expected_response.get('message')
