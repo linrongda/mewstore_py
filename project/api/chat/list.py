@@ -29,8 +29,7 @@ class Chat_list(Resource):  # 用户获取聊天列表
             results.append({'person_id': str(6), 'person_nickname': '系统消息',
                             'person_profile_photo': 'http://qiniuyun.mewtopia.cn/FrXOPwQ9y5GrCPiU3lRjw7j3q5iu',
                             'last_message_id': str(conversation.id), 'last_message': conversation.message,
-                            'last_message_time': time_transform(conversation.send_time - datetime.timedelta(hours=8),
-                                                                True)})
+                            'last_message_time': time_transform(conversation.send_time, True)})
         # 获取聊天列表
         conversation_partners = set()
         for conversation in chat_lists:  # 遍历所有的聊天记录
